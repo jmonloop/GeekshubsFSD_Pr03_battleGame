@@ -19,18 +19,19 @@ class Gun {
     
     shoot(){
         //shoot method detects when user holds down left click button or touches screen
-        let holding;
+        let firing;
 
         //myTime determines the firing rate of the gun and so changes its variable properties
         const myTime = () => {
             let setTimeId = setTimeout(() =>{
-                if(holding) {
-                    this.ammo -=1;
-                    this.attack = true;
-                    this.damage +=1;
-                    console.log("shooting", gun1);
-                    myTime();
-
+                if(firing) {
+                    //Gun fires only if ammo > 0
+                    if(this.ammo > 0) {
+                        this.ammo -=1;
+                        this.attack = true;
+                        console.log("shooting", gun2);
+                        myTime();
+                    }
 
                 }   else clearTimeout(setTimeId);
 
@@ -40,12 +41,13 @@ class Gun {
         }
 
         window.addEventListener('mouseup', ()=>{
-            holding = false;
+            firing = false;
             myTime();
         })
+
         window.addEventListener('mousedown', (e)=>{
             if(e.button === 0) {
-                holding = true;
+                firing = true;
                 myTime();
             }
         })
@@ -53,10 +55,11 @@ class Gun {
 
     }
 
+    //Reload fills ammo when player hides
     reload(){
         window.addEventListener('mouseup', ()=>{
             this.ammo = this.initialAmmo;
-            console.log("reload", gun1);
+            console.log("reload", gun2);
         })
     }
 }
@@ -72,7 +75,7 @@ let gun4 = new Gun("AR15", 50, false, 30, 80);
 
 
 
-document.querySelector('#screen1').addEventListener('mouseup', gun1.shoot(), gun1.reload());
+document.querySelector('#screen1').addEventListener('mouseup', gun2.shoot(), gun2.reload());
 
 
 
