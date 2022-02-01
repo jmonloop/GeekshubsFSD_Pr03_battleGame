@@ -87,6 +87,8 @@ body {
 
         background-image: url('../img/skyTexture.png');
         background-size: 10% 100%;
+
+        z-index: 1;
     }
     .topWall {
         /* background-color: orangered; */
@@ -95,6 +97,8 @@ body {
         
         background-image: url('../img/brickWallTexture.png');
         background-size: 20% 100%;
+
+        z-index: 3;
     }
         .character2L{
             height: 30%;
@@ -104,12 +108,16 @@ body {
 
             -webkit-transform: scaleX(-1);
             transform: scaleX(-1);
+
+            z-index: 2;
         }
         .character2R{
             height: 30%;
             width: 20%;
             position: absolute;
             top: 0%;
+
+            z-index: 2;
 
         }
         .character2img {
