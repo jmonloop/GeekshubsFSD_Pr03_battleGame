@@ -11,7 +11,7 @@
     <link href="css/style.css" rel="stylesheet" media="">
 </head>
 <body>
-    <section id="screen1" class="screen1Section">
+    <section id="screen1" class="screen1Section" style="display: none" onclick="changeScreen(2)">
     <!-- <section id="screen1" class="screen1Section" onclick="changeScreen(2)"> -->
         <div class="screen1Main">
             <div class="screen1MainBox">
@@ -20,7 +20,13 @@
             </div>
         </div>
     </section>
-    <section id="screen2" class="screen2Section" style="display: none;" onclick="changeScreen(1)">
+    <section id="screen2" class="screen2Section" onclick="changeScreen(1)">
+    <!-- <section id="screen2" class="screen2Section" style="display: none;" onclick="changeScreen(1)"> -->
+        <div class="topVoid"></div>
+        <div class="topWall"></div>
+        <div class="centerVoid"></div>
+        <div class="bottomWall"></div>
+        <div class="bottomVoid"></div>
     </section>
 
     <script src="js/main.js"></script>
