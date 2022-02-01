@@ -20,20 +20,20 @@
             </div>
         </div>
     </section>
-    <section id="screen2" class="screen2Section" onclick="changeScreen(1)">
+    <section id="screen2" class="screen2Section">
     <!-- <section id="screen2" class="screen2Section" style="display: none;" onclick="changeScreen(1)"> -->
-        <div class="topVoid"></div>
-        <div class="topWall">
-            <div class="character2R">
+        <div class="topVoid" onclick="player1.shoot()"></div>
+        <div class="topWall" onclick="player1.shoot()">
+            <div class="character2R" onclick="player1.shoot()">
                 <img class="character1img" src="./img/png/sequence/hero1/2X/shoot (4).png" alt="">
                 <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/crouch (4).png" alt=""> -->
             </div>
         </div>
-        <div class="centerVoid"></div>
-        <div class="bottomWall">
+        <div class="centerVoid" onclick="player1.show()" onclick="player1.shoot()"></div>
+        <div class="bottomWall" id="_bottomWall" onclick="player1.hide()">
             <div class="character1R">
                 <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/shoot (4).png" alt=""> -->
-                <img class="character1img" src="./img/png/sequence/hero1/2X/crouch (4).png" alt="">
+                <img class="character1img" id="_character1img" src="./img/png/characters/crouch1.png" alt="">
             </div>
         </div>
     </section>
