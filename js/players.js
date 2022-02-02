@@ -81,7 +81,14 @@ document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
 
-    xMaxPosition = screen.width;
+    //X position limitation depending on the screen width (custom break points)
+    if(screen.width > 1936) xMaxPosition = screen.width * 0.80;
+    if((screen.width > 1836)&&(screen.width <= 1936)) xMaxPosition = screen.width * 0.82;
+    if((screen.width > 1736)&&(screen.width <= 1836)) xMaxPosition = screen.width * 0.84;
+    if((screen.width > 1636)&&(screen.width <= 1736)) xMaxPosition = screen.width * 0.88;
+    if((screen.width > 1536)&&(screen.width <= 1636)) xMaxPosition = screen.width * 0.91;
+    if((screen.width > 1436)&&(screen.width <= 1536)) xMaxPosition = screen.width * 0.94;
+    if(screen.width <= 1436) xMaxPosition = screen.width * 0.99;
     
     console.log("MAX", xMaxPosition)
     console.log (xPosition)
