@@ -72,20 +72,30 @@ document.addEventListener("mouseup", ()=>{
 })
 
 
+let xPosition;
+let xMaxPosition;
+let xMinPosition;
 
 //MOVE METHOD PRE-FUNCTIONS
 document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
-    let xPosition = e.clientX;
-    let xMaxPosition = screen.width - 50;
-    let xMinPosition = 50;
+    xPosition = e.clientX;
+    xMinPosition = 1;
+
+    xMaxPosition = screen.width;
+    
+    console.log("MAX", xMaxPosition)
+    console.log (xPosition)
+
+    player1.move();
 
 
 
-
-
-
-
-    document.getElementById("_character1R").style.left= (xPosition -100) +"px";
+    // if(xPosition > 929) xPosition = 929;
+    // if(xPosition < 50) xPosition = 50;
+    
+    // document.getElementById("_character1R").style.left= (xPosition -100) +"px";
+    
+    
 })
 
 
@@ -112,7 +122,7 @@ class Character {
 
 
         this.attack = false;
-        this.covered = true;
+        this.covered = false;
     }
 
     show(){
@@ -154,6 +164,14 @@ class Character {
     }
 
     move(){
+        if(this.covered = true);{
+            if(xPosition > (xMaxPosition)) xPosition = (xMaxPosition);
+            if(xPosition < 1) xPosition = 1;
+            
+            //-150 is for centering the image to the click
+            document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+            this.position = xPosition;
+        }
 
     }
 
