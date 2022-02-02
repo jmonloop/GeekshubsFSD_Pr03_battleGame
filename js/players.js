@@ -174,9 +174,9 @@ class Character {
 
     shooting = () => {
         if(this.covered == false) {
-            let timeId = setTimeout(()=>{
+            // let timeId = setTimeout(()=>{
                 if(fire === true) {
-                    if(this.gun.ammo > -1000000000) {
+                    if(this.gun.ammo > 0) {
                         this.gun.ammo -=1;
                         this.attack = true;
                         if(player1.attack === true) {
@@ -188,10 +188,10 @@ class Character {
                         }
                     }
     
-                    this.shooting();
+                    // this.shooting();
                 }
-                if(fire === false) clearTimeout(timeId);
-            }, this.gun.fireRate);
+                // if(fire === false) clearTimeout(timeId);
+            // }, this.gun.fireRate);
         }
         
     }
