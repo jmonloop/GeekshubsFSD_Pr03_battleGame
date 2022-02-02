@@ -81,7 +81,9 @@ document.addEventListener("mouseup", ()=>{
 //Declaration of Character
 class Character {
 
-    constructor(characterType, life, gun, stamina, position, src) {
+    constructor(player, characterType, life, gun, stamina, position, src) {
+        //Player defines who owns the character (1=user, 2=AI);
+        this.player = player;
         //Name of the differente characters
         this.characterType = characterType;
         //Life goes down when character is damaged (min0-max1000)
@@ -113,18 +115,24 @@ class Character {
 
     //Hides and reloads ammo when click on the player1 wall
     hide(){
-
-        if(this.covered === false) {
-        let player1Img = document.getElementById('_character1img');
-        let player1ImgSrc = player1Img.src;
-        player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
-        player1Img.src = player1ImgSrc;
-        this.gun.ammo = this.gun.initialAmmo;
-        this.covered = true;
+        
+        if(this.player == 1) {
+            if(this.covered === false) {
+                let player1Img = document.getElementById('_character1img');
+                let player1ImgSrc = player1Img.src;
+                player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
+                player1Img.src = player1ImgSrc;
+                this.gun.ammo = this.gun.initialAmmo;
+                this.covered = true;
+            }
+        } else if (this.player == 2) {
+            if(this.covered === false) {
+                document.getElementById('_character2img').style.display = "none";
+                this.gun.ammo = this.gun.initialAmmo;
+                this.covered = true;
+            }
         }
         
-        
-
 
     }
 
@@ -172,14 +180,14 @@ let hero3src = './img/png/characters/crouch3.png'
 let hero4src = './img/png/characters/crouch4.png'
 
 
-let player1 = new Character("Navy Seal", 1000, pistol, 100, player1Pos, hero1src);
-let player2 = new Character("Spetnaz", 1000, mp5, 100, player1Pos, hero2src);
-let player3 = new Character("Legionario", 1000, shotgun, 100, player1Pos, hero3src);
-let player4 = new Character("Special Ops", 1000, ar15, 100, player1Pos, hero4src);
+let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, player1Pos, hero1src);
+let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, player1Pos, hero2src);
+let player3 = new Character(3, "Legionario", 1000, shotgun, 100, player1Pos, hero3src);
+let player4 = new Character(4, "Special Ops", 1000, ar15, 100, player1Pos, hero4src);
 
 
 
-document.querySelector('_bottomWall').addEventListener('mousedown', player1.hide());
+// document.querySelector('_bottomWall').addEventListener('mousedown', player1.hide());
 // document.querySelector('#screen1').addEventListener('mouseup', player1.shoot(), player1.reload());
 
 

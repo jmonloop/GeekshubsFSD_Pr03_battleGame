@@ -24,13 +24,13 @@
     <!-- <section id="screen2" class="screen2Section" style="display: none;" onclick="changeScreen(1)"> -->
         <div class="topVoid shooting1" onclick="player1.show()"></div>
         <div class="character2R shooting1" onclick="player1.show()">
-            <img class="character1img" src="./img/png/sequence/hero1/2X/shoot (4).png" alt="">
+            <img class="character2img" id="_character2img" src="./img/png/characters/shoot2.png" alt="" style="display: block">
             <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/crouch (4).png" alt=""> -->
         </div>
         <div class="topWall shooting1" onclick="player1.show()">
         </div>
-        <div class="centerVoid shooting1" onclick="player1.show()"></div>
-        <div class="bottomWall" id="_bottomWall" onclick="player1.hide()">
+        <div class="centerVoid shooting1" onclick="player1.show(); player2.show();"></div>
+        <div class="bottomWall" id="_bottomWall" onclick="player1.hide(); player2.hide();">
             <div class="character1R">
                 <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/shoot (4).png" alt=""> -->
                 <img class="character1img" id="_character1img" src="./img/png/characters/crouch1.png" alt="">
