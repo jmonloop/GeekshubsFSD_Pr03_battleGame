@@ -103,14 +103,20 @@ class Character {
     }
 
     show(){
-        if(this.covered === true) {
-            let player1Img = document.getElementById('_character1img');
-            let player1ImgSrc = player1Img.src;
-            player1ImgSrc = player1ImgSrc.replace("crouch", "shoot");
-            player1Img.src = player1ImgSrc;
-
+        if(this.player == 1) {
+            if(this.covered === true) {
+                let player1Img = document.getElementById('_character1img');
+                let player1ImgSrc = player1Img.src;
+                player1ImgSrc = player1ImgSrc.replace("crouch", "shoot");
+                player1Img.src = player1ImgSrc;
+    
+                this.covered = false;
+            }
+        } else if (this.player == 2) {
+            document.getElementById('_character2img').style.display = "block";
             this.covered = false;
         }
+
     }
 
     //Hides and reloads ammo when click on the player1 wall
