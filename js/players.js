@@ -72,11 +72,10 @@ document.addEventListener("mouseup", ()=>{
 })
 
 
+//MOVE METHOD PRE-FUNCTIONS
 let xPosition;
 let xMaxPosition;
 let xMinPosition;
-
-//MOVE METHOD PRE-FUNCTIONS
 document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
@@ -94,15 +93,6 @@ document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     console.log (xPosition)
 
     player1.move();
-
-
-
-    // if(xPosition > 929) xPosition = 929;
-    // if(xPosition < 50) xPosition = 50;
-    
-    // document.getElementById("_character1R").style.left= (xPosition -100) +"px";
-    
-    
 })
 
 
@@ -129,7 +119,7 @@ class Character {
 
 
         this.attack = false;
-        this.covered = false;
+        this.covered = true;
     }
 
     show(){
@@ -171,36 +161,39 @@ class Character {
     }
 
     move(){
-        if(this.covered = true);{
-            if(xPosition > (xMaxPosition)) xPosition = (xMaxPosition);
-            if(xPosition < 1) xPosition = 1;
-            
-            //-150 is for centering the image to the click
-            document.getElementById("_character1R").style.left= (xPosition -150) +"px";
-            this.position = xPosition;
-        }
+
+        if(xPosition > (xMaxPosition)) xPosition = (xMaxPosition);
+        if(xPosition < 1) xPosition = 1;
+        
+        //-150 is for centering the image to the click
+        document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+        this.position = xPosition;
+
 
     }
 
     shooting = () => {
-        let timeId = setTimeout(()=>{
-            if(fire === true) {
-                if(this.gun.ammo > -1000000000) {
-                    this.gun.ammo -=1;
-                    this.attack = true;
-                    if(player1.attack === true) {
-                        console.log("player1 is shooting");
-                        player2.beDamaged();
-                    } else if ( player2.attack === true) {
-                        console.log("player2 is shooting");
-                        player1.beDamaged();
+        if(this.covered == false) {
+            let timeId = setTimeout(()=>{
+                if(fire === true) {
+                    if(this.gun.ammo > -1000000000) {
+                        this.gun.ammo -=1;
+                        this.attack = true;
+                        if(player1.attack === true) {
+                            console.log("player1 is shooting");
+                            player2.beDamaged();
+                        } else if ( player2.attack === true) {
+                            console.log("player2 is shooting");
+                            player1.beDamaged();
+                        }
                     }
+    
+                    this.shooting();
                 }
-
-                this.shooting();
-            }
-            if(fire === false) clearTimeout(timeId);
-        }, this.gun.fireRate);
+                if(fire === false) clearTimeout(timeId);
+            }, this.gun.fireRate);
+        }
+        
     }
 
 
@@ -218,7 +211,7 @@ class Character {
     }
 
 };
-let player1Pos = "derecha";
+
 
 let hero1src = './img/png/characters/crouch1.png'
 let hero2src = './img/png/characters/crouch2.png'
@@ -226,15 +219,10 @@ let hero3src = './img/png/characters/crouch3.png'
 let hero4src = './img/png/characters/crouch4.png'
 
 
-let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, player1Pos, hero1src);
-let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, player1Pos, hero2src);
-let player3 = new Character(3, "Legionario", 1000, shotgun, 100, player1Pos, hero3src);
-let player4 = new Character(4, "Special Ops", 1000, ar15, 100, player1Pos, hero4src);
-
-
-
-// document.querySelector('_bottomWall').addEventListener('mousedown', player1.hide());
-// document.querySelector('#screen1').addEventListener('mouseup', player1.shoot(), player1.reload());
+let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
+let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, 0, hero2src);
+let player3 = new Character(3, "Legionario", 1000, shotgun, 0, 100, hero3src);
+let player4 = new Character(4, "Special Ops", 1000, ar15, 0, 100, hero4src);
 
 
 
