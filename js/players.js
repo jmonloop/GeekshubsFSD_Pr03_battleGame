@@ -57,14 +57,19 @@ const ar15 = {
 
 let fire = false;
 
+//If user clicks on topVoid, topWall or centerVoid, calls player1.shooting() for fire
+document.querySelectorAll('.shooting1').forEach(item =>{
+    item.addEventListener("mousedown", (e)=>{
+        if((e.button === 0)) {
+            fire = true;
+            player1.shooting();
+        }
+    });
+});
 
-document.addEventListener("mousedown", (e)=>{
-    if((e.button === 0)) {
-        fire = true;
-        player1.shooting();
-    }
-})
 
+
+//If user release click, calls player1.shooting() for stop firing
 document.addEventListener("mouseup", ()=>{
         fire = false;
         player1.shooting();
