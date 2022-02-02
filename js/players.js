@@ -59,7 +59,8 @@ const ar15 = {
 let xPosition;
 let xMaxPosition;
 let xMinPosition;
-document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
+document.addEventListener('mousedown', (e)=>{
+// document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
 
@@ -72,8 +73,8 @@ document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     if((screen.width > 1436)&&(screen.width <= 1536)) xMaxPosition = screen.width * 0.94;
     if(screen.width <= 1436) xMaxPosition = screen.width * 0.99;
     
-    console.log("MAX", xMaxPosition)
-    console.log (xPosition)
+    // console.log("MAX", xMaxPosition)
+    // console.log (xPosition)
 
     player1.move();
 })
@@ -145,6 +146,7 @@ class Character {
             }
         } else if (this.player == 2) {
             document.getElementById('_character2img').style.display = "block";
+            console.log(player2.position)
             this.covered = false;
         }
 
@@ -194,12 +196,17 @@ class Character {
         if(this.covered == false) {
             // let timeId = setTimeout(()=>{
                 if(fire === true) {
-                    if(this.gun.ammo > 0) {
+                    if(this.gun.ammo >-100000000000) {
                         this.gun.ammo -=1;
                         this.attack = true;
+                        console.log("player2", player2.position)
+                        console.log("aim", xPosition);
                         if(player1.attack === true) {
-                            console.log("player1 is shooting");
-                            player2.beDamaged();
+                            if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)) {
+                                console.log("player1 is shooting");
+                                player2.beDamaged();
+                            }
+
                         } else if ( player2.attack === true) {
                             console.log("player2 is shooting");
                             player1.beDamaged();
@@ -220,11 +227,11 @@ class Character {
     beDamaged() {
         if(player1.attack === true) {
             player2.life -= player1.gun.damage;
-            console.log(player1, player2)
+            // console.log(player1, player2)
         }
         if(player2.attack === true) {
             player1.life -= player2.gun.damage;
-            console.log(player1, player2)
+            // console.log(player1, player2)
         }
     }
 

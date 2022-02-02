@@ -9,16 +9,16 @@ const battle = () =>{
 
 setInterval(()=>{
     player2.move();
-},1000);
+},100000);
 
 
-let hideOrShow = false
-setInterval(()=>{
-    let value = Math.round(Math.random());
-    if(value == 0) {
-        player2.hide();
-    } else player2.show();
+// let hideOrShow = false
+// setInterval(()=>{
+//     let value = Math.round(Math.random());
+//     if(value == 0) {
+//         player2.hide();
+//     } else player2.show();
         
 
 
-},500)
+// },1000);
