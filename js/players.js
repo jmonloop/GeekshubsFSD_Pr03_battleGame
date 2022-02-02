@@ -54,25 +54,8 @@ const ar15 = {
     fireRate : 80
 };
 
-//SHOOTING METHOD PRE-FUNCTIONS
-let fire = false;
-//If user clicks on topVoid, topWall or centerVoid, calls player1.shooting() for fire
-document.querySelectorAll('.shooting1').forEach(item =>{
-    item.addEventListener("mousedown", (e)=>{
-        if((e.button === 0)) {
-            fire = true;
-            player1.shooting();
-        }
-    });
-});
-//If user release click, calls player1.shooting() for stop firing
-document.addEventListener("mouseup", ()=>{
-        fire = false;
-        player1.shooting();
-})
-
-
 //MOVE METHOD PRE-FUNCTIONS
+//Limitations are for both players.
 let xPosition;
 let xMaxPosition;
 let xMinPosition;
@@ -94,6 +77,34 @@ document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
 
     player1.move();
 })
+
+
+
+//HIDE METHOD PRE-FUNCTIONS
+
+
+
+
+
+//SHOOTING METHOD PRE-FUNCTIONS
+let fire = false;
+//If user clicks on topVoid, topWall or centerVoid, calls player1.shooting() for fire
+document.querySelectorAll('.shooting1').forEach(item =>{
+    item.addEventListener("mousedown", (e)=>{
+        if((e.button === 0)) {
+            fire = true;
+            player1.shooting();
+        }
+    });
+});
+//If user release click, calls player1.shooting() for stop firing
+document.addEventListener("mouseup", ()=>{
+        fire = false;
+        player1.shooting();
+})
+
+
+
 
 
 
@@ -153,6 +164,7 @@ class Character {
             }
         } else if (this.player == 2) {
             if(this.covered === false) {
+
                 document.getElementById('_character2img').style.display = "none";
                 this.gun.ammo = this.gun.initialAmmo;
                 this.covered = true;
@@ -166,10 +178,16 @@ class Character {
         if(xPosition < 1) xPosition = 1;
         
         //-150 is for centering the image to the click
-        document.getElementById("_character1R").style.left= (xPosition -150) +"px";
         this.position = xPosition;
-
-
+        
+        if(this.player == 1) {
+            document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+        } else if (this.player == 2) {
+            player2.position = Math.random()*1000;
+            if(player2.position < 1) player2.position = 1;
+            if(player2.position > xMaxPosition) player2.position = xMaxPosition;
+            document.getElementById("_character2R").style.left= (player2.position) + "px";
+        }
     }
 
     shooting = () => {
