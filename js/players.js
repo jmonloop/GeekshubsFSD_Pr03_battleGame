@@ -55,6 +55,20 @@ const ar15 = {
 };
 
 
+let fire = false;
+
+
+document.addEventListener("mousedown", (e)=>{
+    if((e.button === 0)) {
+        fire = true;
+        player1.shooting();
+    }
+})
+
+document.addEventListener("mouseup", ()=>{
+        fire = false;
+        player1.shooting();
+})
 
 
 
@@ -107,56 +121,31 @@ class Character {
         
 
 
-
     }
 
-    shoot(){
-        //shoot method detects when user holds down left click button or touches screen
-        let firing;
-
-        //myTime determines the firing rate of the gun and so changes its variable properties
-        const myTime = () => {
-            let setTimeId = setTimeout(() =>{
-                if(firing) {
-                    //Gun fires only if ammo > 0
-                    if(this.gun.ammo > -1000000000) {
-                        this.gun.ammo -=1;
-                        this.attack = true;
-                        if(player1.attack === true) {
-                            console.log("player1 is shooting");
-                            player2.beDamaged();
-                        } else if ( player2.attack === true) {
-                            console.log("player2 is shooting");
-                            player1.beDamaged();
-                        }
-
-
-                        myTime();
+    shooting = () => {
+        let timeId = setTimeout(()=>{
+            if(fire === true) {
+                if(this.gun.ammo > -1000000000) {
+                    this.gun.ammo -=1;
+                    this.attack = true;
+                    if(player1.attack === true) {
+                        console.log("player1 is shooting");
+                        player2.beDamaged();
+                    } else if ( player2.attack === true) {
+                        console.log("player2 is shooting");
+                        player1.beDamaged();
                     }
+                }
 
-                }   else clearTimeout(setTimeId);
-
-        
-                //Minimum fireRate is 500, maximum is 50
-            }, this.gun.fireRate);
-        }
-
-        window.addEventListener('mouseup', ()=>{
-            firing = false;
-            myTime();
-        })
-
-        window.addEventListener('mousedown', (e)=>{
-            if(e.button === 0) {
-                firing = true;
-                myTime();
+                this.shooting();
             }
-        })
-        
-
+            if(fire === false) clearTimeout(timeId);
+        }, this.gun.fireRate);
     }
 
 
+    
 
     beDamaged() {
         if(player1.attack === true) {
