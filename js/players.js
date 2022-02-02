@@ -54,15 +54,27 @@ const ar15 = {
     fireRate : 80
 };
 
-//MOVE METHOD PRE-FUNCTIONS
-//Limitations are for both players.
+//MOVE AND SHOOTING METHODS PRE-FUNCTIONS
+//X position
 let xPosition;
 let xMaxPosition;
 let xMinPosition;
+
+let player2Data;
+let yTargetPosition;
+let yPosition;
+
 document.addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
+
+    player2Data = document.querySelector('.character2R').getBoundingClientRect();
+    yTargetPosition = player2Data.top + 50;
+    yPosition = e.clientY;
+
+    // console.log("REAL", e.clientY);
+    // console.log("Data", player2Data);
 
     //X position limitation depending on the screen width (custom break points)
     if(screen.width > 1936) xMaxPosition = screen.width * 0.80;
@@ -77,9 +89,9 @@ document.addEventListener('mousedown', (e)=>{
     // console.log (xPosition)
 
     player1.move();
+
+    
 })
-
-
 
 //HIDE METHOD PRE-FUNCTIONS
 
@@ -146,7 +158,7 @@ class Character {
             }
         } else if (this.player == 2) {
             document.getElementById('_character2img').style.display = "block";
-            console.log(player2.position)
+            // console.log(player2.position)
             this.covered = false;
         }
 
@@ -183,7 +195,10 @@ class Character {
         this.position = xPosition;
         
         if(this.player == 1) {
-            document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+            if(player1.covered==true) {
+                document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+            }
+            
         } else if (this.player == 2) {
             player2.position = Math.random()*1000;
             if(player2.position < 1) player2.position = 1;
@@ -199,12 +214,16 @@ class Character {
                     if(this.gun.ammo >-100000000000) {
                         this.gun.ammo -=1;
                         this.attack = true;
-                        console.log("player2", player2.position)
-                        console.log("aim", xPosition);
+                            
+                            // console.log("Target", yTargetPosition);
+
                         if(player1.attack === true) {
                             if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)) {
-                                console.log("player1 is shooting");
-                                player2.beDamaged();
+                                if((yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)){
+                                    console.log("player1 is shooting");
+                                    player2.beDamaged();
+                                }
+
                             }
 
                         } else if ( player2.attack === true) {

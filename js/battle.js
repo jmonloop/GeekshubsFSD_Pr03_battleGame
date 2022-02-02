@@ -9,7 +9,7 @@ const battle = () =>{
 
 setInterval(()=>{
     player2.move();
-},100000);
+},1000);
 
 
 // let hideOrShow = false
