@@ -119,7 +119,7 @@ class Character {
             let setTimeId = setTimeout(() =>{
                 if(firing) {
                     //Gun fires only if ammo > 0
-                    if(this.gun.ammo > 0) {
+                    if(this.gun.ammo > -1000000000) {
                         this.gun.ammo -=1;
                         this.attack = true;
                         if(player1.attack === true) {
