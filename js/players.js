@@ -54,9 +54,8 @@ const ar15 = {
     fireRate : 80
 };
 
-
+//SHOOTING METHOD PRE-FUNCTIONS
 let fire = false;
-
 //If user clicks on topVoid, topWall or centerVoid, calls player1.shooting() for fire
 document.querySelectorAll('.shooting1').forEach(item =>{
     item.addEventListener("mousedown", (e)=>{
@@ -66,13 +65,27 @@ document.querySelectorAll('.shooting1').forEach(item =>{
         }
     });
 });
-
-
-
 //If user release click, calls player1.shooting() for stop firing
 document.addEventListener("mouseup", ()=>{
         fire = false;
         player1.shooting();
+})
+
+
+
+//MOVE METHOD PRE-FUNCTIONS
+document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
+    let xPosition = e.clientX;
+    let xMaxPosition = screen.width - 50;
+    let xMinPosition = 50;
+
+
+
+
+
+
+
+    document.getElementById("_character1R").style.left= (xPosition -100) +"px";
 })
 
 
@@ -138,7 +151,9 @@ class Character {
                 this.covered = true;
             }
         }
-        
+    }
+
+    move(){
 
     }
 
