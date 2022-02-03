@@ -285,10 +285,7 @@ let hero3src = './img/png/characters/crouch3.png'
 let hero4src = './img/png/characters/crouch4.png'
 
 
-let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
-let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, 0, hero2src);
-let player3 = new Character(3, "Legionario", 1000, shotgun, 0, 100, hero3src);
-let player4 = new Character(4, "Special Ops", 1000, ar15, 0, 100, hero4src);
+
 
 
 

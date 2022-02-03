@@ -150,11 +150,19 @@ filter:alpha(opacity=40);
             border-radius: 20%;
             background-color: peru;
         }
-            .statsItem {
+            .statsItem2 {
                 font-family: 'Exoplanet', sans-serif;
                 font-size: 3vw;
                 color: red;
-                -webkit-text-stroke: 1px black;
+                -webkit-text-stroke: 2px black;
+    
+            }
+            .statsItem1 {
+                font-family: 'Exoplanet', sans-serif;
+                font-size: 3vw;
+                color: rgb(0, 115, 255);
+                -webkit-text-stroke: 2px black;
+                margin-bottom: 1%;
             }
         .emptyStats {
             background-color: peru;
