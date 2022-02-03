@@ -62,7 +62,7 @@ setInterval(()=>{
     if(player2.ammo == 0) {
         player2.hide();
     } 
-},500)
+},100)
 
 
 
@@ -71,8 +71,9 @@ setInterval(()=>{
 
 //DATA REFRESHING
 setInterval(()=>{
-    console.log("AI Covered",player2.covered)
-    console.log("AIAccuracy %", AIaccuracy)
+console.log("P1 life", player1.life);
+console.log("P1 ammo", player1.gun.ammo);
+console.log("P2 life", player2.life);
+console.log("P2 ammo", player2.gun.ammo);
 
-    console.log("Player Covered", player1.covered)
 },500)

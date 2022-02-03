@@ -219,7 +219,7 @@ class Character {
         if(this.covered == false) {
             // let timeId = setTimeout(()=>{
                 if(fire === true) {
-                    if(this.gun.ammo >-100000000000) {
+                    if(this.gun.ammo >0) {
                         this.gun.ammo -=1;
                         this.attack = true;
                             
@@ -239,13 +239,18 @@ class Character {
     
                     // this.shooting();
                 } else if(player1.covered == false){
-                    console.log("player2 is shooting");
-                    AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
-                    if(AIaccuracy > 80) {
-                        player1.beDamaged();
-                        console.log("1 DAMAGED")
-
+                    if(this.gun.ammo >0){
+                        console.log("player2 is shooting");
+                        this.gun.ammo -=1;
+                        AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
+                        if(AIaccuracy > 80) {
+                            player2.attack = true;
+                            player1.beDamaged();
+                            console.log("1 DAMAGED")
+    
+                        }
                     }
+                  
                     
     
                     
