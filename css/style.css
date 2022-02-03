@@ -176,6 +176,37 @@ filter:alpha(opacity=40);
             justify-content: space-evenly;
             
         }
+        #_screen2Difficulty {
+            /* background-color: brown; */
+            height: 50%;
+            width: 80%;
+
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+
+        }
+        .screen2diffTitle {
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+            font-size: 1.7vw;
+            margin-bottom: 3%;
+
+            /* width: 1em; */
+            color: white;
+        }
+        .difficulty {
+            height: 10%;
+            width: 30%;
+
+            margin: 0.1%;
+
+            text-align: center;
+            font-size: 1.8vw;
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+        }
             #screen2Character1Stats {
                 border-style: double;
                 /* border-color: rgb(41, 41, 231); */

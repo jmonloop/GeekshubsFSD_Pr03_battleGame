@@ -1,8 +1,10 @@
 //SCREENS CONTROL
 let screen1 =document.getElementById('screen1');
 let screen2 =document.getElementById('screen2');
+let screen2Stats = document.getElementById('_screen2CharactersStats');
+let screen2Difficulty = document.getElementById('_screen2Difficulty');
 let screen3 =document.getElementById('screen3');
-let screen4 =document.getElementById('screen4');
+
 
 
 //Screen1 to Screen2: Click anywhere
@@ -13,8 +15,8 @@ document.querySelector('#screen1').addEventListener('mousedown', ()=>{
 // Screen2 to Screen3: Select character and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
-        screen2.style.display = 'none';
-        screen3.style.display = 'block';
+        screen2Stats.style.display = 'none';
+        screen2Difficulty.style.display = 'flex';
     }
 })
 
