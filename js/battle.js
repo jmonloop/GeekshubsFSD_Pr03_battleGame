@@ -42,7 +42,7 @@ switch (difficultyChosen) {
 
 
 
-if(screen3.style.display != 'none') {
+if(screen4.style.display != 'none') {
     setInterval(()=>{
         //STATS INTIALITATION:
     document.getElementById('character2').innerHTML = player2.characterType;

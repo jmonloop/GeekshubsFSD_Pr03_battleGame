@@ -2,22 +2,32 @@
 let screen1 =document.getElementById('screen1');
 let screen2 =document.getElementById('screen2');
 let screen3 =document.getElementById('screen3');
+let screen4 =document.getElementById('screen4');
 
+
+//Screen1 to Screen2: Click anywhere
 document.querySelector('#screen1').addEventListener('mousedown', ()=>{
     screen1.style.display = 'none';
     screen2.style.display = 'flex';
 })
+// Screen2 to Screen3: Select character and click next
+document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
+    if(player1 != undefined) {
+        screen2.style.display = 'none';
+        screen3.style.display = 'block';
+    }
+})
 
 
+
+
+
+
+
+//SELECT PLAYER
 let player1;
 let player2;
-// let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
-// let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, 0, hero2src);
-// let player3 = new Character(3, "Legionario", 1000, shotgun, 0, 100, hero3src);
-// let player4 = new Character(4, "Special Ops", 1000, ar15, 0, 100, hero4src);
-
 let charBckgrnd;
-//SELECT PLAYER
 document.querySelector('#_screen2Char1').addEventListener('mousedown', ()=>{
     if(player1 == undefined) {
         player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
@@ -40,9 +50,6 @@ document.querySelector('#_screen2Char2').addEventListener('mousedown', ()=>{
         charBckgrnd.style.backgroundColor="black";
     }
 })
-
-
-
 document.querySelector('#_screen2Char3').addEventListener('mousedown', ()=>{
     if(player1 == undefined) {
         player1 = new Character(1, "Legionario", 2000, shotgun, 0, 100, hero3src);
@@ -75,6 +82,6 @@ document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
 
 
 
-setInterval(() => {
-    console.log(player1)
-}, 500);
+// setInterval(() => {
+//     console.log(player1)
+// }, 500);

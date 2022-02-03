@@ -89,12 +89,13 @@ filter:alpha(opacity=40);
 }
     .screen2Main {
         background-color: grey;
-        height: 80%;
-        width: 80%;
+        height: 100vw;
+        width: 98vw;
 
         border-style: solid;
-        border-color: white;
-        border-width: 1em;
+        border-color: rgb(0, 0, 0);
+
+        border-width: 1vw;
 
         display: flex;
         flex-direction: column;
@@ -111,8 +112,10 @@ filter:alpha(opacity=40);
         }
         .screen2Characters{
             background-color: black;
-            border-style: dotted;
-            border-color: white;
+            /* background-image: url(../img/brickPlayerTexture.png); */
+            border-style: solid;
+            border-width: 1%;
+            border-color: black;
             height: 50%;
             width: 80%;
 
@@ -122,8 +125,8 @@ filter:alpha(opacity=40);
             align-items: center;
         }
             .screen2CharacterDiv {
-                border-style: double;
-                border-color: blue;
+                /* border-style: double; */
+                /* border-color: blue; */
                 height: 90%;
                 width: 20%;
 
@@ -175,7 +178,7 @@ filter:alpha(opacity=40);
         }
             #screen2Character1Stats {
                 border-style: double;
-                border-color: rgb(41, 41, 231);
+                /* border-color: rgb(41, 41, 231); */
                 background-color: rgb(75, 83, 32);
                 height: 100%;
                 width: 20%;
@@ -189,11 +192,11 @@ filter:alpha(opacity=40);
                 font-family: 'ICBM SS-25', sans-serif;
                 font-family: 'ICBM SS-20', sans-serif;
 
-                font-size: 1vw;
+                font-size: 1.3vw;
             }
             #screen2Character2Stats {
                 border-style: double;
-                border-color: rgb(41, 41, 231);
+                /* border-color: rgb(41, 41, 231); */
                 background-color: rgb(75, 83, 32);
                 height: 100%;
                 width: 20%;
@@ -207,11 +210,11 @@ filter:alpha(opacity=40);
                 font-family: 'ICBM SS-25', sans-serif;
                 font-family: 'ICBM SS-20', sans-serif;
 
-                font-size: 1vw;
+                font-size: 1.3vw;
             }
             #screen2Character3Stats {
                 border-style: double;
-                border-color: rgb(41, 41, 231);
+                /* border-color: rgb(41, 41, 231); */
                 background-color: rgb(75, 83, 32);
                 height: 100%;
                 width: 20%;
@@ -225,11 +228,11 @@ filter:alpha(opacity=40);
                 font-family: 'ICBM SS-25', sans-serif;
                 font-family: 'ICBM SS-20', sans-serif;
 
-                font-size: 1vw;
+                font-size: 1.3vw;
             }
             #screen2Character4Stats {
                 border-style: double;
-                border-color: rgb(41, 41, 231);
+                /* border-color: rgb(41, 41, 231); */
                 background-color: rgb(75, 83, 32);
                 height: 100%;
                 width: 20%;
@@ -243,16 +246,29 @@ filter:alpha(opacity=40);
                 font-family: 'ICBM SS-25', sans-serif;
                 font-family: 'ICBM SS-20', sans-serif;
 
-                font-size: 1vw;
+                font-size: 1.3vw;
             }
             
-        .screen2EmptyDiv {
+        .screen2NextButton {
             /* background-color: violet; */
+            margin-right: 2%;
             height: 10%;
             width: 100%;
+
+            font-size: 2vw;
+            /* border-style: groove; */
+
+            display: flex;
+            flex-direction: column;
+            text-align:right;
+            align-items: bottom;
+
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+            
         }
 
-.screen3Section {
+.screen4Section {
     background-color: grey;
     height: 100%;
     width: 100%;
