@@ -112,10 +112,18 @@ document.querySelectorAll('.shooting1').forEach(item =>{
 });
 //If user release click, calls player1.shooting() for stop firing
 document.addEventListener("mouseup", ()=>{
+        // xPosition = -200;
+        // yPosition = -200;
         fire = false;
         player1.shooting();
 })
 
+//PLAYER2 (AI) SHOOTING PRE-METHOD
+let AIaccuracy = 0;
+//This function returns a random rounded number between two limits.
+const minMaxRoundedRandom = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min);
+}
 
 
 
@@ -143,7 +151,7 @@ class Character {
 
 
         this.attack = false;
-        this.covered = true;
+        this.covered = false;
     }
 
     show(){
@@ -226,16 +234,25 @@ class Character {
 
                             }
 
-                        } else if ( player2.attack === true) {
-                            console.log("player2 is shooting");
-                            player1.beDamaged();
                         }
                     }
     
                     // this.shooting();
+                } else if(player1.covered == false){
+                    console.log("player2 is shooting");
+                    AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
+                    if(AIaccuracy > 80) {
+                        player1.beDamaged();
+                        console.log("1 DAMAGED")
+
+                    }
+                    
+    
+                    
                 }
                 // if(fire === false) clearTimeout(timeId);
             // }, this.gun.fireRate);
+            
         }
         
     }
@@ -246,7 +263,7 @@ class Character {
     beDamaged() {
         if(player1.attack === true) {
             player2.life -= player1.gun.damage;
-            // console.log(player1, player2)
+            console.log("damaged")
         }
         if(player2.attack === true) {
             player1.life -= player2.gun.damage;
