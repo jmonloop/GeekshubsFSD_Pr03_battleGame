@@ -10,3 +10,7 @@ Credits of player brick textures:
 
 Credits of sky textures:
 <a href='https://pngtree.com/so/clouds'>clouds png from pngtree.com/</a>
+
+
+Credits of custom sight:
+<a href='https://pngtree.com/so/red'>red png from pngtree.com/</a>

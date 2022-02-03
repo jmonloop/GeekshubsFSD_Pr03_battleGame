@@ -11,6 +11,12 @@ body {
     align-items: center;
 
     overflow: hidden;
+    cursor:url('../img/sight3resized.png'), pointer;
+}
+
+cursor {
+    opacity:0.4;
+filter:alpha(opacity=40);
 }
 
 .screen1Section {
@@ -99,6 +105,7 @@ body {
         background-size: 20% 100%;
 
         z-index: 3;
+
     }
         .character2L{
             height: 30%;
