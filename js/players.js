@@ -64,7 +64,7 @@ let player2Data;
 let yTargetPosition;
 let yPosition;
 
-document.addEventListener('mousedown', (e)=>{
+document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
@@ -111,7 +111,7 @@ document.querySelectorAll('.shooting1').forEach(item =>{
     });
 });
 //If user release click, calls player1.shooting() for stop firing
-document.addEventListener("mouseup", ()=>{
+document.querySelector('#screen3').addEventListener("mouseup", ()=>{
         // xPosition = -200;
         // yPosition = -200;
         fire = false;
@@ -228,7 +228,7 @@ class Character {
                         if(player1.attack === true) {
                             if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)) {
                                 if((yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)){
-                                    console.log("player1 is shooting");
+                                    // console.log("player1 is shooting");
                                     player2.beDamaged();
                                 }
 
@@ -240,13 +240,13 @@ class Character {
                     // this.shooting();
                 } else if(player1.covered == false){
                     if(this.gun.ammo >0){
-                        console.log("player2 is shooting");
+                        // console.log("player2 is shooting");
                         this.gun.ammo -=1;
                         AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                         if(AIaccuracy > 80) {
                             player2.attack = true;
                             player1.beDamaged();
-                            console.log("1 DAMAGED")
+                            // console.log("1 DAMAGED")
     
                         }
                     }
@@ -268,7 +268,7 @@ class Character {
     beDamaged() {
         if(player1.attack === true) {
             player2.life -= player1.gun.damage;
-            console.log("damaged")
+            // console.log("damaged")
         }
         if(player2.attack === true) {
             player1.life -= player2.gun.damage;

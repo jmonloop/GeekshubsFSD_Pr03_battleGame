@@ -1,35 +1,80 @@
-//Clean game
-const cleanGame = () => {
-    player1 = [];
-    player2 = [];
-    winner = "";
-}
+//SCREENS CONTROL
+let screen1 =document.getElementById('screen1');
+let screen2 =document.getElementById('screen2');
+let screen3 =document.getElementById('screen3');
+
+document.querySelector('#screen1').addEventListener('mousedown', ()=>{
+    screen1.style.display = 'none';
+    screen2.style.display = 'flex';
+})
 
 
+let player1;
+let player2;
+// let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
+// let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, 0, hero2src);
+// let player3 = new Character(3, "Legionario", 1000, shotgun, 0, 100, hero3src);
+// let player4 = new Character(4, "Special Ops", 1000, ar15, 0, 100, hero4src);
 
-const changeScreen = (arg) => {
-
-    //Generamos la variable concatenada que nos advierte a que pantalla 
-    //queremos ir.
-    let wantedScreen = "screen" + arg;
-    
-
-    //Cada vez que entramos en la funcion se regenera el array con todas las pantallas, ya 
-    //que anteriormente al filtrar algunas quedaban fuera, así empieza de nuevo el proceso
-    let screenArray = ["screen1","screen2","screen3","screen4"];
-
-    //Aquí filtramos del array aquella pantalla a la que queremos ir, ES DECIR,
-    //guardamos todas las pantallas menos aquella a la que queremos ir, ya que al resto a todas
-    //les queremos dar la propiedad display none
-    screenArray = screenArray.filter(arg => !wantedScreen.includes(arg));
-
-    //Antes de dar la propiedad display none al resto de pantallas, decimos a la que SI QUEREMOS
-    //ver que tenga un display block, que la hará visible en el DOM (la web)
-    document.getElementById(wantedScreen).style.display = "flex";
-
-    //Recorremos el array de las pantallas y a todas las que hay les damos la propiedad display como none
-    for (let screen of screenArray) {
-        document.getElementById(screen).style.display = "none";
+let charBckgrnd;
+//SELECT PLAYER
+document.querySelector('#_screen2Char1').addEventListener('mousedown', ()=>{
+    if(player1 == undefined) {
+        player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
+        charBckgrnd = document.getElementById('_screen2Char1');
+        charBckgrnd = document.getElementById('_screen2CharDiv1');
+        charBckgrnd.style.backgroundColor="blue";
+    } else if(player1 != undefined) {
+        player1 = undefined;
+        charBckgrnd.style.backgroundColor="black";
     }
+})
+document.querySelector('#_screen2Char2').addEventListener('mousedown', ()=>{
+    if(player1 == undefined) {
+        player1 = new Character(1, "Spetnaz", 1200, mp5, 100, 0, hero2src);
+        charBckgrnd = document.getElementById('_screen2Char2');
+        charBckgrnd = document.getElementById('_screen2CharDiv2');
+        charBckgrnd.style.backgroundColor="blue";
+    } else if(player1 != undefined) {
+        player1 = undefined;
+        charBckgrnd.style.backgroundColor="black";
+    }
+})
 
-}
+
+
+document.querySelector('#_screen2Char3').addEventListener('mousedown', ()=>{
+    if(player1 == undefined) {
+        player1 = new Character(1, "Legionario", 2000, shotgun, 0, 100, hero3src);
+        charBckgrnd = document.getElementById('_screen2Char3');
+        charBckgrnd = document.getElementById('_screen2CharDiv3');
+        charBckgrnd.style.backgroundColor="blue";
+    } else if(player1 != undefined) {
+        player1 = undefined;
+        charBckgrnd.style.backgroundColor="black";
+    }
+})
+document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
+    if(player1 == undefined) {
+        player1 = new Character(1, "Special Ops", 1000, ar15, 0, 100, hero4src);
+        charBckgrnd = document.getElementById('_screen2Char4');
+        charBckgrnd = document.getElementById('_screen2CharDiv4');
+        charBckgrnd.style.backgroundColor="blue";
+    } else if(player1 != undefined) {
+        player1 = undefined;
+        charBckgrnd.style.backgroundColor="black";
+    }
+})
+
+
+
+
+
+
+
+
+
+
+setInterval(() => {
+    console.log(player1)
+}, 500);
