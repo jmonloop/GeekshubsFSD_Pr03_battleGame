@@ -29,7 +29,23 @@
         </div>
         <div class="topWall shooting1" onclick="player1.show()">
         </div>
-        <div class="centerVoid shooting1" id="_centerVoid" onclick="player1.show()"></div>
+        <div class="centerVoid shooting1" id="_centerVoid" onclick="player1.show()">
+            <div class="stats" id="statsP2">
+                <div class="statsItem" id="player2">PLAYER 2</div>
+                <div class="statsItem"><span></span><span id="character2"></span></div>
+                <div class="statsItem"><span>Life: </span><span id="life2"></span></div>
+                <div class="statsItem"><span>AMMO: </span><span id="ammo2"></span></div>
+            </div>
+            <div class="stats emptyStats"></div>
+            <div class="stats emptyStats"></div>
+            <div class="stats emptyStats"></div>
+            <div class="stats" id="statsP1">
+                <div class="statsItem" id="player1">PLAYER 1</div>
+                <div class="statsItem"><span></span><span id="character1"></span></div>
+                <div class="statsItem"><span>Life: </span><span id="life1"></span></div>
+                <div class="statsItem"><span>AMMO: </span><span id="ammo1"></span></div>
+            </div>
+        </div>
         <div class="bottomWall" id="_bottomWall" onclick="player1.hide()">
             <div class="character1R" id="_character1R">
                 <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/shoot (4).png" alt=""> -->
