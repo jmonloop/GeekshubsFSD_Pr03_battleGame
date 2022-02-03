@@ -64,7 +64,7 @@ let player2Data;
 let yTargetPosition;
 let yPosition;
 
-document.querySelector('#screen4').addEventListener('mousedown', (e)=>{
+document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
@@ -111,7 +111,7 @@ document.querySelectorAll('.shooting1').forEach(item =>{
     });
 });
 //If user release click, calls player1.shooting() for stop firing
-document.querySelector('#screen4').addEventListener("mouseup", ()=>{
+document.querySelector('#screen3').addEventListener("mouseup", ()=>{
         // xPosition = -200;
         // yPosition = -200;
         fire = false;

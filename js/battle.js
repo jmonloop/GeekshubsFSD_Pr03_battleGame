@@ -1,5 +1,4 @@
-let arrayDifficulty=["Easy", "Medium", "Hard", "FSD Bootcamp"];
-let difficultyChosen = "easy";
+
 
 let AIhiding;
 let AImoving;
@@ -7,28 +6,28 @@ let AIminAccuracy=30;
 
 const difficulty = () => {
 switch (difficultyChosen) {
-    case "Easy" :
+    case "easy" :
         player2.characterType = "Navy Seal"
         AIhiding = 800;
         AImoving = 1000;
         AIminAccuracy = 30;
     break;
 
-    case "Medium" :
+    case "medium" :
         player2.characterType = "Spetnaz"
         AIhiding = 700;
         AImoving = 800;
         AIminAccuracy = 40;
     break;
 
-    case "Hard" :
+    case "hard" :
         player2.characterType = "Legionario"
         AIhiding = 700;
         AImoving = 800;
         AIminAccuracy = 60;
     break;
 
-    case "FSD Bootcamp" :
+    case "fsd" :
         player2.characterType = "Special Ops"
         AIhiding = 600;
         AImoving = 500;
@@ -42,7 +41,7 @@ switch (difficultyChosen) {
 
 
 
-if(screen4.style.display != 'none') {
+if(screen3.style.display != 'none') {
     setInterval(()=>{
         //STATS INTIALITATION:
     document.getElementById('character2').innerHTML = player2.characterType;
@@ -69,33 +68,33 @@ if(screen4.style.display != 'none') {
 
 
 
-if(player2.player == 2) {
-    //AI MOVEMENT INTERVAL
-    setInterval(()=>{
-        player2.move();
-    },10000); //AImoving
+// if(player2.player == 2) {
+//     //AI MOVEMENT INTERVAL
+//     setInterval(()=>{
+//         player2.move();
+//     },10000); //AImoving
 
-    //AI HIDING INTERVAL
-    let hideOrShow = false
-    setInterval(()=>{
-        let value = Math.round(Math.random());
-        if(value == 0) {
-            player2.hide();
-        } else player2.show();
-    },500); // // AIhiding
+//     //AI HIDING INTERVAL
+//     let hideOrShow = false
+//     setInterval(()=>{
+//         let value = Math.round(Math.random());
+//         if(value == 0) {
+//             player2.hide();
+//         } else player2.show();
+//     },500); // // AIhiding
 
 
-    //AI SHOOTING INTERVAL
-setInterval(()=>{
-    if(player2.covered == false) {
-        player2.shooting();
-    }
-    if(player2.ammo == 0) {
-        player2.hide();
-    } 
-    },100)
+//     //AI SHOOTING INTERVAL
+// setInterval(()=>{
+//     if(player2.covered == false) {
+//         player2.shooting();
+//     }
+//     if(player2.ammo == 0) {
+//         player2.hide();
+//     } 
+//     },100)
 
-}
+// }
 
 
 
