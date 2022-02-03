@@ -79,6 +79,84 @@ filter:alpha(opacity=40);
             }
 
 .screen2Section {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .screen2Main {
+        background-color: grey;
+        height: 80%;
+        width: 80%;
+
+        border-style: solid;
+        border-color: white;
+        border-width: 1em;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+        .screen2Characters{
+            background-color: black;
+            border-style: dotted;
+            border-color: white;
+            height: 50%;
+            width: 80%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+            .screen2CharacterDiv {
+                border-style: double;
+                border-color: blue;
+                height: 90%;
+                width: 20%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+                .screen2Char {
+                    /* background-color: burlywood; */
+                    height: 80%;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                    .screen2CharImg{
+                        height: 100%;
+                        width: 100%;
+                    }
+                .screen2CharStats {
+                    /* background-color: chartreuse; */
+                    height: 20%;
+                    width: 100%;
+
+                    font-family: 'ICBM SS-25', sans-serif;
+                    font-family: 'ICBM SS-20', sans-serif;
+                    font-size: 1.5vw;
+
+                    /* width: 1em; */
+                    color: white;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+
+.screen3Section {
     background-color: grey;
     height: 100%;
     width: 100%;
@@ -151,14 +229,18 @@ filter:alpha(opacity=40);
             background-color: peru;
         }
             .statsItem2 {
-                font-family: 'Exoplanet', sans-serif;
+                font-family: 'ICBM SS-25', sans-serif;
+                font-family: 'ICBM SS-20', sans-serif;
+
                 font-size: 3vw;
                 color: red;
                 -webkit-text-stroke: 2px black;
     
             }
             .statsItem1 {
-                font-family: 'Exoplanet', sans-serif;
+                font-family: 'ICBM SS-25', sans-serif;
+                font-family: 'ICBM SS-20', sans-serif;
+
                 font-size: 3vw;
                 color: rgb(0, 115, 255);
                 -webkit-text-stroke: 2px black;

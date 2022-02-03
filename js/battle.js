@@ -15,14 +15,14 @@ switch (difficultyChosen) {
     break;
 
     case "Medium" :
-        player2.characterType = "Legionario"
+        player2.characterType = "Spetnaz"
         AIhiding = 700;
         AImoving = 800;
         AIminAccuracy = 40;
     break;
 
     case "Hard" :
-        player2.characterType = "Spetnaz"
+        player2.characterType = "Legionario"
         AIhiding = 700;
         AImoving = 800;
         AIminAccuracy = 60;

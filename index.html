@@ -7,21 +7,51 @@
     <title>Micro Royale</title>
     <link href="https://fonts.cdnfonts.com/css/exoplanet" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/hussar-woodtype" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/icbm-ss-2025" rel="stylesheet">
                 
     <link href="css/style.css" rel="stylesheet" media="">
 </head>
 <body>
-    <section id="screen1" class="screen1Section" style="display: none" onclick="changeScreen(2)">
-    <!-- <section id="screen1" class="screen1Section" onclick="changeScreen(2)"> -->
+    <!-- <section id="screen1" class="screen1Section" style="display: none" onclick="changeScreen(2)"> -->
+    <section id="screen1" class="screen1Section" style="display: none">
         <div class="screen1Main">
-            <div class="screen1MainBox">
+            <div class="screen1MainBox" onclick="changeScreen(2)">
                 <div class="screen1MainBoxTitle">MICRO ROYALE</div>
-                <div class="screen1MainBoxSelection"></div>
+                <div class="screen1MainBoxSelection">CLICK FOR START</div>
             </div>
         </div>
     </section>
     <section id="screen2" class="screen2Section">
-    <!-- <section id="screen2" class="screen2Section" style="display: none;" onclick="changeScreen(1)"> -->
+        <div class="screen2Main">
+            <div class="screen2Characters">
+                <div class="screen2CharacterDiv">
+                    <div class="screen2Char"  id="_screen2Char1">
+                        <img class="screen2CharImg" src="../img/png/characters/shoot1.png" alt="">
+                    </div>
+                    <div class="screen2CharStats" id="_screen2Char1Stats">NAVY SEAL</div>
+                </div>
+                <div class="screen2CharacterDiv">
+                    <div class="screen2Char" id="_screen2Char2">
+                        <img class="screen2CharImg" src="../img/png/characters/shoot2.png" alt="">
+                    </div>
+                    <div class="screen2CharStats" id="_screen2Char2Stats">SPETNAZ</div>
+                </div>
+                <div class="screen2CharacterDiv">
+                    <div class="screen2Char" id="_screen2Char3">
+                        <img class="screen2CharImg" src="../img/png/characters/shoot3.png" alt="">
+                    </div>
+                    <div class="screen2CharStats" id="_screen2Char3Stats">LEGIONARIO</div>
+                </div>
+                <div class="screen2CharacterDiv">
+                    <div class="screen2Char" id="_screen2Char4">
+                        <img class="screen2CharImg" src="../img/png/characters/shoot4.png" alt="">
+                    </div>
+                    <div class="screen2CharStats" id="_screen2Char3Stats">SPEC OPS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="screen3" class="screen3Section" style="display: none">
         <div class="topVoid shooting1" onclick="player1.show()"></div>
         <div class="character2R shooting1" id="_character2R" onclick="player1.show()">
             <img class="character2img" id="_character2img" src="./img/png/characters/shoot2.png" alt="" style="display: block">
