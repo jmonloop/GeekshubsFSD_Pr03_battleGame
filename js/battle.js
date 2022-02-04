@@ -74,28 +74,25 @@ document.getElementById('ammo1').innerHTML = player1.gun.ammo;
         player2.move();
     },1000); //AImoving
 
-//     //AI HIDING INTERVAL
-//     let hideOrShow = false
-//     setInterval(()=>{
-//         let value = Math.round(Math.random());
-//         if(value == 0) {
-//             player2.hide();
-//         } else player2.show();
-//     },500); // // AIhiding
+    //AI HIDING INTERVAL
+    let hideOrShow = false
+    setInterval(()=>{
+        let value = Math.round(Math.random());
+        if(value == 0) {
+            player2.hide();
+        } else player2.show();
+    },500); // // AIhiding
 
 
-//     //AI SHOOTING INTERVAL
-// setInterval(()=>{
-//     if(player2.covered == false) {
-//         player2.shooting();
-//     }
-//     if(player2.ammo == 0) {
-//         player2.hide();
-//     } 
-//     },100)
-
-
-
+    //AI SHOOTING INTERVAL
+setInterval(()=>{
+    if(player2.covered == false) {
+        player2.shooting();
+    }
+    if(player2.ammo == 0) {
+        player2.hide();
+    } 
+    },100)
 
 
 
@@ -107,11 +104,13 @@ document.getElementById('ammo1').innerHTML = player1.gun.ammo;
 
 
 
-// //DATA REFRESHING
-// setInterval(()=>{
-// console.log("P1 life", player1.life);
-// console.log("P1 ammo", player1.gun.ammo);
-// console.log("P2 life", player2.life);
-// console.log("P2 ammo", player2.gun.ammo);
 
-// },500)
+
+
+//DATA REFRESHING
+setInterval(()=>{
+console.log("P1 covered", player1.covered);
+console.log("P2 covered", player2.covered);
+
+
+},500)

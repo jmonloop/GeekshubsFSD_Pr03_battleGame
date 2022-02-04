@@ -206,42 +206,25 @@ class Character {
 
     shooting = () => {
         if((this.player == 1)&&(!this.covered)&&(this.gun.ammo > 0)) {
-            // console.log('ok')
             this.gun.ammo -=1;
             if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)&& 
-            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)) {
-                // console.log('ok')
-                this.attack = true;
-                // console.log(player1.attack); ok
-                player2.beDamaged();
+            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)&&
+            (!player2.covered)) {
+                player2.life -= this.gun.damage;
             }
             
         } else if((this.player == 2)&&(!this.covered)&&(this.gun.ammo > 0)){
-    
             this.gun.ammo -=1;
-            AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
-            if(AIaccuracy > 80) {
-                this.attack = true;
-                player1.beDamaged();
-            }     
+            // console.log('ok');
+            if(player1.covered== false) {
+                // console.log('ok');
+                AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
+                if(AIaccuracy > 80) {
+                    player1.life -= this.gun.damage;
+                } 
+            }
         }
     }
-
-
-    
-
-    beDamaged() {
-        if((this.player == 1)&&(this.attack)) {
-            console.log("P2damaged")
-            player2.life -= this.gun.damage;
-            
-        }
-        if((this.player == 2)&&(this.attack)) {
-            player1.life -= this.gun.damage;
-            // console.log("P1damaged")
-        }
-    }
-
 };
 
 
