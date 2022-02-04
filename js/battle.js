@@ -68,11 +68,11 @@ document.getElementById('ammo1').innerHTML = player1.gun.ammo;
 
 
 
-// if(player2.player == 2) {
-//     //AI MOVEMENT INTERVAL
-//     setInterval(()=>{
-//         player2.move();
-//     },10000); //AImoving
+
+    //AI MOVEMENT INTERVAL
+    setInterval(()=>{
+        player2.move();
+    },1000); //AImoving
 
 //     //AI HIDING INTERVAL
 //     let hideOrShow = false
@@ -94,7 +94,6 @@ document.getElementById('ammo1').innerHTML = player1.gun.ammo;
 //     } 
 //     },100)
 
-// }
 
 
 
@@ -107,11 +106,12 @@ document.getElementById('ammo1').innerHTML = player1.gun.ammo;
 
 
 
-//DATA REFRESHING
-setInterval(()=>{
-console.log("P1 life", player1.life);
-console.log("P1 ammo", player1.gun.ammo);
-console.log("P2 life", player2.life);
-console.log("P2 ammo", player2.gun.ammo);
 
-},500)
+// //DATA REFRESHING
+// setInterval(()=>{
+// console.log("P1 life", player1.life);
+// console.log("P1 ammo", player1.gun.ammo);
+// console.log("P2 life", player2.life);
+// console.log("P2 ammo", player2.gun.ammo);
+
+// },500)

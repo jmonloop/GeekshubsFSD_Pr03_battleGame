@@ -117,7 +117,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
 
 
 
-
+//PLAYER SELECTION
 document.querySelector('#_screen2Char1').addEventListener('mousedown', ()=>{
     if(player1 == undefined) {
         player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
@@ -172,6 +172,6 @@ document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
 
 
 
-setInterval(() => {
-    console.log(difficultyChosen)
-}, 500);
+// setInterval(() => {
+//     console.log(difficultyChosen)
+// }, 500);

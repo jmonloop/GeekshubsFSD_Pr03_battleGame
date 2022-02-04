@@ -262,13 +262,13 @@ class Character {
     
 
     beDamaged() {
-        if(player1.attack === true) {
-            player2.life -= player1.gun.damage;
-            // console.log("damaged")
+        if((this.player == 1)&&(this.attack == true)) {
+            player2.life -= this.gun.damage;
+            console.log("P2damaged")
         }
-        if(player2.attack === true) {
-            player1.life -= player2.gun.damage;
-            // console.log(player1, player2)
+        if((this.player == 2)&&(this.attack == true)) {
+            player1.life -= this.gun.damage;
+            console.log("P1damaged")
         }
     }
 
