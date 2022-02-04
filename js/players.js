@@ -1,51 +1,3 @@
-
-
-
-//Declaration of guns objects
-const pistol = {
-    //gunType-> Just name of the gun
-    gunType : "pistol",
-    //damage-> points of life will rest to the other player (min0-max100)
-    damage : 20,
-    //ammo-> quantity of bullets remaining before reload (min0-max150)
-    ammo : 15,
-    //intialAmmo is used for reload() method
-    initialAmmo : 15,
-};
-
-const mp5 = {
-    //gunType-> Just name of the gun
-    gunType : "MP5",
-    //damage-> points of life will rest to the other player (min0-max100)
-    damage : 10,
-    //ammo-> quantity of bullets remaining before reload (min0-max150)
-    ammo : 25,
-    //intialAmmo is used for reload() method
-    initialAmmo : 25,
-};
-
-const shotgun = {
-    //gunType-> Just name of the gun
-    gunType : "Shotgun",
-    //damage-> points of life will rest to the other player (min0-max100)
-    damage : 80,
-    //ammo-> quantity of bullets remaining before reload (min0-max150)
-    ammo : 8,
-    //intialAmmo is used for reload() method
-    initialAmmo : 8,
-};
-
-const ar15 = {
-    //gunType-> Just name of the gun
-    gunType : "AR-15",
-    //damage-> points of life will rest to the other player (min0-max100)
-    damage : 50,
-    //ammo-> quantity of bullets remaining before reload (min0-max150)
-    ammo : 30,
-    //intialAmmo is used for reload() method
-    initialAmmo : 30,
-};
-
 //MOVE AND SHOOTING METHODS PRE-FUNCTIONS
 //X position
 let xPosition;
@@ -87,11 +39,12 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 
 //GUN CLASS
 class Gun {
-    constructor(name, damage, ammo, initialAmmo, shootSound, reloadSound) {
+    constructor(name, damage, ammo, initialAmmo, img, shootSound, reloadSound) {
         this.name = name;
         this.damage = damage;
         this.ammo = ammo;
         this.initialAmmo = initialAmmo;
+        this.img = img;
         this.shootSound = shootSound;
         this.reloadSound = reloadSound;
     }
@@ -180,14 +133,13 @@ class Character {
                 let player1ImgSrc = player1Img.src;
                 player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
                 player1Img.src = player1ImgSrc;
-                this.gun.ammo = this.gun.initialAmmo;
+                gunPlayer1.ammo = gunPlayer1.initialAmmo;
                 this.covered = true;
             }
         } else if (this.player == 2) {
             if(this.covered == false) {
-
                 document.getElementById('_character2img').style.display = "none";
-                this.gun.ammo = this.gun.initialAmmo;
+                gunPlayer2.ammo = gunPlayer2.initialAmmo;
                 this.covered = true;
             }
         }
@@ -199,15 +151,15 @@ class Character {
         if(xPosition < 1) xPosition = 1;
         
         //-150 is for centering the image to the click
-        this.position = xPosition;
+        player2.position = xPosition;
         
         if(this.player == 1) {
-            if(player1.covered==true) {
+            if(this.covered==true) {
                 document.getElementById("_character1R").style.left= (xPosition -150) +"px";
             }
             
         } else if (this.player == 2) {
-            player2.position = Math.random()*1000;
+            this.position = Math.random()*1000;
             if(player2.position < 1) player2.position = 1;
             if(player2.position > xMaxPosition) player2.position = xMaxPosition;
             document.getElementById("_character2R").style.left= (player2.position) + "px";
@@ -215,22 +167,22 @@ class Character {
     }
 
     shooting = () => {
-        if((this.player == 1)&&(!this.covered)&&(this.gun.ammo > 0)) {
-            this.gun.ammo -=1;
+        if((this.player == 1)&&(!this.covered)&&(gunPlayer1.ammo > 0)) {
+            gunPlayer1.ammo -=1;
             if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)&& 
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)&&
             (!player2.covered)) {
-                player2.life -= this.gun.damage;
+                player2.life -= gunPlayer1.damage;
             }
             
-        } else if((this.player == 2)&&(!this.covered)&&(this.gun.ammo > 0)){
-            this.gun.ammo -=1;
+        } else if((this.player == 2)&&(!this.covered)&&(gunPlayer2.ammo > 0)){
+            gunPlayer2.ammo -=1;
             // console.log('ok');
             if(player1.covered== false) {
                 // console.log('ok');
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                 if(AIaccuracy > 80) {
-                    player1.life -= this.gun.damage;
+                    player1.life -= gunPlayer2.damage;
                 } 
             }
         }

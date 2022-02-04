@@ -50,8 +50,8 @@ document.getElementById('character1').innerHTML = player1.characterType;
 document.getElementById('life2').innerHTML = player2.life;
 document.getElementById('life1').innerHTML = player1.life;
 
-document.getElementById('ammo2').innerHTML = player2.gun.ammo;
-document.getElementById('ammo1').innerHTML = player1.gun.ammo;
+document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
+document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 },200)
 
 
@@ -109,8 +109,10 @@ setInterval(()=>{
 
 //DATA REFRESHING
 setInterval(()=>{
-console.log("P1 covered", player1.covered);
-console.log("P2 covered", player2.covered);
+console.log("P1", player1);
+console.log("P2", player2);
+
+
 
 
 },500)
