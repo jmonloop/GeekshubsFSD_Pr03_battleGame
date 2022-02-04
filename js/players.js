@@ -112,8 +112,6 @@ document.querySelectorAll('.shooting1').forEach(item =>{
 });
 //If user release click, calls player1.shooting() for stop firing
 document.querySelector('#screen3').addEventListener("mouseup", ()=>{
-        // xPosition = -200;
-        // yPosition = -200;
         fire = false;
         player1.shooting();
 })
@@ -166,7 +164,6 @@ class Character {
             }
         } else if (this.player == 2) {
             document.getElementById('_character2img').style.display = "block";
-            // console.log(player2.position)
             this.covered = false;
         }
 
@@ -174,9 +171,8 @@ class Character {
 
     //Hides and reloads ammo when click on the player1 wall
     hide(){
-        
         if(this.player == 1) {
-            if(this.covered === false) {
+            if(this.covered == false) {
                 let player1Img = document.getElementById('_character1img');
                 let player1ImgSrc = player1Img.src;
                 player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
@@ -185,7 +181,7 @@ class Character {
                 this.covered = true;
             }
         } else if (this.player == 2) {
-            if(this.covered === false) {
+            if(this.covered == false) {
 
                 document.getElementById('_character2img').style.display = "none";
                 this.gun.ammo = this.gun.initialAmmo;

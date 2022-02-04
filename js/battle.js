@@ -41,19 +41,19 @@ switch (difficultyChosen) {
 
 
 
-if(screen3.style.display != 'none') {
-    setInterval(()=>{
-        //STATS INTIALITATION:
-    document.getElementById('character2').innerHTML = player2.characterType;
-    document.getElementById('character1').innerHTML = player1.characterType;
-    
-    document.getElementById('life2').innerHTML = player2.life;
-    document.getElementById('life1').innerHTML = player1.life;
-    
-    document.getElementById('ammo2').innerHTML = player2.gun.ammo;
-    document.getElementById('ammo1').innerHTML = player1.gun.ammo;
-    },200)
-}
+
+setInterval(()=>{
+    //STATS INTIALITATION:
+document.getElementById('character2').innerHTML = player2.characterType;
+document.getElementById('character1').innerHTML = player1.characterType;
+
+document.getElementById('life2').innerHTML = player2.life;
+document.getElementById('life1').innerHTML = player1.life;
+
+document.getElementById('ammo2').innerHTML = player2.gun.ammo;
+document.getElementById('ammo1').innerHTML = player1.gun.ammo;
+},200)
+
 
 
 
@@ -107,11 +107,11 @@ if(screen3.style.display != 'none') {
 
 
 
-// //DATA REFRESHING
-// setInterval(()=>{
-// console.log("P1 life", player1.life);
-// console.log("P1 ammo", player1.gun.ammo);
-// console.log("P2 life", player2.life);
-// console.log("P2 ammo", player2.gun.ammo);
+//DATA REFRESHING
+setInterval(()=>{
+console.log("P1 life", player1.life);
+console.log("P1 ammo", player1.gun.ammo);
+console.log("P2 life", player2.life);
+console.log("P2 ammo", player2.gun.ammo);
 
-// },500)
+},500)
