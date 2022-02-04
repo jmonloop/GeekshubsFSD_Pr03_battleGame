@@ -100,21 +100,14 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 
 
 //SHOOTING METHOD PRE-FUNCTIONS
-let fire = false;
 //If user clicks on topVoid, topWall or centerVoid, calls player1.shooting() for fire
 document.querySelectorAll('.shooting1').forEach(item =>{
     item.addEventListener("mousedown", (e)=>{
         if((e.button === 0)) {
-            fire = true;
             player1.shooting();
         }
     });
 });
-//If user release click, calls player1.shooting() for stop firing
-document.querySelector('#screen3').addEventListener("mouseup", ()=>{
-        fire = false;
-        player1.shooting();
-})
 
 //PLAYER2 (AI) SHOOTING PRE-METHOD
 let AIaccuracy = 0;
@@ -212,63 +205,40 @@ class Character {
     }
 
     shooting = () => {
-        if(this.covered == false) {
-            // let timeId = setTimeout(()=>{
-                if(fire === true) {
-                    if(this.gun.ammo >0) {
-                        this.gun.ammo -=1;
-                        this.attack = true;
-                            
-                            // console.log("Target", yTargetPosition);
-
-                        if(player1.attack === true) {
-                            if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)) {
-                                if((yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)){
-                                    // console.log("player1 is shooting");
-                                    player2.beDamaged();
-                                }
-
-                            }
-
-                        }
-                    }
-    
-                    // this.shooting();
-                } else if(player1.covered == false){
-                    if(this.gun.ammo >0){
-                        // console.log("player2 is shooting");
-                        this.gun.ammo -=1;
-                        AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
-                        if(AIaccuracy > 80) {
-                            player2.attack = true;
-                            player1.beDamaged();
-                            // console.log("1 DAMAGED")
-    
-                        }
-                    }
-                  
-                    
-    
-                    
-                }
-                // if(fire === false) clearTimeout(timeId);
-            // }, this.gun.fireRate);
+        if((this.player == 1)&&(!this.covered)&&(this.gun.ammo > 0)) {
+            // console.log('ok')
+            this.gun.ammo -=1;
+            if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)&& 
+            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)) {
+                // console.log('ok')
+                this.attack = true;
+                // console.log(player1.attack); ok
+                player2.beDamaged();
+            }
             
+        } else if((this.player == 2)&&(!this.covered)&&(this.gun.ammo > 0)){
+    
+            this.gun.ammo -=1;
+            AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
+            if(AIaccuracy > 80) {
+                this.attack = true;
+                player1.beDamaged();
+            }     
         }
-        
     }
 
 
     
 
     beDamaged() {
-        if((this.player == 1)&&(this.attack == true)) {
-            player2.life -= this.gun.damage;
+        if((this.player == 1)&&(this.attack)) {
             console.log("P2damaged")
+            player2.life -= this.gun.damage;
+            
         }
-        if((this.player == 2)&&(this.attack == true)) {
+        if((this.player == 2)&&(this.attack)) {
             player1.life -= this.gun.damage;
-            console.log("P1damaged")
+            // console.log("P1damaged")
         }
     }
 
