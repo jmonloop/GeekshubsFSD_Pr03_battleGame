@@ -11,7 +11,7 @@ body {
     align-items: center;
 
     overflow: hidden;
-    cursor:url('../img/sight.cur'), pointer;
+    cursor:url('../assets/img/sight.cur'), pointer;
 }
 
 cursor {
@@ -112,7 +112,7 @@ filter:alpha(opacity=40);
         }
         .screen2Characters{
             background-color: black;
-            /* background-image: url(../img/brickPlayerTexture.png); */
+            /* background-image: url(../assets/img/brickPlayerTexture.png); */
             border-style: solid;
             border-width: 1%;
             border-color: black;
@@ -176,37 +176,161 @@ filter:alpha(opacity=40);
             justify-content: space-evenly;
             
         }
-        #_screen2Difficulty {
+        .screen2GunsDifficulty {
             /* background-color: brown; */
             height: 50%;
             width: 80%;
 
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items:center;
             justify-content: center;
 
         }
+            .screen2Guns {
+                height: 100%;
+                width: 80%;
+
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                justify-content: center;
+            }
+                .screen2GunsTitle{
+                    padding-top: 1%;
+                    height: 20%;
+                    width: 100%;
+
+                    color: white;
+
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    text-align: center;
+                    font-size: 2vw;
+                    font-family: 'ICBM SS-25', sans-serif;
+                    font-family: 'ICBM SS-20', sans-serif;
+                }
+                .screen2GunsList {
+                    padding-top: 2%;
+                    height: 10%;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items:center;
+                    justify-content: center; 
+                }
+                    .gunName {
+                        height: 100%;
+                        width: 25%;
+
+                        display: flex;
+                        flex-direction: row;
+                        align-items:center;
+                        justify-content: center; 
+
+                        font-size: 1.8vw;
+                        font-family: 'ICBM SS-25', sans-serif;
+                        font-family: 'ICBM SS-20', sans-serif;
+                    }
+                .screen2GunsImgDiv{
+                    
+                    
+                    height: 70%;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .gunDiv {
+                    height: 100%;
+                    width: 25%;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items:center;
+                    justify-content: center; 
+
+                    font-size: 1.8vw;
+                    font-family: 'ICBM SS-25', sans-serif;
+                    font-family: 'ICBM SS-20', sans-serif;
+
+                    /* background-color: white; */
+                }
+                
+                    .gunImgCircle {
+                    border-style: solid;
+                    height: 80%;
+                    width: 80%;
+
+                    border-radius: 100%;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items:center;
+                    justify-content: center; 
+                    background-color: white;
+                        
+                }
+                        .gunImg{
+                            height: 55%;
+                            width: 80%;
+                        }
+
+            .screen2Difficulty {
+                /* background-color: rgb(255, 81, 0); */
+                height: 100%;
+                width: 20%;
+
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                justify-content: center;
+
+                text-align: center;
+            }
         .screen2diffTitle {
+            height: 20%;
+            width: 100%;
+            padding-top: 10%;
+
             font-family: 'ICBM SS-25', sans-serif;
             font-family: 'ICBM SS-20', sans-serif;
-            font-size: 1.7vw;
-            margin-bottom: 3%;
+            font-size: 2vw;
+            
 
             /* width: 1em; */
             color: white;
         }
+        
+        .screen2DiffList{
+            height: 80%;
+            width: 100%;
+            
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+        }
         .difficulty {
             height: 10%;
-            width: 30%;
+            width: 100%;
 
-            margin: 0.1%;
+            margin: 3%;
 
-            text-align: center;
             font-size: 1.8vw;
             font-family: 'ICBM SS-25', sans-serif;
             font-family: 'ICBM SS-20', sans-serif;
         }
+
+
+
             #screen2Character1Stats {
                 border-style: double;
                 /* border-color: rgb(41, 41, 231); */
@@ -312,7 +436,7 @@ filter:alpha(opacity=40);
         height: 20%;
         width: 100%;
 
-        background-image: url('../img/skyTexture.png');
+        background-image: url('../assets/img/skyTexture.png');
         background-size: 10% 100%;
 
         z-index: 1;
@@ -322,7 +446,7 @@ filter:alpha(opacity=40);
         height: 10%;
         width: 100%;
         
-        background-image: url('../img/brickWallTexture.png');
+        background-image: url('../assets/img/brickWallTexture.png');
         background-size: 20% 100%;
 
         z-index: 3;
@@ -396,7 +520,7 @@ filter:alpha(opacity=40);
         height: 40%;
         width: 100%;
 
-        background-image: url('../img/brickPlayerTexture.png');
+        background-image: url('../assets/img/brickPlayerTexture.png');
     }
 
     .character1L{

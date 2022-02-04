@@ -26,26 +26,26 @@
             <div class="screen2Characters" id='_screen2Characters'>
                 <div class="screen2CharacterDiv" id="_screen2CharDiv1">
                     <div class="screen2Char"  id="_screen2Char1">
-                        <img class="screen2CharImg" src="../img/png/characters/shoot1.png" alt="">
+                        <img class="screen2CharImg" src="./assets/img/png/characters/shoot1.png" alt="">
                     </div>
                     <div class="sreen2CharTitle" id="_screen2Char1Stats">NAVY SEAL</div>
 
                 </div>
                 <div class="screen2CharacterDiv" id="_screen2CharDiv2">
                     <div class="screen2Char" id="_screen2Char2">
-                        <img class="screen2CharImg" src="../img/png/characters/shoot2.png" alt="">
+                        <img class="screen2CharImg" src="./assets/img/png/characters/shoot2.png" alt="">
                     </div>
                     <div class="sreen2CharTitle" id="_screen2Char2Stats">SPETNAZ</div>
                 </div>
                 <div class="screen2CharacterDiv" id="_screen2CharDiv3">
                     <div class="screen2Char" id="_screen2Char3">
-                        <img class="screen2CharImg" src="../img/png/characters/shoot3.png" alt="">
+                        <img class="screen2CharImg" src="./assets/img/png/characters/shoot3.png" alt="">
                     </div>
                     <div class="sreen2CharTitle" id="_screen2Char3Stats">LEGIONARIO</div>
                 </div>
                 <div class="screen2CharacterDiv" id="_screen2CharDiv4">
                     <div class="screen2Char" id="_screen2Char4">
-                        <img class="screen2CharImg" src="../img/png/characters/shoot4.png" alt="">
+                        <img class="screen2CharImg" src="./assets/img/png/characters/shoot4.png" alt="">
                     </div>
                     <div class="sreen2CharTitle" id="_screen2Char3Stats">SPEC OPS</div>
                 </div>
@@ -92,12 +92,47 @@
                        <h3>LIFE POINTS: ????</h3>
                 </div>
             </div>
-            <div class="screen2Difficulty" id="_screen2Difficulty" style="display: none;">
-                <div class="screen2diffTitle">SELECT YOUR DIFFICULTY</div>
-                <div class="difficulty" id="_easy">EASY</div>
-                <div class="difficulty" id="_medium">MEDIUM</div>
-                <div class="difficulty" id="_hard">HARD</div>
-                <div class="difficulty" id="_fsd">FSD BOOTCAMP</div>
+            <div class="screen2GunsDifficulty" id="_screen2GunsDifficulty" style="display: none;">
+                <div class="screen2Guns">
+                    <div class="screen2GunsTitle">SELECT YOUR GUN</div>
+                    <div class="screen2GunsList">
+                        <div class="gunName" id="desertEagle">DESERT EAGLE</div>
+                        <div class="gunName" id="mp5">MP5</div>
+                        <div class="gunName" id="aa12">AA-12</div>
+                        <div class="gunName" id="ak47">AK47</div>
+                    </div>
+                    <div class="screen2GunsImgDiv">
+                        <div class="gunDiv" id="desertEagleDiv">
+                            <div class="gunImgCircle">
+                                <img class="gunImg" src="./assets/img/desertEagle.jfif" alt="">
+                            </div>
+                        </div>
+                        <div class="gunDiv" id="mp5Div">
+                            <div class="gunImgCircle">
+                                <img class="gunImg" src="./assets/img/mp5.jfif" alt="">
+                            </div>
+                        </div>
+                        <div class="gunDiv" id="aa12Div">
+                            <div class="gunImgCircle">
+                                <img class="gunImg" src="./assets/img/aa12.jfif" alt="">
+                            </div>
+                        </div>
+                        <div class="gunDiv" id="ak47Div">
+                            <div class="gunImgCircle">
+                                <img class="gunImg" src="./assets/img/ak47.jfif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen2Difficulty">
+                    <div class="screen2diffTitle">SELECT YOUR DIFFICULTY</div>
+                    <div class="screen2DiffList">
+                        <div class="difficulty" id="_easy">EASY</div>
+                        <div class="difficulty" id="_medium">MEDIUM</div>
+                        <div class="difficulty" id="_hard">HARD</div>
+                        <div class="difficulty" id="_fsd">FSD BOOTCAMP</div>
+                    </div>
+                </div>
             </div>
             <div class="screen2NextButton">NEXT</div>
 
@@ -106,7 +141,7 @@
     <section id="screen3" class="screen3Section" style="display: none">
         <div class="topVoid shooting1" onclick="player1.show()"></div>
         <div class="character2R shooting1" id="_character2R" onclick="player1.show()">
-            <img class="character2img" id="_character2img" src="./img/png/characters/shoot2.png" alt="" style="display: block">
+            <img class="character2img" id="_character2img" src="./assets/img/png/characters/shoot2.png" alt="" style="display: block">
             <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/crouch (4).png" alt=""> -->
         </div>
         <div class="topWall shooting1" onclick="player1.show()">
@@ -130,8 +165,8 @@
         </div>
         <div class="bottomWall" id="_bottomWall" onclick="player1.hide()">
             <div class="character1R" id="_character1R">
-                <!-- <img class="character1img" src="./img/png/sequence/hero1/2X/shoot (4).png" alt=""> -->
-                <img class="character1img" id="_character1img" src="./img/png/characters/crouch1.png" alt="">
+                <!-- <img class="character1img" src="./assets/img/png/sequence/hero1/2X/shoot (4).png" alt=""> -->
+                <img class="character1img" id="_character1img" src="./assets/img/png/characters/crouch1.png" alt="">
             </div>
         </div>
     </section>

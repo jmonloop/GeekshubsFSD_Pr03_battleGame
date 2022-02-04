@@ -11,8 +11,6 @@ const pistol = {
     ammo : 15,
     //intialAmmo is used for reload() method
     initialAmmo : 15,
-    //speed of attack and loss of ammo (min800 - max50)
-    fireRate : 500
 };
 
 const mp5 = {
@@ -24,8 +22,6 @@ const mp5 = {
     ammo : 25,
     //intialAmmo is used for reload() method
     initialAmmo : 25,
-    //speed of attack and loss of ammo (min800 - max50)
-    fireRate : 100
 };
 
 const shotgun = {
@@ -37,8 +33,6 @@ const shotgun = {
     ammo : 8,
     //intialAmmo is used for reload() method
     initialAmmo : 8,
-    //speed of attack and loss of ammo (min800 - max50)
-    fireRate : 800
 };
 
 const ar15 = {
@@ -50,8 +44,6 @@ const ar15 = {
     ammo : 30,
     //intialAmmo is used for reload() method
     initialAmmo : 30,
-    //speed of attack and loss of ammo (min800 - max50)
-    fireRate : 80
 };
 
 //MOVE AND SHOOTING METHODS PRE-FUNCTIONS
@@ -93,7 +85,25 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     
 })
 
-//HIDE METHOD PRE-FUNCTIONS
+//GUN CLASS
+class Gun {
+    constructor(name, damage, ammo, initialAmmo, shootSound, reloadSound) {
+        this.name = name;
+        this.damage = damage;
+        this.ammo = ammo;
+        this.initialAmmo = initialAmmo;
+        this.shootSound = shootSound;
+        this.reloadSound = reloadSound;
+    }
+    playShoot(){
+        let shootSound = new Audio(this.shootSound);
+        shootSound.play();
+    }
+    playReload(){
+        let reloadSound = new Audio(this.reloadSound);
+        reloadSound.play();
+    }
+}
 
 
 
@@ -228,10 +238,10 @@ class Character {
 };
 
 
-let hero1src = './img/png/characters/crouch1.png'
-let hero2src = './img/png/characters/crouch2.png'
-let hero3src = './img/png/characters/crouch3.png'
-let hero4src = './img/png/characters/crouch4.png'
+let hero1src = './assets/img/png/characters/crouch1.png'
+let hero2src = './assets/img/png/characters/crouch2.png'
+let hero3src = './assets/img/png/characters/crouch3.png'
+let hero4src = './assets/img/png/characters/crouch4.png'
 
 
 

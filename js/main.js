@@ -6,7 +6,7 @@ let screen3 =document.getElementById('screen3');
 let charBckgrnd;
 //stats / difficulty divs
 let screen2Stats = document.getElementById('_screen2CharactersStats');
-let screen2Difficulty = document.getElementById('_screen2Difficulty');
+let screen2GunsDifficulty = document.getElementById('_screen2GunsDifficulty');
 // difficulties selector
 let diffEasy = document.getElementById('_easy');
 let diffMedium = document.getElementById('_medium');
@@ -34,7 +34,7 @@ document.querySelector('#screen1').addEventListener('mousedown', ()=>{
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         screen2Stats.style.display = 'none';
-        screen2Difficulty.style.display = 'flex';
+        screen2GunsDifficulty.style.display = 'flex';
     }
 })
 
