@@ -515,6 +515,16 @@ filter:alpha(opacity=40);
         .emptyStats {
             background-color: peru;
         }
+
+        .powerUpDiv {
+            height: 10%;
+            width: 10%;
+            position: absolute;
+        }
+        .powerUpImg {
+            height: 100%;
+            width: 100%; 
+        }
     .bottomWall {
         height: 40%;
         width: 100%;

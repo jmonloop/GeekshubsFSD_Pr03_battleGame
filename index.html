@@ -156,7 +156,11 @@
                 <div class="statsItem2"><span>AMMO: </span><span id="ammo2"></span></div>
             </div>
             <div class="stats emptyStats"></div>
-            <div class="stats emptyStats"></div>
+            <div class="stats emptyStats">
+                <div class="powerUpDiv" id="dEagle" draggable="true" ondragstart="drag(event)">
+                    <img class="powerUpImg" src="./assets/img/desertEagle.jfif" alt="">
+                </div>
+            </div>
             <div class="stats emptyStats"></div>
             <div class="stats" id="statsP1">
                 <div class="statsItem1"><span></span><span id="character1"></span></div>
@@ -165,7 +169,7 @@
                 <div class="statsItem1"><span>AMMO: </span><span id="ammo1"></span></div>
             </div>
         </div>
-        <div class="bottomWall" id="_bottomWall" onclick="player1.hide()">
+        <div class="bottomWall" id="_bottomWall" onclick="player1.hide()" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="character1R" id="_character1">
                 <img class="character1img" id="_character1imgHero1" src="./assets/img/01navy/crouch (1).png" alt="" style="display: none;">
                 <img class="character1img" id="_character1imgHero2" src="./assets/img/02spetnaz/crouch (1).png" alt="" style="display: none;">

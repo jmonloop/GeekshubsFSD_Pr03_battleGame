@@ -147,6 +147,34 @@ setInterval(()=>{
 
 
 
+let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
+let powerUpToLaunch;
+//RANDOM POWER-UP GENERATOR
+setInterval(()=>{
+    powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
+    launchPowerUp(powerUpToLaunch);
+    
+},minMaxRoundedRandom(10000, 30000))
+
+const launchPowerUp = () => {
+    let powerUpDiv = document.createElement('div');
+    powerUpDiv.innerHTML=""
+}
+
+
+//DRAG BASIC FUNCTIONS
+const drag = (ev) => {
+    ev.dataTransfer.setData("text", ev.currentTarget.id);
+}
+const allowDrop = (ev) => {
+    ev.preventDefault();
+}
+const drop = (ev) => {
+    ev.preventDefault();
+    let data = ev.dataTransfer.getData("text")
+}
+
+
 
 
 
@@ -160,5 +188,5 @@ setInterval(()=>{
 
 // //DATA REFRESHING
 setInterval(()=>{
-console.log(player1.attack)
+// console.log(powerUpToLaunch)
 },500)
