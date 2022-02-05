@@ -149,16 +149,26 @@ setInterval(()=>{
 
 let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
 let powerUpToLaunch;
-//RANDOM POWER-UP GENERATOR
+//LAUNCH RANDOM POWER-UP
 setInterval(()=>{
     powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
-    launchPowerUp(powerUpToLaunch);
+    launchPowerUp("dEagle");
+    // launchPowerUp(powerUpToLaunch);
     
+    setTimeout(()=>{
+        document.getElementById("powerUpZone").innerHTML="";
+    },5000)
 },minMaxRoundedRandom(10000, 30000))
+
+
 
 const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
-    powerUpDiv.innerHTML=""
+    if(powerUpToLaunch == "dEagle") {
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/desertEagle.jfif' alt=''></div>";
+        document.getElementById("powerUpZone").appendChild(powerUpDiv);
+    }
+    
 }
 
 
@@ -172,6 +182,18 @@ const allowDrop = (ev) => {
 const drop = (ev) => {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text")
+
+    if(data == "dEagle") {
+        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+    } else if(data == "mp5") {
+        gunPlayer1 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+    } else if(data == "aa12") {
+        gunPlayer1 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+    } else if(data == "ak47") {
+        gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+    }
+
+    document.getElementById("powerUpZone").innerHTML="";
 }
 
 
@@ -188,5 +210,5 @@ const drop = (ev) => {
 
 // //DATA REFRESHING
 setInterval(()=>{
-// console.log(powerUpToLaunch)
+console.log(powerUpToLaunch)
 },500)
