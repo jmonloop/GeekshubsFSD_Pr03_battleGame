@@ -31,12 +31,12 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     
     // console.log("MAX", xMaxPosition)
     // console.log (xPosition)
-    
-})
-
-document.getElementById('_bottomWall').addEventListener('mousedown',()=>{
     player1.move();
 })
+
+// document.getElementById('_bottomWall').addEventListener('mousedown',()=>{
+//     player1.move();
+// })
 
 //GUN CLASS
 class Gun {
@@ -174,6 +174,7 @@ class Character {
             gunPlayer1.ammo -=1;
             this.attack = true;
             gunPlayer1.playShoot();
+            console.log(xPosition, player2.position)
             
             if((player2.position >= xPosition*0.7)&&(player2.position <= xPosition*1.3)&& 
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)&&

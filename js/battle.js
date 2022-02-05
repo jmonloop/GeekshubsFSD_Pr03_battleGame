@@ -151,5 +151,5 @@ setInterval(()=>{
 
 // // //DATA REFRESHING
 // setInterval(()=>{
-// console.log(player1.attack);
+// console.log(xPosition, player2.position)
 // },500)
