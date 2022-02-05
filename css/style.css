@@ -26,6 +26,55 @@ cursor {
 filter:alpha(opacity=40);
 }
 
+.screen0Section {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes fade {
+    0%,100% { opacity: 0 }
+    50% { opacity: 1 }
+  }
+    .intro{
+        height: 100%;
+        width: 100%;
+
+        opacity: 1;
+        animation: fade 10s linear;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }​
+    
+    .monleone {
+        /* background-color: blue; */
+        height: 30em;
+        width: 30em;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+        #monleoneImg{
+            height: 5em;
+            width: 15em;
+
+        }
+        #geekshubsImg{
+            height: 10em;
+            width: 15em;
+        }
+
+
 .screen1Section {
     background-color: black;
     height: 100%;

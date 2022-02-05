@@ -8,6 +8,25 @@ let player2Data;
 let yTargetPosition;
 let yPosition;
 
+let mainThemeAudio = new Audio("/assets/audio/mainTheme.mp3");
+let beep = new Audio("./assets/audio/beep2.mp3")
+let selectPlayerBeep = new Audio("./assets/audio/selectPlayerBeep.mp3")
+let unselectPlayerBeep = new Audio("./assets/audio/unselectPlayerBeep.mp3")
+let dEagleSelection = new Audio("./assets/audio/DesertEagleRel.mp3");
+let mp5Selection = new Audio("./assets/audio/MP5Rel.mp3");
+let aa12Selection = new Audio("./assets/audio/shotgunRel.mp3");
+let ak47Selection = new Audio("./assets/audio/ar15Rel.mp3");
+
+//Guns audio sources
+dEagleAudio = "./assets/audio/DesertEagle.mp3"
+dEagleRelAudio = "./assets/audio/DesertEagleRel.mp3"
+mp5Audio = "./assets/audio/mp5.mp3"
+mp5RelAudio = "./assets/audio/mp5Rel.mp3"
+aa12Audio = "./assets/audio/shotgun.mp3"
+aa12RelAudio = "./assets/audio/shotgunRel.mp3"
+ak47Audio = "./assets/audio/ar15.mp3"
+ak47RelAudio = "./assets/audio/ar15Rel.mp3"
+
 document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;

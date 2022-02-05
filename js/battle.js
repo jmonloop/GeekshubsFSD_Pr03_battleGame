@@ -109,39 +109,7 @@ switch (difficultyChosen) {
 
 //SELF UPDATE VARIABLES
 setInterval(()=>{
-    //Stats during battle
-    document.getElementById('character2').innerHTML = player2.characterType;
-    document.getElementById('character1').innerHTML = player1.characterType;
-    document.getElementById('gun2').innerHTML = gunPlayer2.name;
-    document.getElementById('gun1').innerHTML = gunPlayer1.name;
-    document.getElementById('life2').innerHTML = player2.life;
-    document.getElementById('life1').innerHTML = player1.life;
-    document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
-    document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
-    //Side of the character changes when Player2 is left or right player1
-    if(player1.position < player2.position) {
-        document.getElementById('_character1').classList.replace('character1L','character1R');
-    } else if(player1.position > player2.position){
-        document.getElementById('_character1').classList.replace('character1R','character1L');
-    }
-    //Player1 shooting animation
-    if(player1.attack == true) {
-        player1ImgSrc = player1ImgSrc.replace("(1)", "(4)");
-        player1Img.src = player1ImgSrc;
-    } else if(player1.attack == false) {
-        player1ImgSrc = player1ImgSrc.replace("(4)", "(1)");
-        player1Img.src = player1ImgSrc;
-    }
-    //Player2 shooting animation
-    if(player2.attack == true) {
-        player2ImgSrc = player2ImgSrc.replace("(1)", "(4)");
-        player2Img.src = player2ImgSrc;
-    } else if(player2.attack == false) {
-        player2ImgSrc = player2ImgSrc.replace("(4)", "(1)");
-        player2Img.src = player2ImgSrc;
-    }
-    player2.attack = false;
 },50)
 
 
@@ -201,9 +169,13 @@ const timeoutXvision = () =>{
 }
 
 
-
+//Audio power-up sources
 let lifeAudio= new Audio("./assets/audio/life.mp3");
 let xVisionAudio= new Audio("./assets/audio/xVision.mp3");
+let dEagleVoice= new Audio("./assets/audio/godlikeVoice.mp3");
+let mp5Voice= new Audio("./assets/audio/perfectVoice.mp3");
+let aa12Voice= new Audio("./assets/audio/comboVoice.mp3");
+let ak47Voice= new Audio("./assets/audio/unstoppableVoice.mp3");
 
 
 const drop = (ev) => {
@@ -212,12 +184,16 @@ const drop = (ev) => {
 
     if(data == "dEagle") {
         gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+        dEagleVoice.play();
     } else if(data == "mp5") {
         gunPlayer1 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+        mp5Voice.play();
     } else if(data == "aa12") {
         gunPlayer1 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+        aa12Voice.play();
     } else if(data == "ak47") {
         gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+        ak47Voice.play();
     } else if(data == "life") {
         lifeAudio.play();
         player1.life += 500;
@@ -230,7 +206,53 @@ const drop = (ev) => {
 }
 
 
+const startBattle = () => {
 
+    setInterval(() => {
+    if(player2.life <= 0) {
+        
+    }
+
+    //SELF REFRESH VARIABLES:
+        //Stats during battle
+        document.getElementById('character2').innerHTML = player2.characterType;
+        document.getElementById('character1').innerHTML = player1.characterType;
+        document.getElementById('gun2').innerHTML = gunPlayer2.name;
+        document.getElementById('gun1').innerHTML = gunPlayer1.name;
+        document.getElementById('life2').innerHTML = player2.life;
+        document.getElementById('life1').innerHTML = player1.life;
+        document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
+        document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
+
+        //Side of the character changes when Player2 is left or right player1
+        if(player1.position < player2.position) {
+            document.getElementById('_character1').classList.replace('character1L','character1R');
+        } else if(player1.position > player2.position){
+            document.getElementById('_character1').classList.replace('character1R','character1L');
+        }
+        //Player1 shooting animation
+        if(player1.attack == true) {
+            player1ImgSrc = player1ImgSrc.replace("(1)", "(4)");
+            player1Img.src = player1ImgSrc;
+        } else if(player1.attack == false) {
+            player1ImgSrc = player1ImgSrc.replace("(4)", "(1)");
+            player1Img.src = player1ImgSrc;
+        }
+        //Player2 shooting animation
+        if(player2.attack == true) {
+            player2ImgSrc = player2ImgSrc.replace("(1)", "(4)");
+            player2Img.src = player2ImgSrc;
+        } else if(player2.attack == false) {
+            player2ImgSrc = player2ImgSrc.replace("(4)", "(1)");
+            player2Img.src = player2ImgSrc;
+        }
+        player2.attack = false;
+
+
+    }, 100);
+
+    
+}
 
 
 
