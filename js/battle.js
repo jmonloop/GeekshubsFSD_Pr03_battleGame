@@ -1,36 +1,102 @@
 
 
-let AIhiding;
-let AImoving;
-let AIminAccuracy=30;
 
-const difficulty = () => {
+
+const AIdifficulty = () => {
 switch (difficultyChosen) {
     case "easy" :
-        player2.characterType = "Navy Seal"
-        AIhiding = 800;
-        AImoving = 1000;
+        //AI movement ratio
+        setInterval(()=>{
+            player2.move();
+        }, 2000);
+        //AI hiding ratio
+        setInterval(()=>{
+            let value = Math.round(Math.random());
+            if(value == 0) {
+                player2.hide();
+            } else player2.show();
+        },1000); 
+        //AI shooting ratio
+        setInterval(()=>{
+            if(player2.covered == false) {
+                player2.shooting();
+            }
+            if(player2.ammo == 0) {
+                player2.hide();
+            } 
+            },1500) 
         AIminAccuracy = 30;
     break;
 
     case "medium" :
-        player2.characterType = "Spetnaz"
-        AIhiding = 700;
-        AImoving = 800;
-        AIminAccuracy = 40;
-    break;
-
-    case "hard" :
-        player2.characterType = "Legionario"
-        AIhiding = 700;
-        AImoving = 800;
+        //AI movement ratio
+        setInterval(()=>{
+            player2.move();
+        }, 2000);
+        //AI hiding ratio
+        setInterval(()=>{
+            let value = Math.round(Math.random());
+            if(value == 0) {
+                player2.hide();
+            } else player2.show();
+        },1000); 
+        //AI shooting ratio
+        setInterval(()=>{
+            if(player2.covered == false) {
+                player2.shooting();
+            }
+            if(player2.ammo == 0) {
+                player2.hide();
+            } 
+            },400) 
         AIminAccuracy = 60;
     break;
 
+    case "hard" :
+        //AI movement ratio
+        setInterval(()=>{
+            player2.move();
+        }, 1500);
+        //AI hiding ratio
+        setInterval(()=>{
+            let value = Math.round(Math.random());
+            if(value == 0) {
+                player2.hide();
+            } else player2.show();
+        },800); 
+        //AI shooting ratio
+        setInterval(()=>{
+            if(player2.covered == false) {
+                player2.shooting();
+            }
+            if(player2.ammo == 0) {
+                player2.hide();
+            } 
+            },200) 
+        AIminAccuracy = 70;
+    break;
+
     case "fsd" :
-        player2.characterType = "Special Ops"
-        AIhiding = 600;
-        AImoving = 500;
+        //AI movement ratio
+        setInterval(()=>{
+            player2.move();
+        }, 800);
+        //AI hiding ratio
+        setInterval(()=>{
+            let value = Math.round(Math.random());
+            if(value == 0) {
+                player2.hide();
+            } else player2.show();
+        },500); 
+        //AI shooting ratio
+        setInterval(()=>{
+            if(player2.covered == false) {
+                player2.shooting();
+            }
+            if(player2.ammo == 0) {
+                player2.hide();
+            } 
+            },500) 
         AIminAccuracy = 80;
     break;
 }
@@ -69,30 +135,51 @@ document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
 
 
-    //AI MOVEMENT INTERVAL
-    setInterval(()=>{
-        player2.move();
-    },1000); //AImoving
-
-    //AI HIDING INTERVAL
-    let hideOrShow = false
-    setInterval(()=>{
-        let value = Math.round(Math.random());
-        if(value == 0) {
-            player2.hide();
-        } else player2.show();
-    },500); // // AIhiding
+    // // AI MOVEMENT INTERVAL
+    // setInterval(()=>{
+    //     player2.move();
+    // }, 2000); //AImoving
+    // //AI MOVEMENT INTERVAL
+    // setInterval(()=>{
+    //     player2.move();
+    //     console.log(AImoving);
+    // }, AImoving); //AImoving
 
 
-    //AI SHOOTING INTERVAL
-setInterval(()=>{
-    if(player2.covered == false) {
-        player2.shooting();
-    }
-    if(player2.ammo == 0) {
-        player2.hide();
-    } 
-    },100)
+    // // AI HIDING INTERVAL
+    // setInterval(()=>{
+    //     let value = Math.round(Math.random());
+    //     if(value == 0) {
+    //         player2.hide();
+    //     } else player2.show();
+    // },1000); 
+    // // AIhiding    //AI HIDING INTERVAL
+    // setInterval(()=>{
+    //     let value = Math.round(Math.random());
+    //     if(value == 0) {
+    //         player2.hide();
+    //     } else player2.show();
+    // },AIhiding); // AIhiding
+
+
+//     // AI SHOOTING INTERVAL
+// setInterval(()=>{
+//     if(player2.covered == false) {
+//         player2.shooting();
+//     }
+//     if(player2.ammo == 0) {
+//         player2.hide();
+//     } 
+//     },1500)    
+//     //AI SHOOTING INTERVAL
+// setInterval(()=>{
+//     if(player2.covered == false) {
+//         player2.shooting();
+//     }
+//     if(player2.ammo == 0) {
+//         player2.hide();
+//     } 
+//     },AIshooting)
 
 
 
@@ -108,11 +195,6 @@ setInterval(()=>{
 
 
 // //DATA REFRESHING
-// setInterval(()=>{
-// console.log("P1", player1);
-// console.log("P2", player2);
-
-
-
-
-// },500)
+setInterval(()=>{
+console.log(typeof(AIhiding));
+},500)

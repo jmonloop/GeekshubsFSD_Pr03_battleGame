@@ -41,6 +41,14 @@ let diffMedium = document.getElementById('_medium');
 let diffHard = document.getElementById('_hard');
 let diffFsd = document.getElementById('_fsd');
 let difficultyChosen;
+
+//AI difficulty parameters:
+let AIhiding;
+let AImoving;
+let AIshooting;
+let AIminAccuracy=30;
+
+
 //players initalitation
 let player1;
 let player2;
@@ -134,6 +142,7 @@ document.querySelector('#_easy').addEventListener('mousedown', ()=>{
         difficultyChosen = "easy"
         gunPlayer2 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         player2 = new Character(2, "Navy Seal", 1000, gunPlayer2, 0);
+        AIdifficulty();
     } else if(difficultyChosen != undefined) {
         diffEasy.style.color = 'black';
         diffMedium.style.color = 'black';
@@ -150,6 +159,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
         difficultyChosen = "medium"
         gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         player2 = new Character(2, "Spetnaz", 1200, gunPlayer2, 0);
+        AIdifficulty();
     } else if(difficultyChosen != undefined) {
         diffMedium.style.color = 'black';
         diffEasy.style.color = 'black';
@@ -166,6 +176,7 @@ document.querySelector('#_hard').addEventListener('mousedown', ()=>{
         difficultyChosen = "hard"
         gunPlayer2 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         player2 = new Character(2, "Legionario", 2000, gunPlayer2, 100);
+        AIdifficulty();
     } else if(difficultyChosen != undefined) {
         diffHard.style.color = 'black';
         diffMedium.style.color = 'black';
@@ -182,6 +193,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
         difficultyChosen = "fsd"
         gunPlayer2 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         player2 = new Character(2, "Special Ops", 2500, gunPlayer2, 100);
+        AIdifficulty();
     } else if(difficultyChosen != undefined) {
         diffFsd.style.color = 'black';
         diffMedium.style.color = 'black';
@@ -219,26 +231,24 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
             player1Img.style.display = 'block';
         }
 
-
-            //Player2 character generation
-            if(player2.characterType == "Navy Seal") {
-                player2Img = document.getElementById('_character2imgHero1');
-                player2ImgSrc = player2Img.src;
-                player2Img.style.display = 'block';
-            } else if(player2.characterType == "Spetnaz") {
-                player2Img = document.getElementById('_character2imgHero2');
-                player2ImgSrc = player2Img.src;
-                player2Img.style.display = 'block';
-            } else if(player2.characterType == "Legionario") {
-                player2Img = document.getElementById('_character2imgHero3');
-                player2ImgSrc = player2Img.src;
-                player2Img.style.display = 'block';
-            } else if(player2.characterType == "Special Ops") {
-                player2Img = document.getElementById('_character2imgHero4');
-                player2ImgSrc = player2Img.src;
-                player2Img.style.display = 'block';
-            }
-
+        //Player2 character generation
+        if(player2.characterType == "Navy Seal") {
+            player2Img = document.getElementById('_character2imgHero1');
+            player2ImgSrc = player2Img.src;
+            player2Img.style.display = 'block';
+        } else if(player2.characterType == "Spetnaz") {
+            player2Img = document.getElementById('_character2imgHero2');
+            player2ImgSrc = player2Img.src;
+            player2Img.style.display = 'block';
+        } else if(player2.characterType == "Legionario") {
+            player2Img = document.getElementById('_character2imgHero3');
+            player2ImgSrc = player2Img.src;
+            player2Img.style.display = 'block';
+        } else if(player2.characterType == "Special Ops") {
+            player2Img = document.getElementById('_character2imgHero4');
+            player2ImgSrc = player2Img.src;
+            player2Img.style.display = 'block';
+        }
     }
 })
 
