@@ -152,13 +152,12 @@ let powerUpToLaunch;
 //LAUNCH RANDOM POWER-UP
 setInterval(()=>{
     powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
-    launchPowerUp("dEagle");
-    // launchPowerUp(powerUpToLaunch);
+    launchPowerUp(powerUpToLaunch);
     
     setTimeout(()=>{
         document.getElementById("powerUpZone").innerHTML="";
     },5000)
-},minMaxRoundedRandom(10000, 30000))
+},minMaxRoundedRandom(1000, 5000))
 
 
 
@@ -166,9 +165,18 @@ const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
     if(powerUpToLaunch == "dEagle") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/desertEagle.jfif' alt=''></div>";
-        document.getElementById("powerUpZone").appendChild(powerUpDiv);
+    } else if(powerUpToLaunch == "mp5") {
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='mp5' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/mp5.jfif' alt=''></div>";
+    } else if(powerUpToLaunch == "aa12") {
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='aa12' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/aa12.jfif' alt=''></div>";
+    } else if(powerUpToLaunch == "ak47") {
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='ak47' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/ak47.jfif' alt=''></div>";
+    } else if(powerUpToLaunch == "life") {
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='life' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/life.png' alt=''></div>";
+    } else if(powerUpToLaunch == "xVision") {
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xVision.png' alt=''></div>";
     }
-    
+    document.getElementById("powerUpZone").appendChild(powerUpDiv);
 }
 
 
@@ -191,8 +199,12 @@ const drop = (ev) => {
         gunPlayer1 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
     } else if(data == "ak47") {
         gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
-    }
+    } else if(data == "life") {
+        player1.life += 500;
+    } else if(data == "xVision") {
 
+        
+    }
     document.getElementById("powerUpZone").innerHTML="";
 }
 
@@ -208,7 +220,7 @@ const drop = (ev) => {
 
 
 
-// //DATA REFRESHING
-setInterval(()=>{
-console.log(powerUpToLaunch)
-},500)
+// // //DATA REFRESHING
+// setInterval(()=>{
+// console.log(powerUpToLaunch)
+// },500)
