@@ -31,13 +31,12 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     
     // console.log("MAX", xMaxPosition)
     // console.log (xPosition)
-
-    player1.move();
-
     
 })
 
-
+document.getElementById('_bottomWall').addEventListener('mousedown',()=>{
+    player1.move();
+})
 
 //GUN CLASS
 class Gun {
@@ -171,7 +170,7 @@ class Character {
             gunPlayer1.ammo -=1;
             gunPlayer1.playShoot();
             if((player2.position >= xPosition*0.7)&&(player2.position <= xPosition*1.3)&& 
-            (yTargetPosition >= yPosition * 0.4)&&(yTargetPosition <= yPosition*1.3)&&
+            (yTargetPosition >= yPosition * 0.3)&&(yTargetPosition <= yPosition*1.3)&&
             (!player2.covered)) {
                 player2.life -= gunPlayer1.damage;
             }
