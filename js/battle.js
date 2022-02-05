@@ -150,10 +150,10 @@ let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
 let powerUpToLaunch;
 //LAUNCH RANDOM POWER-UP
 setInterval(()=>{
-    powerUpToLaunch = "xVision";
-    // powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
+    // powerUpToLaunch = "life";
+    powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
     launchPowerUp(powerUpToLaunch);
-},minMaxRoundedRandom(8000, 15000))
+},minMaxRoundedRandom(1000, 2000))
 
 
 
@@ -200,6 +200,12 @@ const timeoutXvision = () =>{
     }, 5000)
 }
 
+
+
+let lifeAudio= new Audio("./assets/audio/life.mp3");
+let xVisionAudio= new Audio("./assets/audio/xVision.mp3");
+
+
 const drop = (ev) => {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text")
@@ -213,8 +219,10 @@ const drop = (ev) => {
     } else if(data == "ak47") {
         gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
     } else if(data == "life") {
+        lifeAudio.play();
         player1.life += 500;
     } else if(data == "xVision") {
+        xVisionAudio.play();
         setXvision()
         timeoutXvision();
     }

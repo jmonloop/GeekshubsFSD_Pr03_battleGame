@@ -183,11 +183,11 @@ class Character {
             this.attack = true;
             gunPlayer1.playShoot();
 
-            
             if((player2.position >= xPosition*0.7)&&(player2.position <= xPosition*1.3)&& 
-            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)&&
-            (!player2.covered)) {
-                player2.life -= gunPlayer1.damage;
+            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)) {
+                if((!player2.covered)||(xVision)) {
+                    player2.life -= gunPlayer1.damage;
+                }
             }
             
         } else if((this.player == 2)&&(!this.covered)&&(gunPlayer2.ammo > 0)){

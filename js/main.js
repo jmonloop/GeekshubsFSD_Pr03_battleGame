@@ -85,6 +85,8 @@ ak47Audio = "./assets/audio/ar15.mp3"
 ak47RelAudio = "./assets/audio/ar15Rel.mp3"
 
 
+
+
 //Select gun
 document.querySelector('#desertEagleDiv').addEventListener('mousedown', ()=>{
     if((player1 != undefined)&&(gunPlayer1 == undefined)) {
