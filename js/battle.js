@@ -113,6 +113,9 @@ setInterval(()=>{
 document.getElementById('character2').innerHTML = player2.characterType;
 document.getElementById('character1').innerHTML = player1.characterType;
 
+document.getElementById('gun2').innerHTML = gunPlayer2.name;
+document.getElementById('gun1').innerHTML = gunPlayer1.name;
+
 document.getElementById('life2').innerHTML = player2.life;
 document.getElementById('life1').innerHTML = player1.life;
 
