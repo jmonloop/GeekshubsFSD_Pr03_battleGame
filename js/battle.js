@@ -142,7 +142,6 @@ setInterval(()=>{
         player2Img.src = player2ImgSrc;
     }
     player2.attack = false;
-    //Player 1 crouch animation
 },50)
 
 
@@ -151,13 +150,10 @@ let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
 let powerUpToLaunch;
 //LAUNCH RANDOM POWER-UP
 setInterval(()=>{
-    powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
+    powerUpToLaunch = "xVision";
+    // powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
     launchPowerUp(powerUpToLaunch);
-    
-    setTimeout(()=>{
-        document.getElementById("powerUpZone").innerHTML="";
-    },5000)
-},minMaxRoundedRandom(1000, 5000))
+},minMaxRoundedRandom(8000, 15000))
 
 
 
@@ -174,9 +170,12 @@ const launchPowerUp = () => {
     } else if(powerUpToLaunch == "life") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='life' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/life.png' alt=''></div>";
     } else if(powerUpToLaunch == "xVision") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xVision.png' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xVision.jpg' alt=''></div>";
     }
     document.getElementById("powerUpZone").appendChild(powerUpDiv);
+    setTimeout(()=>{
+        document.getElementById("powerUpZone").innerHTML="";
+    },5000)
 }
 
 
@@ -187,6 +186,20 @@ const drag = (ev) => {
 const allowDrop = (ev) => {
     ev.preventDefault();
 }
+
+const setXvision =()=>{
+    document.getElementById('_topWall').classList.add('xVision');
+    xVision = true;
+}
+
+const timeoutXvision = () =>{
+    setTimeout(()=>{
+        document.getElementById('_topWall').classList.remove('xVision');
+        player2ImgSrc = player2ImgSrc.replace("crouch", "shoot");
+        xVision = false;
+    }, 5000)
+}
+
 const drop = (ev) => {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text")
@@ -202,8 +215,8 @@ const drop = (ev) => {
     } else if(data == "life") {
         player1.life += 500;
     } else if(data == "xVision") {
-
-        
+        setXvision()
+        timeoutXvision();
     }
     document.getElementById("powerUpZone").innerHTML="";
 }

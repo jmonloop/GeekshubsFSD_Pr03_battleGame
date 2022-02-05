@@ -35,9 +35,7 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     return xPosition;
 })
 
-// document.getElementById('_bottomWall').addEventListener('mousedown',()=>{
-//     player1.move();
-// })
+
 
 //GUN CLASS
 class Gun {
@@ -61,7 +59,7 @@ class Gun {
 }
 
 
-
+let xVision;
 
 
 //SHOOTING METHOD PRE-FUNCTIONS
@@ -142,7 +140,14 @@ class Character {
             
         } else if (this.player == 2) {
             if(this.covered == false) {
-                player2Img.style.display = "none";
+                if(!xVision) {
+                    player2Img.style.display = "none";
+                } else if(xVision) {
+                    player2ImgSrc = player2ImgSrc.replace("shoot", "crouch");
+                    player2Img.src = player2ImgSrc;
+                }
+                 
+
                 gunPlayer2.ammo = gunPlayer2.initialAmmo;
                 gunPlayer2.playReload();
                 this.covered = true;
