@@ -213,6 +213,8 @@ const startBattle = () => {
         
     }
 
+    console.log(player2.position, xPosition)
+
     //SELF REFRESH VARIABLES:
         //Stats during battle
         document.getElementById('character2').innerHTML = player2.characterType;
