@@ -5,11 +5,11 @@
 const AIdifficulty = () => {
 switch (difficultyChosen) {
     case "easy" :
-        //AI movement ratio
+        // AI movement ratio
         setInterval(()=>{
             player2.move();
         }, 2000);
-        //AI hiding ratio
+        // AI hiding ratio
         setInterval(()=>{
             let value = Math.round(Math.random());
             if(value == 0) {
@@ -24,8 +24,8 @@ switch (difficultyChosen) {
             if(player2.ammo == 0) {
                 player2.hide();
             } 
-            },1500) 
-        AIminAccuracy = 30;
+            },800) 
+        AIminAccuracy = 50;
     break;
 
     case "medium" :
@@ -121,6 +121,7 @@ document.getElementById('life1').innerHTML = player1.life;
 
 document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
 document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
+
 },200)
 
 
@@ -142,5 +143,6 @@ document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
 // //DATA REFRESHING
 setInterval(()=>{
-console.log(typeof(AIhiding));
+console.log("P1", console.log(player1.position));
+console.log("P2", console.log(player2.position));
 },500)

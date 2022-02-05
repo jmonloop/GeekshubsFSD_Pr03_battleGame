@@ -150,11 +150,12 @@ class Character {
         if(xPosition < 1) xPosition = 1;
         
         //-150 is for centering the image to the click
-        player2.position = xPosition;
+        // player2.position = xPosition;
         
         if(this.player == 1) {
             if(this.covered==true) {
                 document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+                this.position = xPosition -150;
             }
             
         } else if (this.player == 2) {
@@ -169,8 +170,8 @@ class Character {
         if((this.player == 1)&&(!this.covered)&&(gunPlayer1.ammo > 0)) {
             gunPlayer1.ammo -=1;
             gunPlayer1.playShoot();
-            if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)&& 
-            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)&&
+            if((player2.position >= xPosition*0.7)&&(player2.position <= xPosition*1.3)&& 
+            (yTargetPosition >= yPosition * 0.4)&&(yTargetPosition <= yPosition*1.3)&&
             (!player2.covered)) {
                 player2.life -= gunPlayer1.damage;
             }
