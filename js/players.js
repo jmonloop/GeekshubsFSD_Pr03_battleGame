@@ -80,14 +80,15 @@ const minMaxRoundedRandom = (min, max) => {
 }
 
 
-
+let player1Img;
+let player1ImgSrc;
 
 
 
 //Declaration of Character
 class Character {
 
-    constructor(player, characterType, life, gun, stamina, position, src) {
+    constructor(player, characterType, life, gun, position) {
         //Player defines who owns the character (1=user, 2=AI);
         this.player = player;
         //Name of the differente characters
@@ -96,12 +97,9 @@ class Character {
         this.life = life;
         //gun is inherited from the object gun
         this.gun = gun;
-        //stamina determines how quickly the character gets out of cover (min0-max100)
-        this.stamina = stamina;
         //position defines which position is the character when gets out of cover
         this.position = position;
-        //src sets the png image for animating the character
-        this.src = src;
+
 
 
         this.attack = false;
@@ -111,8 +109,6 @@ class Character {
     show(){
         if(this.player == 1) {
             if(this.covered === true) {
-                let player1Img = document.getElementById('_character1img');
-                let player1ImgSrc = player1Img.src;
                 player1ImgSrc = player1ImgSrc.replace("crouch", "shoot");
                 player1Img.src = player1ImgSrc;
     
@@ -128,14 +124,11 @@ class Character {
     //Hides and reloads ammo when click on the player1 wall
     hide(){
         if(this.player == 1) {
-            if(this.covered == false) {
-                let player1Img = document.getElementById('_character1img');
-                let player1ImgSrc = player1Img.src;
-                player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
-                player1Img.src = player1ImgSrc;
-                gunPlayer1.ammo = gunPlayer1.initialAmmo;
-                this.covered = true;
-            }
+            player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
+            player1Img.src = player1ImgSrc;
+            gunPlayer1.ammo = gunPlayer1.initialAmmo;
+            this.covered = true;
+            
         } else if (this.player == 2) {
             if(this.covered == false) {
                 document.getElementById('_character2img').style.display = "none";
@@ -188,12 +181,6 @@ class Character {
         }
     }
 };
-
-
-let hero1src = './assets/img/png/characters/crouch1.png'
-let hero2src = './assets/img/png/characters/crouch2.png'
-let hero3src = './assets/img/png/characters/crouch3.png'
-let hero4src = './assets/img/png/characters/crouch4.png'
 
 
 
