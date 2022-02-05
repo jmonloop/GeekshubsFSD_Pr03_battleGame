@@ -32,6 +32,7 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     // console.log("MAX", xMaxPosition)
     // console.log (xPosition)
     player1.move();
+    return xPosition;
 })
 
 // document.getElementById('_bottomWall').addEventListener('mousedown',()=>{
@@ -68,6 +69,8 @@ class Gun {
 document.querySelectorAll('.shooting1').forEach(item =>{
     item.addEventListener("mousedown", (e)=>{
         if((e.button === 0)) {
+            xPosition = e.clientX;
+            yPosition = e.clientY;
             player1.shooting();
         }
     });
@@ -159,10 +162,11 @@ class Character {
             if(this.covered==true) {
                 document.getElementById("_character1").style.left= (xPosition -150) +"px";
                 this.position = xPosition -150;
+                console.log(xPosition, player2.position)
             }
             
         } else if (this.player == 2) {
-            this.position = Math.random()*1000;
+            this.position = minMaxRoundedRandom(1,xMaxPosition);
             if(player2.position < 1) player2.position = 1;
             if(player2.position > xMaxPosition) player2.position = xMaxPosition;
             document.getElementById("_character2").style.left= (player2.position) + "px";
