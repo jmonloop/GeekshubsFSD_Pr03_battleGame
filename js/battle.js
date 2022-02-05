@@ -107,12 +107,12 @@ setInterval(()=>{
 
 
 
-//DATA REFRESHING
-setInterval(()=>{
-console.log("P1", player1);
-console.log("P2", player2);
+// //DATA REFRESHING
+// setInterval(()=>{
+// console.log("P1", player1);
+// console.log("P2", player2);
 
 
 
 
-},500)
+// },500)

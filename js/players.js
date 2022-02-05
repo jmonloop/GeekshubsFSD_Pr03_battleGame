@@ -37,6 +37,8 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     
 })
 
+
+
 //GUN CLASS
 class Gun {
     constructor(name, damage, ammo, initialAmmo, img, shootSound, reloadSound) {
@@ -129,12 +131,14 @@ class Character {
             player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
             player1Img.src = player1ImgSrc;
             gunPlayer1.ammo = gunPlayer1.initialAmmo;
+            gunPlayer1.playReload();
             this.covered = true;
             
         } else if (this.player == 2) {
             if(this.covered == false) {
                 player2Img.style.display = "none";
                 gunPlayer2.ammo = gunPlayer2.initialAmmo;
+                gunPlayer2.playReload();
                 this.covered = true;
             }
         }
@@ -164,6 +168,7 @@ class Character {
     shooting = () => {
         if((this.player == 1)&&(!this.covered)&&(gunPlayer1.ammo > 0)) {
             gunPlayer1.ammo -=1;
+            gunPlayer1.playShoot();
             if((player2.position >= xPosition*0.2)&&(player2.position <= xPosition*1.5)&& 
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.5)&&
             (!player2.covered)) {
@@ -172,9 +177,8 @@ class Character {
             
         } else if((this.player == 2)&&(!this.covered)&&(gunPlayer2.ammo > 0)){
             gunPlayer2.ammo -=1;
-            // console.log('ok');
+            gunPlayer2.playShoot();
             if(player1.covered== false) {
-                // console.log('ok');
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                 if(AIaccuracy > 80) {
                     player1.life -= gunPlayer2.damage;
