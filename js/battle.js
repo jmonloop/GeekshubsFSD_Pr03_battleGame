@@ -127,10 +127,22 @@ setInterval(()=>{
     }
 
   if(player1.attack == true) {
-    player1ImgSrc = player1ImgSrc.replace("shoot1", "shoot12");
+    player1ImgSrc = player1ImgSrc.replace("(1)", "(4)");
+    player1Img.src = player1ImgSrc;
+  } else if(player1.attack == false) {
+    player1ImgSrc = player1ImgSrc.replace("(4)", "(1)");
+    player1Img.src = player1ImgSrc;
   }
 
-},200)
+  if(player2.attack == true) {
+    player2ImgSrc = player2ImgSrc.replace("(1)", "(4)");
+    player2Img.src = player2ImgSrc;
+  } else if(player2.attack == false) {
+    player2ImgSrc = player2ImgSrc.replace("(4)", "(1)");
+    player2Img.src = player2ImgSrc;
+  }
+  player2.attack = false;
+},50)
 
 
 
@@ -145,11 +157,7 @@ setInterval(()=>{
 
 
 
-
-
-
-
-// // //DATA REFRESHING
-// setInterval(()=>{
-// console.log(xPosition, player2.position)
-// },500)
+// //DATA REFRESHING
+setInterval(()=>{
+console.log(player1.attack)
+},500)

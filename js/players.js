@@ -162,7 +162,6 @@ class Character {
             if(this.covered==true) {
                 document.getElementById("_character1").style.left= (xPosition -150) +"px";
                 this.position = xPosition -150;
-                console.log(xPosition, player2.position)
             }
             
         } else if (this.player == 2) {
@@ -178,18 +177,18 @@ class Character {
             gunPlayer1.ammo -=1;
             this.attack = true;
             gunPlayer1.playShoot();
-            console.log(xPosition, player2.position)
+
             
             if((player2.position >= xPosition*0.7)&&(player2.position <= xPosition*1.3)&& 
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)&&
             (!player2.covered)) {
                 player2.life -= gunPlayer1.damage;
-                
             }
             
         } else if((this.player == 2)&&(!this.covered)&&(gunPlayer2.ammo > 0)){
             gunPlayer2.ammo -=1;
             gunPlayer2.playShoot();
+            this.attack = true;
             if(player1.covered== false) {
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                 if(AIaccuracy > 80) {
