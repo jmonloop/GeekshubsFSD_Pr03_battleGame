@@ -269,7 +269,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
 //PLAYER SELECTION
 document.querySelector('#_screen2Char1').addEventListener('mousedown', ()=>{
     if(player1 == undefined) {
-        player1 = new Character(1, "Navy Seal", 1000, gunPlayer1, 0);
+        player1 = new Character(1, "Navy Seal", 1200, gunPlayer1, 0);
         charBckgrnd = document.getElementById('_screen2Char1');
         charBckgrnd = document.getElementById('_screen2CharDiv1');
         charBckgrnd.style.backgroundColor="blue";
@@ -280,7 +280,7 @@ document.querySelector('#_screen2Char1').addEventListener('mousedown', ()=>{
 })
 document.querySelector('#_screen2Char2').addEventListener('mousedown', ()=>{
     if(player1 == undefined) {
-        player1 = new Character(1, "Spetnaz", 1200, gunPlayer1, 0);
+        player1 = new Character(1, "Spetnaz", 1500, gunPlayer1, 0);
         charBckgrnd = document.getElementById('_screen2Char2');
         charBckgrnd = document.getElementById('_screen2CharDiv2');
         charBckgrnd.style.backgroundColor="blue";
@@ -302,7 +302,7 @@ document.querySelector('#_screen2Char3').addEventListener('mousedown', ()=>{
 })
 document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
     if(player1 == undefined) {
-        player1 = new Character(1, "Special Ops", 1000, gunPlayer1, 100);
+        player1 = new Character(1, "Special Ops", 2500, gunPlayer1, 100);
         charBckgrnd = document.getElementById('_screen2Char4');
         charBckgrnd = document.getElementById('_screen2CharDiv4');
         charBckgrnd.style.backgroundColor="blue";

@@ -107,27 +107,28 @@ switch (difficultyChosen) {
 
 
 
-
+//SELF UPDATE VARIABLES
 setInterval(()=>{
-    //STATS INTIALITATION:
-document.getElementById('character2').innerHTML = player2.characterType;
-document.getElementById('character1').innerHTML = player1.characterType;
+    //Stats during battle
+    document.getElementById('character2').innerHTML = player2.characterType;
+    document.getElementById('character1').innerHTML = player1.characterType;
+    document.getElementById('gun2').innerHTML = gunPlayer2.name;
+    document.getElementById('gun1').innerHTML = gunPlayer1.name;
+    document.getElementById('life2').innerHTML = player2.life;
+    document.getElementById('life1').innerHTML = player1.life;
+    document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
+    document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
-document.getElementById('gun2').innerHTML = gunPlayer2.name;
-document.getElementById('gun1').innerHTML = gunPlayer1.name;
+    //Side of the character changes when Player2 is left or right player1
+    if(player1.position < player2.position) {
+        document.getElementById('_character1').classList.replace('character1L','character1R');
+    } else if(player1.position > player2.position){
+        document.getElementById('_character1').classList.replace('character1R','character1L');
+    }
 
-document.getElementById('life2').innerHTML = player2.life;
-document.getElementById('life1').innerHTML = player1.life;
-
-document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
-document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
-
-
-if(player1.position < player2.position) {
-    document.getElementById('_character1').classList.replace('character1L','character1R');
-} else if(player1.position > player2.position){
-    document.getElementById('_character1').classList.replace('character1R','character1L');
-}
+  if(player1.attack == true) {
+    player1ImgSrc = player1ImgSrc.replace("shoot1", "shoot12");
+  }
 
 },200)
 
@@ -150,6 +151,5 @@ if(player1.position < player2.position) {
 
 // // //DATA REFRESHING
 // setInterval(()=>{
-// console.log("P1",player1.position);
-// console.log("P2",player2.position);
+// console.log(player1.attack);
 // },500)

@@ -72,6 +72,10 @@ document.querySelectorAll('.shooting1').forEach(item =>{
         }
     });
 });
+document.getElementById('screen3').addEventListener("mouseup", (e)=>{
+    player1.attack = false;
+});
+
 
 //PLAYER2 (AI) SHOOTING PRE-METHOD
 let AIaccuracy = 0;
@@ -168,11 +172,14 @@ class Character {
     shooting = () => {
         if((this.player == 1)&&(!this.covered)&&(gunPlayer1.ammo > 0)) {
             gunPlayer1.ammo -=1;
+            this.attack = true;
             gunPlayer1.playShoot();
+            
             if((player2.position >= xPosition*0.7)&&(player2.position <= xPosition*1.3)&& 
-            (yTargetPosition >= yPosition * 0.3)&&(yTargetPosition <= yPosition*1.3)&&
+            (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)&&
             (!player2.covered)) {
                 player2.life -= gunPlayer1.damage;
+                
             }
             
         } else if((this.player == 2)&&(!this.covered)&&(gunPlayer2.ammo > 0)){
