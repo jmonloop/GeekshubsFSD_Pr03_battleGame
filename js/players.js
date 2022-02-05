@@ -131,7 +131,7 @@ class Character {
             player1ImgSrc = player1ImgSrc.replace("shoot", "crouch");
             player1Img.src = player1ImgSrc;
             gunPlayer1.ammo = gunPlayer1.initialAmmo;
-            gunPlayer1.playReload();
+            if(this.covered == false) gunPlayer1.playReload();
             this.covered = true;
             
         } else if (this.player == 2) {
