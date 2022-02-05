@@ -141,7 +141,7 @@ document.querySelector('#_easy').addEventListener('mousedown', ()=>{
         diffEasy.style.color = 'green';
         difficultyChosen = "easy"
         gunPlayer2 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
-        player2 = new Character(2, "Navy Seal", 1000, gunPlayer2, 0);
+        player2 = new Character(2, "Navy Seal", 1200, gunPlayer2, 0);
         AIdifficulty();
     } else if(difficultyChosen != undefined) {
         diffEasy.style.color = 'black';
@@ -158,7 +158,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
         diffMedium.style.color = 'yellow';
         difficultyChosen = "medium"
         gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
-        player2 = new Character(2, "Spetnaz", 1200, gunPlayer2, 0);
+        player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 0);
         AIdifficulty();
     } else if(difficultyChosen != undefined) {
         diffMedium.style.color = 'black';

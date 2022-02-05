@@ -12,6 +12,13 @@ body {
 
     overflow: hidden;
     cursor:url('../assets/img/sight.cur'), pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 cursor {
@@ -90,12 +97,7 @@ filter:alpha(opacity=40);
     .screen2Main {
         background-color: grey;
         height: 100vw;
-        width: 98vw;
-
-        border-style: solid;
-        border-color: rgb(0, 0, 0);
-
-        border-width: 1vw;
+        width: 100vw;
 
         display: flex;
         flex-direction: column;
@@ -115,10 +117,7 @@ filter:alpha(opacity=40);
         .screen2Characters{
             background-color: black;
             /* background-image: url(../assets/img/brickPlayerTexture.png); */
-            border-style: solid;
-            border-width: 1%;
-            border-color: black;
-            height: 50%;
+            height: 40%;
             width: 80%;
 
             display: flex;
