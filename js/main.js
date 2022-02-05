@@ -171,7 +171,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
         diffFsd.style.color = 'red';
         difficultyChosen = "fsd"
         gunPlayer2 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', './assets/audio/aa12.mp3', './assets/audio/aa12Rel.mp3');
-        player2 = new Character(2, "Legionario", 2000, gunPlayer2, 100);
+        player2 = new Character(2, "Special Ops", 2500, gunPlayer2, 100);
     } else if(difficultyChosen != undefined) {
         diffFsd.style.color = 'black';
         diffMedium.style.color = 'black';
@@ -190,6 +190,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
         screen2.style.display = 'none';
         screen3.style.display = 'flex';
 
+        //Player1 character generation
         if(player1.characterType == "Navy Seal") {
             player1Img = document.getElementById('_character1imgHero1');
             player1ImgSrc = player1Img.src;
@@ -207,6 +208,27 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
             player1ImgSrc = player1Img.src;
             player1Img.style.display = 'block';
         }
+
+
+            //Player2 character generation
+            if(player2.characterType == "Navy Seal") {
+                player2Img = document.getElementById('_character2imgHero1');
+                player2ImgSrc = player2Img.src;
+                player2Img.style.display = 'block';
+            } else if(player2.characterType == "Spetnaz") {
+                player2Img = document.getElementById('_character2imgHero2');
+                player2ImgSrc = player2Img.src;
+                player2Img.style.display = 'block';
+            } else if(player2.characterType == "Legionario") {
+                player2Img = document.getElementById('_character2imgHero3');
+                player2ImgSrc = player2Img.src;
+                player2Img.style.display = 'block';
+            } else if(player2.characterType == "Special Ops") {
+                player2Img = document.getElementById('_character2imgHero4');
+                player2ImgSrc = player2Img.src;
+                player2Img.style.display = 'block';
+            }
+
     }
 })
 

@@ -79,9 +79,11 @@ const minMaxRoundedRandom = (min, max) => {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-
+//Character generation variables declaration:
 let player1Img;
 let player1ImgSrc;
+let player2Img;
+let player2ImgSrc;
 
 
 
@@ -115,7 +117,7 @@ class Character {
                 this.covered = false;
             }
         } else if (this.player == 2) {
-            document.getElementById('_character2img').style.display = "block";
+            player2Img.style.display = "block";
             this.covered = false;
         }
 
@@ -131,7 +133,7 @@ class Character {
             
         } else if (this.player == 2) {
             if(this.covered == false) {
-                document.getElementById('_character2img').style.display = "none";
+                player2Img.style.display = "none";
                 gunPlayer2.ammo = gunPlayer2.initialAmmo;
                 this.covered = true;
             }
