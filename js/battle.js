@@ -122,6 +122,13 @@ document.getElementById('life1').innerHTML = player1.life;
 document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
 document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
+
+if(player1.position < player2.position) {
+    document.getElementById('_character1').classList.replace('character1L','character1R');
+} else if(player1.position > player2.position){
+    document.getElementById('_character1').classList.replace('character1R','character1L');
+}
+
 },200)
 
 
@@ -141,8 +148,8 @@ document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
 
 
-// //DATA REFRESHING
-setInterval(()=>{
-console.log("P1", console.log(player1.position));
-console.log("P2", console.log(player2.position));
-},500)
+// // //DATA REFRESHING
+// setInterval(()=>{
+// console.log("P1",player1.position);
+// console.log("P2",player2.position);
+// },500)

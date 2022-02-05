@@ -13,7 +13,7 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
     xMinPosition = 1;
 
-    player2Data = document.querySelector('.character2R').getBoundingClientRect();
+    player2Data = document.getElementById('_character2').getBoundingClientRect();
     yTargetPosition = player2Data.top + 50;
     yPosition = e.clientY;
 
@@ -154,7 +154,7 @@ class Character {
         
         if(this.player == 1) {
             if(this.covered==true) {
-                document.getElementById("_character1R").style.left= (xPosition -150) +"px";
+                document.getElementById("_character1").style.left= (xPosition -150) +"px";
                 this.position = xPosition -150;
             }
             
@@ -162,7 +162,7 @@ class Character {
             this.position = Math.random()*1000;
             if(player2.position < 1) player2.position = 1;
             if(player2.position > xMaxPosition) player2.position = xMaxPosition;
-            document.getElementById("_character2R").style.left= (player2.position) + "px";
+            document.getElementById("_character2").style.left= (player2.position) + "px";
         }
     }
 
