@@ -125,23 +125,24 @@ setInterval(()=>{
     } else if(player1.position > player2.position){
         document.getElementById('_character1').classList.replace('character1R','character1L');
     }
-
-  if(player1.attack == true) {
-    player1ImgSrc = player1ImgSrc.replace("(1)", "(4)");
-    player1Img.src = player1ImgSrc;
-  } else if(player1.attack == false) {
-    player1ImgSrc = player1ImgSrc.replace("(4)", "(1)");
-    player1Img.src = player1ImgSrc;
-  }
-
-  if(player2.attack == true) {
-    player2ImgSrc = player2ImgSrc.replace("(1)", "(4)");
-    player2Img.src = player2ImgSrc;
-  } else if(player2.attack == false) {
-    player2ImgSrc = player2ImgSrc.replace("(4)", "(1)");
-    player2Img.src = player2ImgSrc;
-  }
-  player2.attack = false;
+    //Player1 shooting animation
+    if(player1.attack == true) {
+        player1ImgSrc = player1ImgSrc.replace("(1)", "(4)");
+        player1Img.src = player1ImgSrc;
+    } else if(player1.attack == false) {
+        player1ImgSrc = player1ImgSrc.replace("(4)", "(1)");
+        player1Img.src = player1ImgSrc;
+    }
+    //Player2 shooting animation
+    if(player2.attack == true) {
+        player2ImgSrc = player2ImgSrc.replace("(1)", "(4)");
+        player2Img.src = player2ImgSrc;
+    } else if(player2.attack == false) {
+        player2ImgSrc = player2ImgSrc.replace("(4)", "(1)");
+        player2Img.src = player2ImgSrc;
+    }
+    player2.attack = false;
+    //Player 1 crouch animation
 },50)
 
 
