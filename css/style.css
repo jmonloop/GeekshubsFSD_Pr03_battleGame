@@ -103,6 +103,8 @@ filter:alpha(opacity=40);
         align-items: center;
     }   
         .screen2Title {
+            height: 10%;
+
             font-family: 'ICBM SS-25', sans-serif;
             font-family: 'ICBM SS-20', sans-serif;
             font-size: 3vw;
@@ -150,7 +152,6 @@ filter:alpha(opacity=40);
                         width: 100%;
                     }
                 .sreen2CharTitle {
-                    /* background-color: chartreuse; */
                     height: 10%;
                     width: 100%;
 
@@ -168,7 +169,7 @@ filter:alpha(opacity=40);
                 }
         .screen2CharactersStats{
             /* background-color: yellow; */
-            height: 50%;
+            height: 40%;
             width: 80%;
 
             display: flex;
@@ -176,9 +177,83 @@ filter:alpha(opacity=40);
             justify-content: space-evenly;
             
         }
+        #screen2Character1Stats {
+            border-style: double;
+            /* border-color: rgb(41, 41, 231); */
+            background-color: rgb(75, 83, 32);
+            height: 100%;
+            width: 20%;
+            border-radius: 10%;
+
+            display: flex;
+            flex-direction: column;
+            text-align:center;
+            align-items: center;
+
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+
+            font-size: 1.3vw;
+        }
+        #screen2Character2Stats {
+            border-style: double;
+            /* border-color: rgb(41, 41, 231); */
+            background-color: rgb(75, 83, 32);
+            height: 100%;
+            width: 20%;
+            border-radius: 10%;
+
+            display: flex;
+            flex-direction: column;
+            text-align:center;
+            align-items: center;
+
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+
+            font-size: 1.3vw;
+        }
+        #screen2Character3Stats {
+            border-style: double;
+            /* border-color: rgb(41, 41, 231); */
+            background-color: rgb(75, 83, 32);
+            height: 100%;
+            width: 20%;
+            border-radius: 10%;
+
+            display: flex;
+            flex-direction: column;
+            text-align:center;
+            align-items: center;
+
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+
+            font-size: 1.3vw;
+        }
+        #screen2Character4Stats {
+            border-style: double;
+            /* border-color: rgb(41, 41, 231); */
+            background-color: rgb(75, 83, 32);
+            height: 100%;
+            width: 20%;
+            border-radius: 10%;
+
+            display: flex;
+            flex-direction: column;
+            text-align:center;
+            align-items: center;
+
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+
+            font-size: 1.3vw;
+        }
+
+
         .screen2GunsDifficulty {
             /* background-color: brown; */
-            height: 50%;
+            height: 40%;
             width: 80%;
 
             display: flex;
@@ -327,78 +402,7 @@ filter:alpha(opacity=40);
 
 
 
-            #screen2Character1Stats {
-                border-style: double;
-                /* border-color: rgb(41, 41, 231); */
-                background-color: rgb(75, 83, 32);
-                height: 100%;
-                width: 20%;
-                border-radius: 10%;
 
-                display: flex;
-                flex-direction: column;
-                text-align:center;
-                align-items: center;
-
-                font-family: 'ICBM SS-25', sans-serif;
-                font-family: 'ICBM SS-20', sans-serif;
-
-                font-size: 1.3vw;
-            }
-            #screen2Character2Stats {
-                border-style: double;
-                /* border-color: rgb(41, 41, 231); */
-                background-color: rgb(75, 83, 32);
-                height: 100%;
-                width: 20%;
-                border-radius: 10%;
-
-                display: flex;
-                flex-direction: column;
-                text-align:center;
-                align-items: center;
-
-                font-family: 'ICBM SS-25', sans-serif;
-                font-family: 'ICBM SS-20', sans-serif;
-
-                font-size: 1.3vw;
-            }
-            #screen2Character3Stats {
-                border-style: double;
-                /* border-color: rgb(41, 41, 231); */
-                background-color: rgb(75, 83, 32);
-                height: 100%;
-                width: 20%;
-                border-radius: 10%;
-
-                display: flex;
-                flex-direction: column;
-                text-align:center;
-                align-items: center;
-
-                font-family: 'ICBM SS-25', sans-serif;
-                font-family: 'ICBM SS-20', sans-serif;
-
-                font-size: 1.3vw;
-            }
-            #screen2Character4Stats {
-                border-style: double;
-                /* border-color: rgb(41, 41, 231); */
-                background-color: rgb(75, 83, 32);
-                height: 100%;
-                width: 20%;
-                border-radius: 10%;
-
-                display: flex;
-                flex-direction: column;
-                text-align:center;
-                align-items: center;
-
-                font-family: 'ICBM SS-25', sans-serif;
-                font-family: 'ICBM SS-20', sans-serif;
-
-                font-size: 1.3vw;
-            }
             
         .screen2NextButton {
             /* background-color: violet; */
