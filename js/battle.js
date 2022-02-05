@@ -126,63 +126,6 @@ document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
 
 
-// //PLAYERS INITIALITATION
-// let player1 = new Character(1, "Navy Seal", 1000, pistol, 100, 0, hero1src);
-// let player2 = new Character(2, "Spetnaz", 1000, mp5, 100, 0, hero2src);
-// let player3 = new Character(3, "Legionario", 1000, shotgun, 0, 100, hero3src);
-// let player4 = new Character(4, "Special Ops", 1000, ar15, 0, 100, hero4src);
-
-
-
-
-    // // AI MOVEMENT INTERVAL
-    // setInterval(()=>{
-    //     player2.move();
-    // }, 2000); //AImoving
-    // //AI MOVEMENT INTERVAL
-    // setInterval(()=>{
-    //     player2.move();
-    //     console.log(AImoving);
-    // }, AImoving); //AImoving
-
-
-    // // AI HIDING INTERVAL
-    // setInterval(()=>{
-    //     let value = Math.round(Math.random());
-    //     if(value == 0) {
-    //         player2.hide();
-    //     } else player2.show();
-    // },1000); 
-    // // AIhiding    //AI HIDING INTERVAL
-    // setInterval(()=>{
-    //     let value = Math.round(Math.random());
-    //     if(value == 0) {
-    //         player2.hide();
-    //     } else player2.show();
-    // },AIhiding); // AIhiding
-
-
-//     // AI SHOOTING INTERVAL
-// setInterval(()=>{
-//     if(player2.covered == false) {
-//         player2.shooting();
-//     }
-//     if(player2.ammo == 0) {
-//         player2.hide();
-//     } 
-//     },1500)    
-//     //AI SHOOTING INTERVAL
-// setInterval(()=>{
-//     if(player2.covered == false) {
-//         player2.shooting();
-//     }
-//     if(player2.ammo == 0) {
-//         player2.hide();
-//     } 
-//     },AIshooting)
-
-
-
 
 
 

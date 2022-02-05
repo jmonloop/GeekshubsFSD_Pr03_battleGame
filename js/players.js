@@ -107,7 +107,7 @@ class Character {
 
 
         this.attack = false;
-        this.covered = false;
+        this.covered = true;
     }
 
     show(){
