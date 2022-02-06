@@ -184,16 +184,16 @@ const drop = (ev) => {
     let data = ev.dataTransfer.getData("text")
 
     if(data == "dEagle") {
-        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         dEagleVoice.play();
     } else if(data == "mp5") {
-        gunPlayer1 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+        gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         mp5Voice.play();
     } else if(data == "aa12") {
-        gunPlayer1 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+        gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         aa12Voice.play();
     } else if(data == "ak47") {
-        gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+        gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         ak47Voice.play();
     } else if(data == "life") {
         lifeAudio.play();
@@ -239,12 +239,13 @@ const startBattle = () => {
         document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
         document.getElementById('ammo1').innerHTML = gunPlayer1.ammo;
 
-        //Side of the character changes when Player2 is left or right player1
-        if(player1.position < player2.position) {
-            document.getElementById('_character1').classList.replace('character1L','character1R');
-        } else if(player1.position > player2.position){
-            document.getElementById('_character1').classList.replace('character1R','character1L');
+        //Side of the character2 changes when Player1 is left or right Player2
+        if(player1.position > player2.position) {
+            document.getElementById('_character2').classList.replace('character2L','character2R');
+        } else if(player1.position < player2.position){
+            document.getElementById('_character2').classList.replace('character2R','character2L');
         }
+
         //Player1 shooting animation
         if(player1.attack == true) {
             player1ImgSrc = player1ImgSrc.replace("(1)", "(4)");
@@ -267,13 +268,13 @@ const startBattle = () => {
 
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
-                gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
             } else if(AIpowerUp == "mp5") {
-                gunPlayer2 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+                gunPlayer2 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
             } else if(AIpowerUp == "aa12") {
-                gunPlayer2 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+                gunPlayer2 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
             } else if(AIpowerUp == "ak47") {
-                gunPlayer2 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+                gunPlayer2 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
             } else if(AIpowerUp == "life") {
                 player2.life += 500;
             } else if(AIpowerUp == "xVision") {
@@ -304,7 +305,15 @@ const startBattle = () => {
 
 
 
-
+        //Side of character1 follows mouse
+        window.addEventListener('mousemove', (e)=>{
+            console.log(e.clientX, player1.position)
+            if(e.clientX < player1.position){
+                document.getElementById('_character1').classList.replace('character1R','character1L');
+            } else if(e.clientX > player1.position){
+                document.getElementById('_character1').classList.replace('character1L','character1R');
+            }
+        })
 
 
 
