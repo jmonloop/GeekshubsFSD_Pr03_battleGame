@@ -226,7 +226,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
         gunPlayer2 = undefined;
     }
 })
-
+let screen3active;
 let playVoice= new Audio("./assets/audio/playVoice.mp3");
 //Screen 2 to Screen3: Select gun, difficulty and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
@@ -234,9 +234,11 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if((difficultyChosen != undefined)&&(gunPlayer1 != undefined)) {
         screen2.style.display = 'none';
         screen3.style.display = 'flex';
+        if(player2.characterType == "Special Ops")document.getElementById('cheat').style.display='block';
         beep.play();
         playVoice.play();
         startBattle();
+        screen3active = true;
 
         //Player1 character generation
         if(player1.characterType == "Navy Seal") {

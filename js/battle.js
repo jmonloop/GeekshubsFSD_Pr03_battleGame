@@ -288,18 +288,18 @@ const startBattle = () => {
 
         }
 
-        //Secret for killing ghost
+
+    }, 100);
+}
+
+        //Cheat for killing player2
         window.addEventListener('keydown', (event)=>{
-            if((event.key = 'Enter')&&(!ask)){
+            if((event.keyCode = 13)&&(!ask)&&(screen3active)){
                 passtry = prompt('Good try but you can do it better..');
                 checkPassword(passtry);
                 ask = true;
             }
         })
-    }, 100);
-}
-
-
 
 
 
