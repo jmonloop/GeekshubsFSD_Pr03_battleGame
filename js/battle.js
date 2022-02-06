@@ -80,14 +80,14 @@ switch (difficultyChosen) {
         //AI movement ratio
         setInterval(()=>{
             player2.move();
-        }, 800);
+        }, 900);
         //AI hiding ratio
         setInterval(()=>{
             let value = Math.round(Math.random());
             if(value == 0) {
                 player2.hide();
             } else player2.show();
-        },500); 
+        },800); 
         //AI shooting ratio
         setInterval(()=>{
             if(player2.covered == false) {
@@ -107,21 +107,13 @@ switch (difficultyChosen) {
 
 
 
-//SELF UPDATE VARIABLES
-setInterval(()=>{
 
-},50)
-
-
-
-let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
-let powerUpToLaunch;
 //LAUNCH RANDOM POWER-UP
 setInterval(()=>{
-    // powerUpToLaunch = "life";
+    // powerUpToLaunch = "dEagle";
     powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
     launchPowerUp(powerUpToLaunch);
-},minMaxRoundedRandom(1000, 2000))
+},minMaxRoundedRandom(10000, 30000))
 
 
 
@@ -141,8 +133,11 @@ const launchPowerUp = () => {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xVision.jpg' alt=''></div>";
     }
     document.getElementById("powerUpZone").appendChild(powerUpDiv);
+    powerUpPresent = true;
+
     setTimeout(()=>{
         document.getElementById("powerUpZone").innerHTML="";
+        // powerUpPresent = false;
     },5000)
 }
 
@@ -162,9 +157,13 @@ const setXvision =()=>{
 
 const timeoutXvision = () =>{
     setTimeout(()=>{
-        document.getElementById('_topWall').classList.remove('xVision');
-        player2ImgSrc = player2ImgSrc.replace("crouch", "shoot");
-        xVision = false;
+        if(!xVisionAI){
+            document.getElementById('_topWall').classList.remove('xVision');
+            player2ImgSrc = player2ImgSrc.replace("crouch", "shoot");
+            xVision = false;
+        } else {
+            xVisionAI == false;
+        }
     }, 5000)
 }
 
@@ -176,6 +175,7 @@ let dEagleVoice= new Audio("./assets/audio/godlikeVoice.mp3");
 let mp5Voice= new Audio("./assets/audio/perfectVoice.mp3");
 let aa12Voice= new Audio("./assets/audio/comboVoice.mp3");
 let ak47Voice= new Audio("./assets/audio/unstoppableVoice.mp3");
+let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
 
 
 const drop = (ev) => {
@@ -202,18 +202,18 @@ const drop = (ev) => {
         setXvision()
         timeoutXvision();
     }
+    powerUpPresent = false;
     document.getElementById("powerUpZone").innerHTML="";
 }
 
-
+let xVisionAI;
 const startBattle = () => {
 
     setInterval(() => {
-    if(player2.life <= 0) {
-        
-    }
-
-    console.log(player2.position, xPosition)
+        if(player2.life <= 0) {
+            
+        }
+        console.log(player2.position, xPosition)
 
     //SELF REFRESH VARIABLES:
         //Stats during battle
@@ -251,9 +251,27 @@ const startBattle = () => {
         player2.attack = false;
 
 
-    }, 100);
 
-    
+        if(AIgotPowerUp){
+            if(AIpowerUp == "dEagle") {
+                gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+            } else if(AIpowerUp == "mp5") {
+                gunPlayer2 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+            } else if(AIpowerUp == "aa12") {
+                gunPlayer2 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+            } else if(AIpowerUp == "ak47") {
+                gunPlayer2 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+            } else if(AIpowerUp == "life") {
+                player2.life += 500;
+            } else if(AIpowerUp == "xVision") {
+                xVisionAI = true;
+                timeoutXvision()
+            }
+            humilationVoice.play();
+            AIgotPowerUp = false;
+            AIpowerUp = "powerUpToLaunch";
+        }
+    }, 100);
 }
 
 

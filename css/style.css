@@ -567,6 +567,23 @@ filter:alpha(opacity=40);
             background-color: peru;
         }
 
+        @keyframes getPowerUp{
+            0% {transform: translateY(0em);}
+            10% {z-index: 10;}
+            25% {transform: translateY(-10em);}
+            50% {transform: translateY(-20em);}
+            60% {transform: translateY(-30em);}
+            100% {transform: translateY(-40em);}
+
+            
+
+        }
+
+        .getPowerUp {
+            animation: getPowerUp 5s;
+        }
+
+
         .powerUpDiv {
             height: 10%;
             width: 10%;

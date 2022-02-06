@@ -8,6 +8,12 @@ let player2Data;
 let yTargetPosition;
 let yPosition;
 
+let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
+let powerUpToLaunch;
+let powerUpPresent;
+let AIgotPowerUp;
+let AIpowerUp;
+
 let mainThemeAudio = new Audio("/assets/audio/mainTheme.mp3");
 let beep = new Audio("./assets/audio/beep2.mp3")
 let selectPlayerBeep = new Audio("./assets/audio/selectPlayerBeep.mp3")
@@ -144,6 +150,12 @@ class Character {
         } else if (this.player == 2) {
             player2Img.style.display = "block";
             this.covered = false;
+            if((powerUpPresent)&&(AIaccuracy > 80)){
+                document.querySelector('.powerUpDiv').classList.toggle('getPowerUp');
+                AIgotPowerUp = true;
+                AIpowerUp = powerUpToLaunch;
+                powerUpPresent = false;
+            }
         }
 
     }
@@ -214,7 +226,7 @@ class Character {
             gunPlayer2.ammo -=1;
             gunPlayer2.playShoot();
             this.attack = true;
-            if(player1.covered== false) {
+            if((player1.covered== false)||(xVisionAI)) {
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                 if(AIaccuracy > 80) {
                     player1.life -= gunPlayer2.damage;
