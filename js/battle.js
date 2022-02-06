@@ -176,6 +176,7 @@ let mp5Voice= new Audio("./assets/audio/perfectVoice.mp3");
 let aa12Voice= new Audio("./assets/audio/comboVoice.mp3");
 let ak47Voice= new Audio("./assets/audio/unstoppableVoice.mp3");
 let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
+let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
 
 
 const drop = (ev) => {
@@ -206,6 +207,18 @@ const drop = (ev) => {
     document.getElementById("powerUpZone").innerHTML="";
 }
 
+
+
+const password = "geekshubsacademy";
+let passtry ="";
+let ask;
+const checkPassword = (elmnt) => {
+    if(elmnt === password){
+        player2.life = 10;
+        ludicrousVoice.play();
+    } else ask = false;
+
+}
 let xVisionAI;
 const startBattle = () => {
 
@@ -270,9 +283,22 @@ const startBattle = () => {
             humilationVoice.play();
             AIgotPowerUp = false;
             AIpowerUp = "powerUpToLaunch";
+
+            
+
         }
+
+        //Secret for killing ghost
+        window.addEventListener('keydown', (event)=>{
+            if((event.key = 'Enter')&&(!ask)){
+                passtry = prompt('Good try but you can do it better..');
+                checkPassword(passtry);
+                ask = true;
+            }
+        })
     }, 100);
 }
+
 
 
 

@@ -33,6 +33,8 @@ aa12RelAudio = "./assets/audio/shotgunRel.mp3"
 ak47Audio = "./assets/audio/ar15.mp3"
 ak47RelAudio = "./assets/audio/ar15Rel.mp3"
 
+
+
 document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
     xPosition = e.clientX;
