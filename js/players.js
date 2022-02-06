@@ -44,8 +44,6 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     yTargetPosition = player2Data.top + 50;
     yPosition = e.clientY;
 
-    // console.log("REAL", e.clientY);
-    // console.log("Data", player2Data);
 
     //X position limitation depending on the screen width (custom break points)
     if(screen.width > 1936) xMaxPosition = screen.width * 0.80;
@@ -56,8 +54,7 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     if((screen.width > 1436)&&(screen.width <= 1536)) xMaxPosition = screen.width * 0.94;
     if(screen.width <= 1436) xMaxPosition = screen.width * 0.99;
     
-    // console.log("MAX", xMaxPosition)
-    // console.log (xPosition)
+
     player1.move();
     return xPosition;
 })

@@ -178,7 +178,8 @@ let ak47Voice= new Audio("./assets/audio/unstoppableVoice.mp3");
 let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
 let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
 
-
+let gunPicked;
+let AIgunPicked;
 const drop = (ev) => {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text")
@@ -186,15 +187,19 @@ const drop = (ev) => {
     if(data == "dEagle") {
         gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         dEagleVoice.play();
+        gunPicked=true;
     } else if(data == "mp5") {
         gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         mp5Voice.play();
+        gunPicked=true;
     } else if(data == "aa12") {
         gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         aa12Voice.play();
+        gunPicked=true;
     } else if(data == "ak47") {
         gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         ak47Voice.play();
+        gunPicked=true;
     } else if(data == "life") {
         lifeAudio.play();
         player1.life += 500;
@@ -221,19 +226,23 @@ const checkPassword = (elmnt) => {
 }
 let xVisionAI;
 const startBattle = () => {
-
+//SELF REFRESH VARIABLES:
     setInterval(() => {
         if(player2.life <= 0) {
-            
+            stopBattle();
         }
-        console.log(player2.position, xPosition)
 
-    //SELF REFRESH VARIABLES:
+    
         //Stats during battle
         document.getElementById('character2').innerHTML = player2.characterType;
         document.getElementById('character1').innerHTML = player1.characterType;
-        document.getElementById('gun2').innerHTML = gunPlayer2.name;
-        document.getElementById('gun1').innerHTML = gunPlayer1.name;
+        if(AIgunPicked){
+            document.getElementById('gun2').innerHTML = (gunPlayer2.name + " ★");
+        } else document.getElementById('gun2').innerHTML = gunPlayer2.name;
+        
+        if(gunPicked){
+            document.getElementById('gun1').innerHTML = (gunPlayer1.name + " ★");
+        } else document.getElementById('gun1').innerHTML = gunPlayer1.name;
         document.getElementById('life2').innerHTML = player2.life;
         document.getElementById('life1').innerHTML = player1.life;
         document.getElementById('ammo2').innerHTML = gunPlayer2.ammo;
@@ -269,12 +278,16 @@ const startBattle = () => {
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
                 gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+                AIgunPicked = true;
             } else if(AIpowerUp == "mp5") {
                 gunPlayer2 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+                AIgunPicked = true;
             } else if(AIpowerUp == "aa12") {
                 gunPlayer2 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+                AIgunPicked = true;
             } else if(AIpowerUp == "ak47") {
                 gunPlayer2 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+                AIgunPicked = true;
             } else if(AIpowerUp == "life") {
                 player2.life += 500;
             } else if(AIpowerUp == "xVision") {
@@ -307,7 +320,6 @@ const startBattle = () => {
 
         //Side of character1 follows mouse
         window.addEventListener('mousemove', (e)=>{
-            console.log(e.clientX, player1.position)
             if(e.clientX < player1.position){
                 document.getElementById('_character1').classList.replace('character1R','character1L');
             } else if(e.clientX > player1.position){
@@ -318,7 +330,7 @@ const startBattle = () => {
 
 
 
-// // //DATA REFRESHING
-// setInterval(()=>{
-// console.log(powerUpToLaunch)
-// },500)
+// //DATA REFRESHING
+setInterval(()=>{
+console.log(gunPicked)
+},500)

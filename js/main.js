@@ -357,6 +357,3 @@ document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
 
 
 
-// setInterval(() => {
-//     console.log(difficultyChosen)
-// }, 500);
