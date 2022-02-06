@@ -3,6 +3,7 @@ let screen0 = document.getElementById('screen0');
 let screen1 =document.getElementById('screen1');
 let screen2 =document.getElementById('screen2');
 let screen3 =document.getElementById('screen3');
+let screen4 =document.getElementById('screen4');
 
 
 const goToScreen1 = () => {

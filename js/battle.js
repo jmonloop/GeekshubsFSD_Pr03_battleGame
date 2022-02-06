@@ -2,106 +2,6 @@
 
 
 
-const AIdifficulty = () => {
-switch (difficultyChosen) {
-    case "easy" :
-        // AI movement ratio
-        setInterval(()=>{
-            player2.move();
-        }, 2000);
-        // AI hiding ratio
-        setInterval(()=>{
-            let value = Math.round(Math.random());
-            if(value == 0) {
-                player2.hide();
-            } else player2.show();
-        },1000); 
-        //AI shooting ratio
-        setInterval(()=>{
-            if(player2.covered == false) {
-                player2.shooting();
-            }
-            if(player2.ammo == 0) {
-                player2.hide();
-            } 
-            },800) 
-        AIminAccuracy = 50;
-    break;
-
-    case "medium" :
-        //AI movement ratio
-        setInterval(()=>{
-            player2.move();
-        }, 2000);
-        //AI hiding ratio
-        setInterval(()=>{
-            let value = Math.round(Math.random());
-            if(value == 0) {
-                player2.hide();
-            } else player2.show();
-        },1000); 
-        //AI shooting ratio
-        setInterval(()=>{
-            if(player2.covered == false) {
-                player2.shooting();
-            }
-            if(player2.ammo == 0) {
-                player2.hide();
-            } 
-            },400) 
-        AIminAccuracy = 60;
-    break;
-
-    case "hard" :
-        //AI movement ratio
-        setInterval(()=>{
-            player2.move();
-        }, 1500);
-        //AI hiding ratio
-        setInterval(()=>{
-            let value = Math.round(Math.random());
-            if(value == 0) {
-                player2.hide();
-            } else player2.show();
-        },800); 
-        //AI shooting ratio
-        setInterval(()=>{
-            if(player2.covered == false) {
-                player2.shooting();
-            }
-            if(player2.ammo == 0) {
-                player2.hide();
-            } 
-            },200) 
-        AIminAccuracy = 70;
-    break;
-
-    case "fsd" :
-        //AI movement ratio
-        setInterval(()=>{
-            player2.move();
-        }, 900);
-        //AI hiding ratio
-        setInterval(()=>{
-            let value = Math.round(Math.random());
-            if(value == 0) {
-                player2.hide();
-            } else player2.show();
-        },800); 
-        //AI shooting ratio
-        setInterval(()=>{
-            if(player2.covered == false) {
-                player2.shooting();
-            }
-            if(player2.ammo == 0) {
-                player2.hide();
-            } 
-            },500) 
-        AIminAccuracy = 80;
-    break;
-}
-}
-
 
 
 
@@ -209,7 +109,32 @@ const drop = (ev) => {
         timeoutXvision();
     }
     powerUpPresent = false;
+    statsColPU +=1;
     document.getElementById("powerUpZone").innerHTML="";
+}
+
+
+let battleRunning;
+const stopBattle = () => {
+    difficultyChosen = "stop";
+    battleRunning = false;
+    mainThemeAudio.pause();
+    mainThemeAudio.currentTime = 0;
+    screen3.style.display="none";
+    screen4.style.display="flex";
+
+    if(player2.life <= 0){
+        document.getElementById('youWin').style.display='flex'
+        document.getElementById('gamOver').style.display='none'
+    } else if(player1.life <= 0){
+        document.getElementById('gameOver').style.display='flex'
+        document.getElementById('youWin').style.display='none'
+    }
+
+    document.getElementById('accuracy').innerHTML = Math.round((statsTotalHits*100)/statsTotalShoots);
+    document.getElementById('damageReceived').innerHTML = statsDamageRec;
+    document.getElementById('damageCaused').innerHTML = statsDmageCaus;
+    document.getElementById('pickedPU').innerHTML = statsColPU;
 }
 
 
@@ -226,9 +151,10 @@ const checkPassword = (elmnt) => {
 }
 let xVisionAI;
 const startBattle = () => {
-//SELF REFRESH VARIABLES:
+    battleRunning=true;
+    //SELF REFRESH VARIABLES:
     setInterval(() => {
-        if(player2.life <= 0) {
+        if((player2.life <= 0)||(player1.life <= 0)) {
             stopBattle();
         }
 
@@ -300,8 +226,14 @@ const startBattle = () => {
 
             
 
-        }
 
+
+        }
+        if(!battleRunning){
+            
+            return
+        }
+        console.log(battleRunning)
 
     }, 100);
 }
@@ -330,7 +262,106 @@ const startBattle = () => {
 
 
 
-// //DATA REFRESHING
-setInterval(()=>{
-console.log(gunPicked)
-},500)
+const AIdifficulty = () => {
+    switch (difficultyChosen) {
+        case "easy" :
+            // AI movement ratio
+            setInterval(()=>{
+                player2.move();
+            }, 2000);
+            // AI hiding ratio
+            setInterval(()=>{
+                let value = Math.round(Math.random());
+                if(value == 0) {
+                    player2.hide();
+                } else player2.show();
+            },1000); 
+            //AI shooting ratio
+            setInterval(()=>{
+                if(player2.covered == false) {
+                    player2.shooting();
+                }
+                if(player2.ammo == 0) {
+                    player2.hide();
+                } 
+                },800) 
+            AIminAccuracy = 50;
+        break;
+
+        case "medium" :
+            //AI movement ratio
+            setInterval(()=>{
+                player2.move();
+            }, 2000);
+            //AI hiding ratio
+            setInterval(()=>{
+                let value = Math.round(Math.random());
+                if(value == 0) {
+                    player2.hide();
+                } else player2.show();
+            },1000); 
+            //AI shooting ratio
+            setInterval(()=>{
+                if(player2.covered == false) {
+                    player2.shooting();
+                }
+                if(player2.ammo == 0) {
+                    player2.hide();
+                } 
+                },400) 
+            AIminAccuracy = 60;
+        break;
+
+        case "hard" :
+            //AI movement ratio
+            setInterval(()=>{
+                player2.move();
+            }, 1500);
+            //AI hiding ratio
+            setInterval(()=>{
+                let value = Math.round(Math.random());
+                if(value == 0) {
+                    player2.hide();
+                } else player2.show();
+            },800); 
+            //AI shooting ratio
+            setInterval(()=>{
+                if(player2.covered == false) {
+                    player2.shooting();
+                }
+                if(player2.ammo == 0) {
+                    player2.hide();
+                } 
+                },200) 
+            AIminAccuracy = 70;
+        break;
+
+        case "fsd" :
+            //AI movement ratio
+            setInterval(()=>{
+                player2.move();
+            }, 900);
+            //AI hiding ratio
+            setInterval(()=>{
+                let value = Math.round(Math.random());
+                if(value == 0) {
+                    player2.hide();
+                } else player2.show();
+            },800); 
+            //AI shooting ratio
+            setInterval(()=>{
+                if(player2.covered == false) {
+                    player2.shooting();
+                }
+                if(player2.ammo == 0) {
+                    player2.hide();
+                } 
+                },500) 
+            AIminAccuracy = 80;
+        break;
+        case "stop":
+        break;
+    }
+
+    
+}

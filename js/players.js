@@ -34,6 +34,14 @@ ak47Audio = "./assets/audio/ar15.mp3"
 ak47RelAudio = "./assets/audio/ar15Rel.mp3"
 
 
+//final stats intialization
+let statsTotalShoots=0;
+let statsTotalHits=0;
+let statsDamageRec=0;
+let statsDmageCaus=0;
+let statsColPU=0;
+
+
 
 document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
@@ -212,11 +220,14 @@ class Character {
             gunPlayer1.ammo -=1;
             this.attack = true;
             gunPlayer1.playShoot();
+            statsTotalShoots +=1;
 
             if((player2.position >= xPosition*0.1)&&(player2.position <= xPosition*1.3)&& 
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)) {
                 if((!player2.covered)||(xVision)) {
                     player2.life -= gunPlayer1.damage;
+                    statsTotalHits +=1;
+                    statsDmageCaus+=gunPlayer1.damage;
                 }
             }
 
@@ -229,6 +240,7 @@ class Character {
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                 if(AIaccuracy > 80) {
                     player1.life -= gunPlayer2.damage;
+                    statsDamageRec+=gunPlayer2.damage;
                 } 
             }
         }
