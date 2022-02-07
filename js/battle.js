@@ -86,25 +86,25 @@ const drop = (ev) => {
 
     if(data == "dEagle") {
         gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
-        dEagleVoice.play();
+        if(!mute)dEagleVoice.play();
         gunPicked=true;
     } else if(data == "mp5") {
         gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
-        mp5Voice.play();
+        if(!mute)mp5Voice.play();
         gunPicked=true;
     } else if(data == "aa12") {
         gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
-        aa12Voice.play();
+        if(!mute)aa12Voice.play();
         gunPicked=true;
     } else if(data == "ak47") {
         gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
-        ak47Voice.play();
+        if(!mute)ak47Voice.play();
         gunPicked=true;
     } else if(data == "life") {
-        lifeAudio.play();
+        if(!mute)lifeAudio.play();
         player1.life += 500;
     } else if(data == "xVision") {
-        xVisionAudio.play();
+        if(!mute)xVisionAudio.play();
         setXvision()
         timeoutXvision();
     }
@@ -119,7 +119,7 @@ const stopBattle = () => {
     battleRunning = false;
     mainThemeAudio.pause();
     mainThemeAudio.currentTime = 0;
-    endBattleAudio.play();
+    if(!mute)endBattleAudio.play();
     screen3.style.display="none";
     screen4.style.display="flex";
 
@@ -145,7 +145,7 @@ let ask;
 const checkPassword = (elmnt) => {
     if(elmnt === password){
         player2.life = 10;
-        ludicrousVoice.play();
+        if(!mute)ludicrousVoice.play();
     } else ask = false;
 
 }
@@ -220,7 +220,7 @@ const startBattle = () => {
                 xVisionAI = true;
                 timeoutXvision()
             }
-            humilationVoice.play();
+            if(!mute)humilationVoice.play();
             AIgotPowerUp = false;
             AIpowerUp = "powerUpToLaunch";
 
