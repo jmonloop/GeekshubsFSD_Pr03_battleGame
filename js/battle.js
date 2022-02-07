@@ -69,14 +69,14 @@ const timeoutXvision = () =>{
 
 
 //Audio power-up sources
-let lifeAudio= new Audio("./assets/audio/life.mp3");
-let xVisionAudio= new Audio("./assets/audio/xvision.mp3");
-let dEagleVoice= new Audio("./assets/audio/godlikevoice.mp3");
-let mp5Voice= new Audio("./assets/audio/perfectvoice.mp3");
-let aa12Voice= new Audio("./assets/audio/combovoice.mp3");
-let ak47Voice= new Audio("./assets/audio/unstoppablevoice.mp3");
-let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
-let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
+let lifeAudio= new Audio("../assets/audio/life.mp3");
+let xVisionAudio= new Audio("../assets/audio/xvision.mp3");
+let dEagleVoice= new Audio("../assets/audio/godlikevoice.mp3");
+let mp5Voice= new Audio("../assets/audio/perfectvoice.mp3");
+let aa12Voice= new Audio("../assets/audio/combovoice.mp3");
+let ak47Voice= new Audio("../assets/audio/unstoppablevoice.mp3");
+let humilationVoice= new Audio("../assets/audio/humiliation.mp3");
+let ludicrousVoice= new Audio("../assets/audio/ludicrous.mp3");
 
 let gunPicked;
 let AIgunPicked;
