@@ -113,7 +113,7 @@ filter:alpha(opacity=40);
                 height: 50%;
                 width: 100%;
                 font-family: 'Exoplanet', sans-serif;
-                font-size: 5em;
+                font-size: 8vw;
 
                 display: flex;
                 flex-direction: column;
@@ -484,7 +484,7 @@ filter:alpha(opacity=40);
         height: 20%;
         width: 100%;
 
-        background-image: url('../assets/img/skyTexture.png');
+        background-image: url('../assets/img/skytexture.png');
         background-size: 10% 100%;
 
         z-index: 1;
@@ -494,7 +494,7 @@ filter:alpha(opacity=40);
         height: 10%;
         width: 100%;
         
-        background-image: url('../assets/img/brickWallTexture.png');
+        background-image: url('../assets/img/brickWalltexture.png');
         background-size: 20% 100%;
 
         z-index: 3;
@@ -597,7 +597,7 @@ filter:alpha(opacity=40);
         height: 40%;
         width: 100%;
 
-        background-image: url('../assets/img/brickPlayerTexture.png');
+        background-image: url('../assets/img/brickplayertexture.png');
     }
 
     .character1L{
