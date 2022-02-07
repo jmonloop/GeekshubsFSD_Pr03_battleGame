@@ -147,6 +147,7 @@ class Character {
 
         this.attack = false;
         this.covered = true;
+        this.hurt = false;
     }
 
     show(){
@@ -229,6 +230,7 @@ class Character {
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)) {
                 if((!player2.covered)||(xVision)) {
                     player2.life -= gunPlayer1.damage;
+                    player2.hurt = true;
                     statsTotalHits +=1;
                     statsDmageCaus+=gunPlayer1.damage;
                 }
@@ -243,6 +245,7 @@ class Character {
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
                 if(AIaccuracy > 80) {
                     player1.life -= gunPlayer2.damage;
+                    player1.hurt = true;
                     statsDamageRec+=gunPlayer2.damage;
                 } 
             }

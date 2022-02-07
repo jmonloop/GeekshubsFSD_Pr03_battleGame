@@ -201,6 +201,27 @@ const startBattle = () => {
 
 
 
+        //Player1 hurting animation
+        if(player1.hurt == true){
+            player1ImgSrc = player1ImgSrc.replace("shoot", "die");
+            player1Img.src = player1ImgSrc;
+        } else if(player1.hurt == false){
+            player1ImgSrc = player1ImgSrc.replace("die", "shoot");
+            player1Img.src = player1ImgSrc;
+        }
+        //Player2hurting animation
+        if(player2.hurt == true){
+            player2ImgSrc = player2ImgSrc.replace("shoot", "die");
+            player2Img.src = player2ImgSrc;
+        } else if(player2.hurt == false){
+            player2ImgSrc = player2ImgSrc.replace("die", "shoot");
+            player2Img.src = player2ImgSrc;
+        }
+        player1.hurt = false;
+        player2.hurt = false;
+
+
+
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
                 gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
