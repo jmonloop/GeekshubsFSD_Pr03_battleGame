@@ -113,7 +113,7 @@ const resetGame = () =>{
     battleRunning = true;
     endBattleAudio.pause();
     endBattleAudio.currentTime = 0;
-    mainThemeAudio.play();
+    if(!mute)mainThemeAudio.play();
 }
 
 //Screen1 to Screen2: Click anywhere
@@ -123,7 +123,7 @@ document.querySelector('#screen1').addEventListener('mousedown', ()=>{
     screen2GunsDifficulty.style.display = 'none';
 
     
-    mainThemeAudio.play();
+    if(!mute)mainThemeAudio.play();
 })
 
 
@@ -131,9 +131,9 @@ document.querySelector('#screen1').addEventListener('mousedown', ()=>{
 
 // Screen2 to select guns and difficulty: Select character and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
-    if(player1 == undefined) unselectPlayerBeep.play();
+    if((player1 == undefined)&&(!mute)) unselectPlayerBeep.play();
     if(player1 != undefined) {
-        beep.play();
+        if(!mute)beep.play();
         screen2Stats.style.display = 'none';
         screen2GunsDifficulty.style.display = 'flex';
     }
@@ -148,7 +148,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
 document.querySelector('#desertEagleDiv').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunDesertEagle.style.backgroundColor ='blue';
-        dEagleSelection.play();
+        if(!mute)dEagleSelection.play();
         gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         gunMp5.style.backgroundColor = 'gray';
         gunAa12.style.backgroundColor = 'gray';
@@ -158,7 +158,7 @@ document.querySelector('#desertEagleDiv').addEventListener('mousedown', ()=>{
 document.querySelector('#mp5Div').addEventListener('mousedown', ()=>{
     if(player1 != undefined){
         gunMp5.style.backgroundColor ='blue';
-        mp5Selection.play();
+        if(!mute)mp5Selection.play();
         gunPlayer1 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         gunAa12.style.backgroundColor = 'gray';
         gunAk47.style.backgroundColor = 'gray';
@@ -168,7 +168,7 @@ document.querySelector('#mp5Div').addEventListener('mousedown', ()=>{
 document.querySelector('#aa12Div').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunAa12.style.backgroundColor ='blue';
-        aa12Selection.play();
+        if(!mute)aa12Selection.play();
         gunPlayer1 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         gunDesertEagle.style.backgroundColor = 'gray';
         gunMp5.style.backgroundColor = 'gray';
@@ -178,7 +178,7 @@ document.querySelector('#aa12Div').addEventListener('mousedown', ()=>{
 document.querySelector('#ak47Div').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunAk47.style.backgroundColor ='blue';
-        ak47Selection.play();
+        if(!mute)ak47Selection.play();
         gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         gunDesertEagle.style.backgroundColor = 'gray';
         gunMp5.style.backgroundColor = 'gray';
@@ -190,7 +190,7 @@ document.querySelector('#ak47Div').addEventListener('mousedown', ()=>{
 document.querySelector('#_easy').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         diffEasy.style.color = 'green';
-        selectPlayerBeep.play()
+        if(!mute)selectPlayerBeep.play()
         difficultyChosen = "easy"
         gunPlayer2 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         player2 = new Character(2, "Navy Seal", 1200, gunPlayer2, 100);
@@ -203,7 +203,7 @@ document.querySelector('#_easy').addEventListener('mousedown', ()=>{
 document.querySelector('#_medium').addEventListener('mousedown', ()=>{
     if(player1 != undefined){
         diffMedium.style.color = 'yellow';
-        selectPlayerBeep.play()
+        if(!mute)selectPlayerBeep.play()
         difficultyChosen = "medium"
         gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 100);
@@ -216,7 +216,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
 document.querySelector('#_hard').addEventListener('mousedown', ()=>{
     if(player1 != undefined){
         diffHard.style.color = 'violet';
-        selectPlayerBeep.play()
+        if(!mute)selectPlayerBeep.play()
         difficultyChosen = "hard"
         gunPlayer2 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         player2 = new Character(2, "Legionario", 2000, gunPlayer2, 100);
@@ -229,7 +229,7 @@ document.querySelector('#_hard').addEventListener('mousedown', ()=>{
 document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         diffFsd.style.color = 'red';
-        selectPlayerBeep.play()
+        if(!mute)selectPlayerBeep.play()
         difficultyChosen = "fsd"
         gunPlayer2 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         player2 = new Character(2, "Special Ops", 2500, gunPlayer2, 100);
@@ -243,16 +243,20 @@ let screen3active;
 let playVoice= new Audio("../assets/audio/playvoice.mp3");
 //Screen 2 to Screen3: Select gun, difficulty and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
-    if((difficultyChosen == undefined)||(gunPlayer1 == undefined)) unselectPlayerBeep.play();
+    if((difficultyChosen == undefined)||(gunPlayer1 == undefined)){
+        if(!mute){
+            unselectPlayerBeep.play();
+        }
+    } 
     if((difficultyChosen != undefined)&&(gunPlayer1 != undefined)) {
         screen2.style.display = 'none';
         screen3.style.display = 'flex';
         screen3.webkitRequestFullscreen();
         if(player2.characterType == "Special Ops")document.getElementById('cheat').style.display='block';
 
-        beep.play();
-        playVoice.play();
-        startBattle();
+        if(!mute)beep.play();
+        if(!mute)playVoice.play();
+        if(!mute)startBattle();
         screen3active = true;
         ask = false;
 
@@ -321,7 +325,7 @@ document.querySelector('#_screen2Char1').addEventListener('mousedown', ()=>{
     document.getElementById('_screen2CharDiv3').style.backgroundColor="black";
     document.getElementById('_screen2Char4').style.backgroundColor="black";
     document.getElementById('_screen2CharDiv4').style.backgroundColor="black";
-    selectPlayerBeep.play()
+    if(!mute)selectPlayerBeep.play()
 })
 document.querySelector('#_screen2Char2').addEventListener('mousedown', ()=>{
     player1 = new Character(1, "Spetnaz", 1500, gunPlayer1, 0);
@@ -333,7 +337,7 @@ document.querySelector('#_screen2Char2').addEventListener('mousedown', ()=>{
     document.getElementById('_screen2CharDiv3').style.backgroundColor="black";
     document.getElementById('_screen2Char4').style.backgroundColor="black";
     document.getElementById('_screen2CharDiv4').style.backgroundColor="black";
-    selectPlayerBeep.play()
+    if(!mute)selectPlayerBeep.play()
 })
 document.querySelector('#_screen2Char3').addEventListener('mousedown', ()=>{
     player1 = new Character(1, "Legionario", 2000, gunPlayer1, 100);
@@ -345,7 +349,7 @@ document.querySelector('#_screen2Char3').addEventListener('mousedown', ()=>{
     document.getElementById('_screen2CharDiv3').style.backgroundColor="blue";
     document.getElementById('_screen2Char4').style.backgroundColor="black";
     document.getElementById('_screen2CharDiv4').style.backgroundColor="black";
-    selectPlayerBeep.play()
+    if(!mute)selectPlayerBeep.play()
 })
 document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
     player1 = new Character(1, "Special Ops", 2500, gunPlayer1, 100);
@@ -357,8 +361,26 @@ document.querySelector('#_screen2Char4').addEventListener('mousedown', ()=>{
     document.getElementById('_screen2CharDiv3').style.backgroundColor="black";
     document.getElementById('_screen2Char4').style.backgroundColor="blue";
     document.getElementById('_screen2CharDiv4').style.backgroundColor="blue";
-    selectPlayerBeep.play()
+    if(!mute)selectPlayerBeep.play()
 })
+
+let mute = false;
+const muteSound = () => {
+    if(!mute) {
+        mainThemeAudio.muted = true;
+        mainThemeAudio.pause();
+        mainThemeAudio.currentTime = 0;
+        endBattleAudio.muted = true;
+        endBattleAudio.pause();
+        endBattleAudio.currentTime = 0;
+        mute = true;
+    } else if(mute) {
+        console.log('soundOn')
+        mainThemeAudio.muted = false;
+        mainThemeAudio.play();
+        mute = false;
+    }
+}
 
 
 

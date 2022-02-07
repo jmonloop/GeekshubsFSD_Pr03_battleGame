@@ -85,11 +85,11 @@ class Gun {
     }
     playShoot(){
         let shootSound = new Audio(this.shootSound);
-        shootSound.play();
+        if(!mute)shootSound.play();
     }
     playReload(){
         let reloadSound = new Audio(this.reloadSound);
-        reloadSound.play();
+        if(!mute)reloadSound.play();
     }
 }
 

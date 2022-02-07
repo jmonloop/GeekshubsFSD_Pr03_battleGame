@@ -85,6 +85,34 @@ filter:alpha(opacity=40);
     justify-content: center;
     align-items: center;
 }
+    .options{
+        height: 5%;
+        width: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        top: 12%;
+        right: 11%
+    }
+    .options2{
+        height: 5%;
+        width: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        top: 3%;
+        right: 3%
+    }
+        .optionsImg{
+            height: 100%;
+            width: 100%;
+        }
     .screen1Main {
         background-color: grey;
         height: 80%;
