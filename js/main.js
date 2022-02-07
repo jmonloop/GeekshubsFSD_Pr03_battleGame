@@ -240,7 +240,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
     };
 });
 let screen3active;
-let playVoice= new Audio("./assets/audio/playVoice.mp3");
+let playVoice= new Audio("./assets/audio/playvoice.mp3");
 //Screen 2 to Screen3: Select gun, difficulty and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if((difficultyChosen == undefined)||(gunPlayer1 == undefined)) unselectPlayerBeep.play();
