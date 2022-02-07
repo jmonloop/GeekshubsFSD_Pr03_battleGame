@@ -64,17 +64,53 @@ let player2;
 
 
 
+const resetGame = () =>{
+    difficultyChosen = undefined;
+    gunPlayer1 = undefined;
+    gunPlayer2 = undefined;
+    player1 = undefined;
+    player2 = undefined;
+    gunPicked = false;
+    AIgunPicked = false;
+    AIgotPowerUp = false;
+    AIpowerUp
+    statsTotalShoots=0;
+    statsTotalHits=0;
+    statsDamageRec=0;
+    statsDmageCaus=0;
+    statsColPU=0;
+    screen4.style.display = 'none';
 
+    screen2.style.display = 'flex';
 
+    gunDesertEagle.style.backgroundColor = 'gray';
+    gunMp5.style.backgroundColor = 'gray';
+    gunAa12.style.backgroundColor = 'gray';
+    gunAk47.style.backgroundColor = 'gray';
+
+    diffEasy.style.color = 'black';
+    diffMedium.style.color = 'black';
+    diffHard.style.color = 'black';
+    diffFsd.style.color = 'black';
+
+    charBckgrnd.style.backgroundColor="black";
+    battleRunning = true;
+    endBattleAudio.pause();
+    endBattleAudio.currentTime = 0;
+    mainThemeAudio.play();
+}
 
 //Screen1 to Screen2: Click anywhere
 document.querySelector('#screen1').addEventListener('mousedown', ()=>{
     screen1.style.display = 'none';
     screen2.style.display = 'flex';
+    screen2GunsDifficulty.style.display = 'none';
+
     
     mainThemeAudio.play();
-
 })
+
+
 
 
 // Screen2 to select guns and difficulty: Select character and click next

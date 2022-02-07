@@ -119,6 +119,7 @@ const stopBattle = () => {
     battleRunning = false;
     mainThemeAudio.pause();
     mainThemeAudio.currentTime = 0;
+    endBattleAudio.play();
     screen3.style.display="none";
     screen4.style.display="flex";
 
