@@ -44,7 +44,7 @@ let statsDamageRec=0;
 let statsDmageCaus=0;
 let statsColPU=0;
 
-
+let xPosDifference; 
 
 document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
@@ -65,6 +65,7 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     if((screen.width > 1436)&&(screen.width <= 1536)) xMaxPosition = screen.width * 0.94;
     if(screen.width <= 1436) xMaxPosition = screen.width * 0.99;
     
+   xPosDifference = xPosition-player1.position;
 
     player1.move();
     return xPosition;
@@ -207,8 +208,30 @@ class Character {
         
         if(this.player == 1) {
             if(this.covered==true) {
-                document.getElementById("_character1").style.left= (xPosition -150) +"px";
-                this.position = xPosition -150;
+                xPosDifference = xPosDifference / 5;
+                if(xPosDifference>0){
+                    if(this.position < this.position + xPosDifference){
+                        let timeId = setInterval(()=>{
+                            document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
+                            this.position +=xPosDifference;
+                            if(this.position >= xPosition) clearInterval(timeId);
+                        },50)
+                    }
+                } else if(xPosDifference<0){
+                    if(this.position > this.position + xPosDifference){
+                        let timeId = setInterval(()=>{
+                            document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
+                            this.position +=xPosDifference;
+                            if(this.position <= xPosition) clearInterval(timeId);
+                        },50)
+                    }
+
+                }
+
+
+
+                // document.getElementById("_character1").style.left= (xPosition -150) +"px";
+                // this.position = xPosition -150;
             }
             
         } else if (this.player == 2) {
