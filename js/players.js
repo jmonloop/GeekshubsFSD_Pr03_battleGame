@@ -252,7 +252,7 @@ class Character {
 
 //cdm
 setInterval(()=>{
-    console.log(battleRunning)
+    // console.log(battleRunning)
 },100)
 
 
