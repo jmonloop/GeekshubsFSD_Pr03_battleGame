@@ -18,12 +18,15 @@ https://jmonloop.github.io/GeekshubsFSD_Ch1_consoleGame/
 
 
 ## Features 📋
-* 3 options for choose character (Fourth is locked at the beginning).
+* Point and click action game: the player only can shoot when he is unhidden but is also where he can be damaged.
+* Retro style with animated sprites that react to the mouse movement or player's position in case of the AI.
+* 3 options for choose character (fourth is locked at the beginning).
     Each of them with their own health points.
 * 4 options for choose weapon.
-    Each of them with their own stats of ammo and damage.
-* Random power-ups that improve weapon damage, increase health and even an xVision Googles that allow players to damage the enemy even if is hidden. 
-* 3 different difficulty levels with their own parameters agains the user (fourth is locked at the beginning). The AI behaviour also changes the way the enemy "steals" the spawned power-ups.
+    Each of them with their own of ammo and damage parameters.
+* Random power-ups that improve weapon damage, increase health and even an xVision googles that allow players to damage the enemy still if he is hidden.
+* Drag and drop system to take the power-ups or throw the grenades.
+* 3 different difficulty levels with their own parameters agains the user (fourth is locked at the beginning). The AI behaviour also affects the way the enemy "steals" the spawned power-ups.
 * An adittional 4th character and difficulty level achieved only when the user has defeated the first 3 characters.
 * Statistics collection when the battle ends.
 
