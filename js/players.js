@@ -1,3 +1,5 @@
+
+
 //MOVE AND SHOOTING METHODS PRE-FUNCTIONS
 //X position
 let xPosition;

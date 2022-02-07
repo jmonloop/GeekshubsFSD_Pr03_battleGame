@@ -684,7 +684,7 @@ filter:alpha(opacity=40);
                     justify-content: center;
                     align-items: center;
                 }
-@media screen and (max-width: 1200px){
+/* @media screen and (max-width: 1200px){
     .character2L {
         position: absolute;
         top: 2%;
@@ -705,4 +705,4 @@ filter:alpha(opacity=40);
         position: absolute;
         bottom: -20%;
     }
-}
+} */

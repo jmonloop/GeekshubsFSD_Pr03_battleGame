@@ -247,6 +247,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if((difficultyChosen != undefined)&&(gunPlayer1 != undefined)) {
         screen2.style.display = 'none';
         screen3.style.display = 'flex';
+        screen3.webkitRequestFullscreen();
         if(player2.characterType == "Special Ops")document.getElementById('cheat').style.display='block';
 
         beep.play();
