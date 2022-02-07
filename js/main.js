@@ -382,6 +382,16 @@ const muteSound = () => {
     }
 }
 
+let navySealDefeated = false;
+let spetnazDefeated = false;
+let legionarioDefeated = false;
+let ghost = false;
+const unblockGhost = () =>{
+    document.getElementById('_screen2Char4').style.display='flex';
+    document.getElementById('_screen2Char4Stats').style.display='flex';
+    document.getElementById('_fsd').style.display='block';
+    ghost = true;
+}
 
 
 

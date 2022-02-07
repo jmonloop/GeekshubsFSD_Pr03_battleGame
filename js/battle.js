@@ -126,6 +126,17 @@ const stopBattle = () => {
     if(player2.life <= 0){
         document.getElementById('youWin').style.display='flex'
         document.getElementById('gameOver').style.display='none'
+        //Checks characters defeated for unblock Ghost character
+        if(player2.characterType == "Navy Seal") {
+            navySealDefeated = true;
+        }else if(player2.characterType == "Spetnaz"){
+            spetnazDefeated = true;
+        }else if(player2.characterType == "Legionario") {
+            legionarioDefeated = true;
+        }
+        if((navySealDefeated)&&(spetnazDefeated)&&(legionarioDefeated)) {
+            unblockGhost();
+        }
     } else if(player1.life <= 0){
         document.getElementById('gameOver').style.display='flex'
         document.getElementById('youWin').style.display='none'
@@ -397,3 +408,6 @@ const AIdifficulty = () => {
 
 
 
+setInterval(() => {
+    console.log(navySealDefeated)
+}, 200);
