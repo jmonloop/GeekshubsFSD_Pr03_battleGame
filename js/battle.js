@@ -70,11 +70,11 @@ const timeoutXvision = () =>{
 
 //Audio power-up sources
 let lifeAudio= new Audio("./assets/audio/life.mp3");
-let xVisionAudio= new Audio("./assets/audio/xVision.mp3");
-let dEagleVoice= new Audio("./assets/audio/godlikeVoice.mp3");
-let mp5Voice= new Audio("./assets/audio/perfectVoice.mp3");
-let aa12Voice= new Audio("./assets/audio/comboVoice.mp3");
-let ak47Voice= new Audio("./assets/audio/unstoppableVoice.mp3");
+let xVisionAudio= new Audio("./assets/audio/xvision.mp3");
+let dEagleVoice= new Audio("./assets/audio/godlikevoice.mp3");
+let mp5Voice= new Audio("./assets/audio/perfectvoice.mp3");
+let aa12Voice= new Audio("./assets/audio/combovoice.mp3");
+let ak47Voice= new Audio("./assets/audio/unstoppablevoice.mp3");
 let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
 let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
 
@@ -203,7 +203,7 @@ const startBattle = () => {
 
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
-                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "mp5") {
                 gunPlayer2 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
