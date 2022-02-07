@@ -20,7 +20,7 @@ setInterval(()=>{
 const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
     if(powerUpToLaunch == "dEagle") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/desertEagle.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/deserteagle.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "mp5") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='mp5' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/mp5.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "aa12") {
@@ -30,7 +30,7 @@ const launchPowerUp = () => {
     } else if(powerUpToLaunch == "life") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='life' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/life.png' alt=''></div>";
     } else if(powerUpToLaunch == "xVision") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xVision.jpg' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xvision.jpg' alt=''></div>";
     }
     document.getElementById("powerUpZone").appendChild(powerUpDiv);
     powerUpPresent = true;
@@ -85,7 +85,7 @@ const drop = (ev) => {
     let data = ev.dataTransfer.getData("text")
 
     if(data == "dEagle") {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         dEagleVoice.play();
         gunPicked=true;
     } else if(data == "mp5") {

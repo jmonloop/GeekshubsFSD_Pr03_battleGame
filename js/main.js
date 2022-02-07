@@ -73,7 +73,8 @@ const resetGame = () =>{
     gunPicked = false;
     AIgunPicked = false;
     AIgotPowerUp = false;
-    AIpowerUp
+    xVisionAI = false;
+    
     statsTotalShoots=0;
     statsTotalHits=0;
     statsDamageRec=0;
@@ -107,6 +108,7 @@ const resetGame = () =>{
     document.getElementById('_screen2CharDiv4').style.backgroundColor="black";
 
     document.getElementById('cheat').style.display='none'
+    document.getElementById('_topWall').classList.remove('xVision');
 
     battleRunning = true;
     endBattleAudio.pause();
@@ -147,7 +149,7 @@ document.querySelector('#desertEagleDiv').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunDesertEagle.style.backgroundColor ='blue';
         dEagleSelection.play();
-        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         gunMp5.style.backgroundColor = 'gray';
         gunAa12.style.backgroundColor = 'gray';
         gunAk47.style.backgroundColor = 'gray';
@@ -203,7 +205,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
         diffMedium.style.color = 'yellow';
         selectPlayerBeep.play()
         difficultyChosen = "medium"
-        gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 100);
         AIdifficulty();
         diffEasy.style.color = 'black';

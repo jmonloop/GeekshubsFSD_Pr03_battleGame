@@ -14,8 +14,8 @@ let powerUpPresent;
 let AIgotPowerUp;
 let AIpowerUp;
 
-let mainThemeAudio = new Audio("/assets/audio/mainTheme.mp3");
-let endBattleAudio = new Audio("/assets/audio/endBattle.mp3")
+let mainThemeAudio = new Audio("./assets/audio/mainTheme.mp3");
+let endBattleAudio = new Audio("./assets/audio/endBattle.mp3")
 let beep = new Audio("./assets/audio/beep2.mp3")
 let selectPlayerBeep = new Audio("./assets/audio/selectPlayerBeep.mp3")
 let unselectPlayerBeep = new Audio("./assets/audio/unselectPlayerBeep.mp3")
