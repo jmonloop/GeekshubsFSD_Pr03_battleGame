@@ -126,7 +126,7 @@ const stopBattle = () => {
     if(player2.life <= 0){
         document.getElementById('youWin').style.display='flex'
         document.getElementById('gameOver').style.display='none'
-        //Checks characters defeated for unblock Ghost character
+        //Checks if characters has been won for unblock Ghost character
         if(player2.characterType == "Navy Seal") {
             navySealDefeated = true;
         }else if(player2.characterType == "Spetnaz"){

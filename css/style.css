@@ -308,6 +308,19 @@ filter:alpha(opacity=40);
 
             font-size: 1.3vw;
         }
+
+        .warning{
+            background-color: aliceblue;
+            position: absolute;
+            opacity: 0;
+
+            text-align: center;
+        }
+        .warning:hover{
+            opacity: 0.8;
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+        }
         #screen2Character4Stats {
             border-style: double;
             /* border-color: rgb(41, 41, 231); */
