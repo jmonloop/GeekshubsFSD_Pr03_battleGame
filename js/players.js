@@ -255,11 +255,6 @@ class Character {
 
 
 
-//cdm
-setInterval(()=>{
-    // console.log(battleRunning)
-},100)
-
 
 
 

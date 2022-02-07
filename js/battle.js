@@ -277,21 +277,20 @@ window.addEventListener('keydown', (event)=>{
 })
 
 
+const mouseInScreen3 = () =>{
+    //Side of character1 follows mouse
+    window.addEventListener('mousemove', (e)=>{
+        if(e.clientX < player1.position){
+            document.getElementById('_character1').classList.replace('character1R','character1L');
+        } else if(e.clientX > player1.position){
+            document.getElementById('_character1').classList.replace('character1L','character1R');
+        }
+    })
+}
 
 
-//Side of character1 follows mouse
-window.addEventListener('mousemove', (e)=>{
-    if(e.clientX < player1.position){
-        document.getElementById('_character1').classList.replace('character1R','character1L');
-    } else if(e.clientX > player1.position){
-        document.getElementById('_character1').classList.replace('character1L','character1R');
-    }
-})
 
-// // //cdm
-// setInterval(()=>{
-//     console.log(battleRunning);
-// },100)
+
 
 
 const AIdifficulty = () => {
@@ -408,6 +407,3 @@ const AIdifficulty = () => {
 
 
 
-setInterval(() => {
-    console.log(navySealDefeated)
-}, 200);

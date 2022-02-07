@@ -375,7 +375,6 @@ const muteSound = () => {
         endBattleAudio.currentTime = 0;
         mute = true;
     } else if(mute) {
-        console.log('soundOn')
         mainThemeAudio.muted = false;
         mainThemeAudio.play();
         mute = false;
