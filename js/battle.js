@@ -114,9 +114,8 @@ const drop = (ev) => {
 }
 
 
-let battleRunning;
+let battleRunning = true;
 const stopBattle = () => {
-    difficultyChosen = "stop";
     battleRunning = false;
     mainThemeAudio.pause();
     mainThemeAudio.currentTime = 0;
@@ -125,7 +124,7 @@ const stopBattle = () => {
 
     if(player2.life <= 0){
         document.getElementById('youWin').style.display='flex'
-        document.getElementById('gamOver').style.display='none'
+        document.getElementById('gameOver').style.display='none'
     } else if(player1.life <= 0){
         document.getElementById('gameOver').style.display='flex'
         document.getElementById('youWin').style.display='none'
@@ -153,7 +152,7 @@ let xVisionAI;
 const startBattle = () => {
     battleRunning=true;
     //SELF REFRESH VARIABLES:
-    setInterval(() => {
+    let battleInterval = setInterval(() => {
         if((player2.life <= 0)||(player1.life <= 0)) {
             stopBattle();
         }
@@ -229,139 +228,150 @@ const startBattle = () => {
 
 
         }
-        if(!battleRunning){
-            
-            return
-        }
-        console.log(battleRunning)
+
+        if(!battleRunning) clearInterval(battleInterval);
 
     }, 100);
 }
 
-        //Cheat for killing player2
-        window.addEventListener('keydown', (event)=>{
-            if((event.keyCode = 13)&&(!ask)&&(screen3active)){
-                passtry = prompt('Good try but you can do it better..');
-                checkPassword(passtry);
-                ask = true;
-            }
-        })
+//Cheat for killing player2
+window.addEventListener('keydown', (event)=>{
+    if((event.keyCode = 13)&&(!ask)&&(screen3active)){
+        passtry = prompt('Good try but you can do it better..');
+        checkPassword(passtry);
+        ask = true;
+    }
+})
 
 
 
 
-        //Side of character1 follows mouse
-        window.addEventListener('mousemove', (e)=>{
-            if(e.clientX < player1.position){
-                document.getElementById('_character1').classList.replace('character1R','character1L');
-            } else if(e.clientX > player1.position){
-                document.getElementById('_character1').classList.replace('character1L','character1R');
-            }
-        })
+//Side of character1 follows mouse
+window.addEventListener('mousemove', (e)=>{
+    if(e.clientX < player1.position){
+        document.getElementById('_character1').classList.replace('character1R','character1L');
+    } else if(e.clientX > player1.position){
+        document.getElementById('_character1').classList.replace('character1L','character1R');
+    }
+})
 
-
+// // //cdm
+// setInterval(()=>{
+//     console.log(battleRunning);
+// },100)
 
 
 const AIdifficulty = () => {
     switch (difficultyChosen) {
         case "easy" :
             // AI movement ratio
-            setInterval(()=>{
+            let moveEasy = setInterval(()=>{
                 player2.move();
+                if(!battleRunning)clearInterval(moveEasy);
             }, 2000);
             // AI hiding ratio
-            setInterval(()=>{
+            let hideEasy = setInterval(()=>{
                 let value = Math.round(Math.random());
                 if(value == 0) {
                     player2.hide();
                 } else player2.show();
-            },1000); 
+                if(!battleRunning)clearInterval(hideEasy);
+            },1000);
             //AI shooting ratio
-            setInterval(()=>{
+            let shootEasy = setInterval(()=>{
                 if(player2.covered == false) {
                     player2.shooting();
                 }
                 if(player2.ammo == 0) {
                     player2.hide();
-                } 
-                },800) 
+                }
+                if(!battleRunning)clearInterval(shootEasy);
+            },800)
             AIminAccuracy = 50;
         break;
 
         case "medium" :
             //AI movement ratio
-            setInterval(()=>{
+            let moveMedium = setInterval(()=>{
                 player2.move();
+                if(!battleRunning)clearInterval(moveMedium);
             }, 2000);
             //AI hiding ratio
-            setInterval(()=>{
+            let hideMedium = setInterval(()=>{
                 let value = Math.round(Math.random());
                 if(value == 0) {
                     player2.hide();
                 } else player2.show();
+                if(!battleRunning)clearInterval(hideMedium);
             },1000); 
             //AI shooting ratio
-            setInterval(()=>{
+            let shootMedium = setInterval(()=>{
                 if(player2.covered == false) {
                     player2.shooting();
                 }
                 if(player2.ammo == 0) {
                     player2.hide();
-                } 
-                },400) 
+                }
+                if(!battleRunning)clearInterval(shootMedium);
+            },400) 
             AIminAccuracy = 60;
         break;
 
         case "hard" :
             //AI movement ratio
-            setInterval(()=>{
+            let moveHard = setInterval(()=>{
                 player2.move();
+                if(!battleRunning)clearInterval(moveHard);
             }, 1500);
             //AI hiding ratio
-            setInterval(()=>{
+            let hideHard = setInterval(()=>{
                 let value = Math.round(Math.random());
                 if(value == 0) {
                     player2.hide();
                 } else player2.show();
+                if(!battleRunning)clearInterval(hideHard);
             },800); 
             //AI shooting ratio
-            setInterval(()=>{
+            let shootHard = setInterval(()=>{
                 if(player2.covered == false) {
                     player2.shooting();
                 }
                 if(player2.ammo == 0) {
                     player2.hide();
                 } 
-                },200) 
+                if(!battleRunning)clearInterval(shootHard);
+            },200) 
             AIminAccuracy = 70;
         break;
 
         case "fsd" :
             //AI movement ratio
-            setInterval(()=>{
+            let moveFsd = setInterval(()=>{
                 player2.move();
+                if(!battleRunning)clearInterval(moveFsd);
             }, 900);
             //AI hiding ratio
-            setInterval(()=>{
+            let hideFsd = setInterval(()=>{
                 let value = Math.round(Math.random());
                 if(value == 0) {
                     player2.hide();
                 } else player2.show();
+                if(!battleRunning)clearInterval(hideFsd);
             },800); 
             //AI shooting ratio
-            setInterval(()=>{
+            let shootFsd = setInterval(()=>{
                 if(player2.covered == false) {
                     player2.shooting();
                 }
                 if(player2.ammo == 0) {
                     player2.hide();
-                } 
-                },500) 
+                }
+                if(!battleRunning)clearInterval(shootFsd);
+            },500) 
             AIminAccuracy = 80;
         break;
-        case "stop":
-        break;
-    }
-
-    
+    }   
 }
+
+
+
