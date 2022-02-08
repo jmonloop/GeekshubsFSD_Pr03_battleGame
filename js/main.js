@@ -375,13 +375,23 @@ const muteSound = () => {
         endBattleAudio.currentTime = 0;
         mute = true;
     } else if(mute) {
-        console.log('soundOn')
         mainThemeAudio.muted = false;
         mainThemeAudio.play();
         mute = false;
     }
 }
 
+let navySealDefeated = false;
+let spetnazDefeated = false;
+let legionarioDefeated = false;
+let ghost = false;
+const unblockGhost = () =>{
+    document.getElementById('_screen2Char4question').style.display='none';
+    document.getElementById('_screen2Char4').style.display='flex';
+    document.getElementById('_screen2Char4Stats').style.display='flex';
+    document.getElementById('_fsd').style.display='block';
+    ghost = true;
+}
 
 
 

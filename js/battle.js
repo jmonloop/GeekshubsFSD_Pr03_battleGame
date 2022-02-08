@@ -126,6 +126,17 @@ const stopBattle = () => {
     if(player2.life <= 0){
         document.getElementById('youWin').style.display='flex'
         document.getElementById('gameOver').style.display='none'
+        //Checks if characters has been won for unblock Ghost character
+        if(player2.characterType == "Navy Seal") {
+            navySealDefeated = true;
+        }else if(player2.characterType == "Spetnaz"){
+            spetnazDefeated = true;
+        }else if(player2.characterType == "Legionario") {
+            legionarioDefeated = true;
+        }
+        if((navySealDefeated)&&(spetnazDefeated)&&(legionarioDefeated)) {
+            unblockGhost();
+        }
     } else if(player1.life <= 0){
         document.getElementById('gameOver').style.display='flex'
         document.getElementById('youWin').style.display='none'
@@ -201,6 +212,27 @@ const startBattle = () => {
 
 
 
+        //Player1 hurting animation
+        if(player1.hurt == true){
+            player1ImgSrc = player1ImgSrc.replace("shoot", "die");
+            player1Img.src = player1ImgSrc;
+        } else if(player1.hurt == false){
+            player1ImgSrc = player1ImgSrc.replace("die", "shoot");
+            player1Img.src = player1ImgSrc;
+        }
+        //Player2hurting animation
+        if(player2.hurt == true){
+            player2ImgSrc = player2ImgSrc.replace("shoot", "die");
+            player2Img.src = player2ImgSrc;
+        } else if(player2.hurt == false){
+            player2ImgSrc = player2ImgSrc.replace("die", "shoot");
+            player2Img.src = player2ImgSrc;
+        }
+        player1.hurt = false;
+        player2.hurt = false;
+
+
+
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
                 gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
@@ -245,21 +277,20 @@ window.addEventListener('keydown', (event)=>{
 })
 
 
+const mouseInScreen3 = () =>{
+    //Side of character1 follows mouse
+    window.addEventListener('mousemove', (e)=>{
+        if(e.clientX < player1.position){
+            document.getElementById('_character1').classList.replace('character1R','character1L');
+        } else if(e.clientX > player1.position){
+            document.getElementById('_character1').classList.replace('character1L','character1R');
+        }
+    })
+}
 
 
-//Side of character1 follows mouse
-window.addEventListener('mousemove', (e)=>{
-    if(e.clientX < player1.position){
-        document.getElementById('_character1').classList.replace('character1R','character1L');
-    } else if(e.clientX > player1.position){
-        document.getElementById('_character1').classList.replace('character1L','character1R');
-    }
-})
 
-// // //cdm
-// setInterval(()=>{
-//     console.log(battleRunning);
-// },100)
+
 
 
 const AIdifficulty = () => {

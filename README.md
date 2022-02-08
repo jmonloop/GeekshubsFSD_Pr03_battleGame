@@ -1,3 +1,70 @@
+# FSD Game Project
+This is the third proyect of GeeksHubs Academy FSD bootcamp.
+The objective is to create a basic videogame using HTML5, CSS3 and JavaScript Vanilla.
+The minimum requeriments are to have 3 different screens (start, select players and ending) selectable players and a function that determines winner randomly.
+
+In this case I have opted for a shooting game controlled by the user and an autonomous AI enemy with different levels of difficulty.
+
+
+
+
+![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Ch1_consoleGame/master/img/cap1.JPG)
+
+
+
+* You can try web version here
+https://jmonloop.github.io/GeekshubsFSD_Ch1_consoleGame/
+
+
+
+## Features 📋
+* Point and click action game: the player only can shoot when he is unhidden but is also where he can be damaged.
+* Retro style with animated sprites that react to the mouse movement or player's position in case of the AI.
+* 3 options for choose character (fourth is locked at the beginning).
+    Each of them with their own health points.
+* 4 options for choose weapon.
+    Each of them with their own of ammo and damage parameters.
+* Random power-ups that improve weapon damage, increase health and even an xVision googles that allow players to damage the enemy still if he is hidden.
+* Drag and drop system to take the power-ups or throw the grenades.
+* 3 different difficulty levels with their own parameters agains the user (fourth is locked at the beginning). The AI behaviour also affects the way the enemy "steals" the spawned power-ups.
+* An adittional 4th character and difficulty level achieved only when the user has defeated the first 3 characters.
+* Statistics collection when the battle ends.
+
+* A cheat mode to win enemies with a secret code (more info [here](#secret-code))
+
+
+
+![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Ch1_consoleGame/master/img/dissasembled.JPG)
+
+
+
+![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Ch1_consoleGame/master/img/start.JPG)
+
+
+![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Ch1_consoleGame/master/img/playing.JPG)
+
+
+
+![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Ch1_consoleGame/master/img/mobile.JPG)
+
+
+
+
+## Built with 🛠️
+
+* HTML5
+* Javascript ES6
+* CSS3
+
+
+
+---
+* Thanks to Geekshubs Academy for the training received (https://github.com/GeeksHubsAcademy)
+
+
+* Created by Javier Monleón López (https://github.com/jmonloop)
+
+
 
 
 Credits of enemy brick textures:
@@ -18,3 +85,13 @@ Credits of main and final theme:
 
 Credits of Quake voices:
 <a href='https://www.youtube.com/watch?v=ym4VmVwd24c'>red png from pngtree.com/</a>
+
+
+
+
+
+
+
+### Secret Code
+User can low enemy life to 10hp pressing any key during battle and writting the text:
+"geekshubsacademy". The code is divided between the Ghost character stats random info.
