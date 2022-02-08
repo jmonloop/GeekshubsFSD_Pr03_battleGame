@@ -115,6 +115,7 @@ const drop = (ev) => {
 
 
 let battleRunning = true;
+let statsAccuracy = 0;
 const stopBattle = () => {
     battleRunning = false;
     mainThemeAudio.pause();
@@ -141,8 +142,8 @@ const stopBattle = () => {
         document.getElementById('gameOver').style.display='flex'
         document.getElementById('youWin').style.display='none'
     }
-
-    document.getElementById('accuracy').innerHTML = Math.round((statsTotalHits*100)/statsTotalShoots);
+    statsAccuracy = Math.round((statsTotalHits*100)/statsTotalShoots);
+    document.getElementById('accuracy').innerHTML = statsAccuracy
     document.getElementById('damageReceived').innerHTML = statsDamageRec;
     document.getElementById('damageCaused').innerHTML = statsDmageCaus;
     document.getElementById('pickedPU').innerHTML = statsColPU;

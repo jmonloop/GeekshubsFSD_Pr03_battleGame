@@ -221,7 +221,6 @@ class Character {
         // player2.position = xPosition;
         
         if(this.player == 1) {
-            console.log(bottomWallClicked)
             if(bottomWallClicked){
                 if(this.covered==true) {
                     xPosDifference = xPosDifference / 8;
@@ -232,7 +231,7 @@ class Character {
                             let timeId = setInterval(()=>{
                                 document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
                                 this.position +=xPosDifference;
-    
+                                
                                 player1Img.src = char1ArrayRun[player1AnimationCount];
                                 player1AnimationCount+=1;
 
