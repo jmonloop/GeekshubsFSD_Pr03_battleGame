@@ -127,6 +127,8 @@ let player1ImgSrc;
 let player2Img;
 let player2ImgSrc;
 
+let char1ArrayRun = ["../assets/img/01navy/run (1).png","../assets/img/01navy/run (2).png", "../assets/img/01navy/run (3).png", "../assets/img/01navy/run (4).png", "../assets/img/01navy/run (5).png", "../assets/img/01navy/run (6).png", "../assets/img/01navy/run (7).png", "../assets/img/01navy/run (8).png","../assets/img/01navy/run (9).png", "../assets/img/01navy/run (10).png", "../assets/img/01navy/run (11).png", "../assets/img/01navy/run (12).png" ];
+let player1AnimationCount = 1;
 
 
 //Declaration of Character
@@ -208,22 +210,42 @@ class Character {
         
         if(this.player == 1) {
             if(this.covered==true) {
-                xPosDifference = xPosDifference / 5;
+                xPosDifference = xPosDifference / 8;
+                player1ImgSrc = player1ImgSrc.replace("crouch", "run");
+                player1Img.src = player1ImgSrc;
                 if(xPosDifference>0){
                     if(this.position < this.position + xPosDifference){
                         let timeId = setInterval(()=>{
                             document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
                             this.position +=xPosDifference;
-                            if(this.position >= xPosition) clearInterval(timeId);
-                        },50)
+
+                            player1Img.src = char1ArrayRun[player1AnimationCount];
+                            player1AnimationCount+=1;
+                            console.log(player1AnimationCount)
+                            if(this.position >= xPosition) {
+                                clearInterval(timeId);
+                                player1AnimationCount = 1;
+                                player1ImgSrc = player1ImgSrc.replace("run", "crouch");
+                                player1Img.src = player1ImgSrc;   
+                            }
+                        },100)
                     }
                 } else if(xPosDifference<0){
                     if(this.position > this.position + xPosDifference){
                         let timeId = setInterval(()=>{
                             document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
                             this.position +=xPosDifference;
-                            if(this.position <= xPosition) clearInterval(timeId);
-                        },50)
+
+                            player1Img.src = char1ArrayRun[player1AnimationCount];
+                            player1AnimationCount+=1;
+
+                            if(this.position <= xPosition){
+                                clearInterval(timeId);
+                                player1AnimationCount = 1;
+                                player1ImgSrc = player1ImgSrc.replace("run", "crouch");
+                                player1Img.src = player1ImgSrc;  
+                            }
+                        },100)
                     }
 
                 }
