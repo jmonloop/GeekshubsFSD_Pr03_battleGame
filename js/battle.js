@@ -123,6 +123,7 @@ const stopBattle = () => {
     if(!mute)endBattleAudio.play();
     screen3.style.display="none";
     screen4.style.display="flex";
+    screen4.webkitRequestFullscreen();
 
     if(player2.life <= 0){
         document.getElementById('youWin').style.display='flex';
