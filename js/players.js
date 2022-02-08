@@ -47,13 +47,16 @@ let statsColPU=0;
 let xPosDifference; 
 let bottomWallClicked = false;
 
-const clickedOutsideWall = () =>{
-    bottomWallClicked = false;
-}
+
 
 document.getElementById('_bottomWall').addEventListener('mousedown', ()=>{
     bottomWallClicked = true;
 })
+
+const clickedOutsideWall = () =>{
+    bottomWallClicked = false;
+    return bottomWallClicked;
+}
 
 document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
@@ -218,7 +221,8 @@ class Character {
         // player2.position = xPosition;
         
         if(this.player == 1) {
-            if(bottomWallClicked = true){
+            console.log(bottomWallClicked)
+            if(bottomWallClicked){
                 if(this.covered==true) {
                     xPosDifference = xPosDifference / 8;
                     player1ImgSrc = player1ImgSrc.replace("crouch", "run");
@@ -231,12 +235,13 @@ class Character {
     
                                 player1Img.src = char1ArrayRun[player1AnimationCount];
                                 player1AnimationCount+=1;
-                                console.log(player1AnimationCount)
+
                                 if(this.position >= xPosition) {
                                     clearInterval(timeId);
                                     player1AnimationCount = 1;
                                     player1ImgSrc = player1ImgSrc.replace("run", "crouch");
-                                    player1Img.src = player1ImgSrc;   
+                                    player1Img.src = player1ImgSrc;
+                                    bottomWallClicked = false;   
                                 }
                             },100)
                         }
@@ -248,24 +253,20 @@ class Character {
     
                                 player1Img.src = char1ArrayRun[player1AnimationCount];
                                 player1AnimationCount+=1;
-    
+                                
                                 if(this.position <= xPosition){
                                     clearInterval(timeId);
                                     player1AnimationCount = 1;
                                     player1ImgSrc = player1ImgSrc.replace("run", "crouch");
-                                    player1Img.src = player1ImgSrc;  
+                                    player1Img.src = player1ImgSrc;
+                                    bottomWallClicked = false;  
                                 }
                             },100)
                         }
-    
                     }
-    
-    
-    
-                    // document.getElementById("_character1").style.left= (xPosition -150) +"px";
-                    // this.position = xPosition -150;
                 }
-            }
+            } 
+            
             
             
         } else if (this.player == 2) {

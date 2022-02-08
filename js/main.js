@@ -256,7 +256,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
 
         if(!mute)beep.play();
         if(!mute)playVoice.play();
-        if(!mute)startBattle();
+        startBattle();
         screen3active = true;
         ask = false;
 
