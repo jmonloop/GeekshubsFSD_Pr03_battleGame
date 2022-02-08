@@ -407,7 +407,7 @@ const AIdifficulty = () => {
 };
 
 
-// setInterval(() => {
-//     console.log("char1ArrayRun", char1ArrayRun)
-// }, 200);
+setInterval(() => {
+    console.log(player1Img)
+}, 200);
     

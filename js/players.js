@@ -191,7 +191,7 @@ class Character {
                 this.covered = false;
             }
         } else if (this.player == 2) {
-            player2Img.style.display = "block";
+            document.getElementById('_character2').style.display = "block";
             this.covered = false;
             if((powerUpPresent)&&(AIaccuracy > 80)){
                 document.querySelector('.powerUpDiv').classList.toggle('getPowerUp');
@@ -215,7 +215,7 @@ class Character {
         } else if (this.player == 2) {
             if(this.covered == false) {
                 if(!xVision) {
-                    player2Img.style.display = "none";
+                    document.getElementById('_character2').style.display = "none";
                 } else if(xVision) {
                     player2ImgSrc = player2ImgSrc.replace("shoot", "crouch");
                     player2Img.src = player2ImgSrc;
