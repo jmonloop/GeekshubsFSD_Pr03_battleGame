@@ -535,7 +535,7 @@ filter:alpha(opacity=40);
         height: 10%;
         width: 100%;
         
-        background-image: url('../assets/img/brickWalltexture.png');
+        background-image: url('../assets/img/brickwalltexture.png');
         background-size: 20% 100%;
 
         z-index: 3;
