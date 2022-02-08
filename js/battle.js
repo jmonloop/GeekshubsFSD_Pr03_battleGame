@@ -13,7 +13,7 @@ setInterval(()=>{
     // powerUpToLaunch = "dEagle";
     powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
     launchPowerUp(powerUpToLaunch);
-},minMaxRoundedRandom(10000, 30000))
+},minMaxRoundedRandom(10000, 30000));
 
 
 
@@ -38,7 +38,7 @@ const launchPowerUp = () => {
     setTimeout(()=>{
         document.getElementById("powerUpZone").innerHTML="";
         // powerUpPresent = false;
-    },5000)
+    },5000);
 }
 
 
@@ -64,8 +64,8 @@ const timeoutXvision = () =>{
         } else {
             xVisionAI == false;
         }
-    }, 5000)
-}
+    }, 5000);
+};
 
 
 //Audio power-up sources
@@ -82,7 +82,7 @@ let gunPicked;
 let AIgunPicked;
 const drop = (ev) => {
     ev.preventDefault();
-    let data = ev.dataTransfer.getData("text")
+    let data = ev.dataTransfer.getData("text");
 
     if(data == "dEagle") {
         gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
@@ -105,7 +105,7 @@ const drop = (ev) => {
         player1.life += 500;
     } else if(data == "xVision") {
         if(!mute)xVisionAudio.play();
-        setXvision()
+        setXvision();
         timeoutXvision();
     }
     powerUpPresent = false;
@@ -125,8 +125,8 @@ const stopBattle = () => {
     screen4.style.display="flex";
 
     if(player2.life <= 0){
-        document.getElementById('youWin').style.display='flex'
-        document.getElementById('gameOver').style.display='none'
+        document.getElementById('youWin').style.display='flex';
+        document.getElementById('gameOver').style.display='none';
         //Checks if characters has been won for unblock Ghost character
         if(player2.characterType == "Navy Seal") {
             navySealDefeated = true;
@@ -139,11 +139,11 @@ const stopBattle = () => {
             unblockGhost();
         }
     } else if(player1.life <= 0){
-        document.getElementById('gameOver').style.display='flex'
-        document.getElementById('youWin').style.display='none'
+        document.getElementById('gameOver').style.display='flex';
+        document.getElementById('youWin').style.display='none';
     }
     statsAccuracy = Math.round((statsTotalHits*100)/statsTotalShoots);
-    document.getElementById('accuracy').innerHTML = statsAccuracy
+    document.getElementById('accuracy').innerHTML = statsAccuracy;
     document.getElementById('damageReceived').innerHTML = statsDamageRec;
     document.getElementById('damageCaused').innerHTML = statsDmageCaus;
     document.getElementById('pickedPU').innerHTML = statsColPU;
@@ -251,7 +251,7 @@ const startBattle = () => {
                 player2.life += 500;
             } else if(AIpowerUp == "xVision") {
                 xVisionAI = true;
-                timeoutXvision()
+                timeoutXvision();
             }
             if(!mute)humilationVoice.play();
             AIgotPowerUp = false;
@@ -261,12 +261,12 @@ const startBattle = () => {
 
 
 
-        }
+        };
 
         if(!battleRunning) clearInterval(battleInterval);
 
     }, 100);
-}
+};
 
 //Cheat for killing player2
 window.addEventListener('keydown', (event)=>{
@@ -319,7 +319,7 @@ const AIdifficulty = () => {
                     player2.hide();
                 }
                 if(!battleRunning)clearInterval(shootEasy);
-            },800)
+            },800);
             AIminAccuracy = 50;
         break;
 
@@ -346,7 +346,7 @@ const AIdifficulty = () => {
                     player2.hide();
                 }
                 if(!battleRunning)clearInterval(shootMedium);
-            },400) 
+            },400);
             AIminAccuracy = 60;
         break;
 
@@ -373,7 +373,7 @@ const AIdifficulty = () => {
                     player2.hide();
                 } 
                 if(!battleRunning)clearInterval(shootHard);
-            },200) 
+            },200); 
             AIminAccuracy = 70;
         break;
 
@@ -400,11 +400,11 @@ const AIdifficulty = () => {
                     player2.hide();
                 }
                 if(!battleRunning)clearInterval(shootFsd);
-            },500) 
+            },500); 
             AIminAccuracy = 80;
         break;
-    }   
-}
+    };   
+};
 
 
 // setInterval(() => {
