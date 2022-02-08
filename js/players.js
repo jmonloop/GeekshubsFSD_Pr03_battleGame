@@ -45,6 +45,15 @@ let statsDmageCaus=0;
 let statsColPU=0;
 
 let xPosDifference; 
+let bottomWallClicked = false;
+
+const clickedOutsideWall = () =>{
+    bottomWallClicked = false;
+}
+
+document.getElementById('_bottomWall').addEventListener('mousedown', ()=>{
+    bottomWallClicked = true;
+})
 
 document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
 // document.querySelector("#_bottomWall").addEventListener('mousedown', (e)=>{
@@ -209,52 +218,55 @@ class Character {
         // player2.position = xPosition;
         
         if(this.player == 1) {
-            if(this.covered==true) {
-                xPosDifference = xPosDifference / 8;
-                player1ImgSrc = player1ImgSrc.replace("crouch", "run");
-                player1Img.src = player1ImgSrc;
-                if(xPosDifference>0){
-                    if(this.position < this.position + xPosDifference){
-                        let timeId = setInterval(()=>{
-                            document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
-                            this.position +=xPosDifference;
-
-                            player1Img.src = char1ArrayRun[player1AnimationCount];
-                            player1AnimationCount+=1;
-                            console.log(player1AnimationCount)
-                            if(this.position >= xPosition) {
-                                clearInterval(timeId);
-                                player1AnimationCount = 1;
-                                player1ImgSrc = player1ImgSrc.replace("run", "crouch");
-                                player1Img.src = player1ImgSrc;   
-                            }
-                        },100)
+            if(bottomWallClicked = true){
+                if(this.covered==true) {
+                    xPosDifference = xPosDifference / 8;
+                    player1ImgSrc = player1ImgSrc.replace("crouch", "run");
+                    player1Img.src = player1ImgSrc;
+                    if(xPosDifference>0){
+                        if(this.position < this.position + xPosDifference){
+                            let timeId = setInterval(()=>{
+                                document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
+                                this.position +=xPosDifference;
+    
+                                player1Img.src = char1ArrayRun[player1AnimationCount];
+                                player1AnimationCount+=1;
+                                console.log(player1AnimationCount)
+                                if(this.position >= xPosition) {
+                                    clearInterval(timeId);
+                                    player1AnimationCount = 1;
+                                    player1ImgSrc = player1ImgSrc.replace("run", "crouch");
+                                    player1Img.src = player1ImgSrc;   
+                                }
+                            },100)
+                        }
+                    } else if(xPosDifference<0){
+                        if(this.position > this.position + xPosDifference){
+                            let timeId = setInterval(()=>{
+                                document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
+                                this.position +=xPosDifference;
+    
+                                player1Img.src = char1ArrayRun[player1AnimationCount];
+                                player1AnimationCount+=1;
+    
+                                if(this.position <= xPosition){
+                                    clearInterval(timeId);
+                                    player1AnimationCount = 1;
+                                    player1ImgSrc = player1ImgSrc.replace("run", "crouch");
+                                    player1Img.src = player1ImgSrc;  
+                                }
+                            },100)
+                        }
+    
                     }
-                } else if(xPosDifference<0){
-                    if(this.position > this.position + xPosDifference){
-                        let timeId = setInterval(()=>{
-                            document.getElementById("_character1").style.left= (this.position + xPosDifference - 150) +"px";
-                            this.position +=xPosDifference;
-
-                            player1Img.src = char1ArrayRun[player1AnimationCount];
-                            player1AnimationCount+=1;
-
-                            if(this.position <= xPosition){
-                                clearInterval(timeId);
-                                player1AnimationCount = 1;
-                                player1ImgSrc = player1ImgSrc.replace("run", "crouch");
-                                player1Img.src = player1ImgSrc;  
-                            }
-                        },100)
-                    }
-
+    
+    
+    
+                    // document.getElementById("_character1").style.left= (xPosition -150) +"px";
+                    // this.position = xPosition -150;
                 }
-
-
-
-                // document.getElementById("_character1").style.left= (xPosition -150) +"px";
-                // this.position = xPosition -150;
             }
+            
             
         } else if (this.player == 2) {
             this.position = minMaxRoundedRandom(1,xMaxPosition);

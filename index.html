@@ -161,21 +161,21 @@
         </div>
     </section>
     <section id="screen3" class="screen3Section" style="display: none" onmouseover="mouseInScreen3()">
-        <div class="topVoid shooting1" onclick="player1.show()">
+        <div class="topVoid shooting1" onclick="player1.show(), clickedOutsideWall()">
             <p id="cheat" style="display: none;">KILL GHOST WITH 'ENTER'</p>
             <div class="options2">
                 <img class="optionsImg" src="../assets/img/speaker.png" alt="" onclick="muteSound()">
             </div>
         </div>
-        <div class="character2R shooting1" id="_character2" onclick="player1.show()">
+        <div class="character2R shooting1" id="_character2" onclick="player1.show(), clickedOutsideWall()">
             <img class="character2img" id="_character2imgHero1" src="../assets/img/01navy/shoot (1).png" alt="" style="display: none;">
             <img class="character2img" id="_character2imgHero2" src="../assets/img/02spetnaz/shoot (1).png" alt="" style="display: none;">
             <img class="character2img" id="_character2imgHero3" src="../assets/img/03legio/shoot (1).png" alt="" style="display: none;">
             <img class="character2img" id="_character2imgHero4" src="../assets/img/04ghost/shoot (1).png" alt="" style="display: none;">
         </div>
-        <div class="topWall shooting1" id="_topWall" onclick="player1.show()">
+        <div class="topWall shooting1" id="_topWall" onclick="player1.show(), clickedOutsideWall()">
         </div>
-        <div class="centerVoid shooting1" id="_centerVoid" onclick="player1.show()">
+        <div class="centerVoid shooting1" id="_centerVoid" onclick="player1.show(), clickedOutsideWall()">
             <div class="stats" id="statsP2">
                 <div class="statsItem2"><span></span><span id="character2"></span></div>
                 <div class="statsItem2"><span></span><span id="gun2"></span></div>
