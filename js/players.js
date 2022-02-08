@@ -10,31 +10,31 @@ let player2Data;
 let yTargetPosition;
 let yPosition;
 
-let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ]
+let powerUpsArray = ["life", "dEagle", "mp5", "aa12", "ak47", "xVision" ];
 let powerUpToLaunch;
 let powerUpPresent;
 let AIgotPowerUp;
 let AIpowerUp;
 
 let mainThemeAudio = new Audio("./assets/audio/maintheme.mp3");
-let endBattleAudio = new Audio("./assets/audio/endbattle.mp3")
-let beep = new Audio("./assets/audio/beep2.mp3")
-let selectPlayerBeep = new Audio("./assets/audio/selectplayerbeep.mp3")
-let unselectPlayerBeep = new Audio("./assets/audio/unselectplayerbeep.mp3")
+let endBattleAudio = new Audio("./assets/audio/endbattle.mp3");
+let beep = new Audio("./assets/audio/beep2.mp3");
+let selectPlayerBeep = new Audio("./assets/audio/selectplayerbeep.mp3");
+let unselectPlayerBeep = new Audio("./assets/audio/unselectplayerbeep.mp3");
 let dEagleSelection = new Audio("./assets/audio/deserteaglerel.mp3");
 let mp5Selection = new Audio("./assets/audio/mp5rel.mp3");
 let aa12Selection = new Audio("./assets/audio/shotgunrel.mp3");
 let ak47Selection = new Audio("./assets/audio/ar15rel.mp3");
 
 //Guns audio sources
-dEagleAudio = "./assets/audio/deserteagle.mp3"
-dEagleRelAudio = "./assets/audio/deserteaglerel.mp3"
-mp5Audio = "./assets/audio/mp5.mp3"
-mp5RelAudio = "./assets/audio/mp5rel.mp3"
-aa12Audio = "./assets/audio/shotgun.mp3"
-aa12RelAudio = "./assets/audio/shotgunrel.mp3"
-ak47Audio = "./assets/audio/ar15.mp3"
-ak47RelAudio = "./assets/audio/ar15rel.mp3"
+dEagleAudio = "./assets/audio/deserteagle.mp3";
+dEagleRelAudio = "./assets/audio/deserteaglerel.mp3";
+mp5Audio = "./assets/audio/mp5.mp3";
+mp5RelAudio = "./assets/audio/mp5rel.mp3";
+aa12Audio = "./assets/audio/shotgun.mp3";
+aa12RelAudio = "./assets/audio/shotgunrel.mp3";
+ak47Audio = "./assets/audio/ar15.mp3";
+ak47RelAudio = "./assets/audio/ar15rel.mp3";
 
 
 //final stats intialization
@@ -191,7 +191,7 @@ class Character {
                 this.covered = false;
             }
         } else if (this.player == 2) {
-            player2Img.style.display = "block";
+            document.getElementById('_character2').style.display = "block";
             this.covered = false;
             if((powerUpPresent)&&(AIaccuracy > 80)){
                 document.querySelector('.powerUpDiv').classList.toggle('getPowerUp');
@@ -215,7 +215,7 @@ class Character {
         } else if (this.player == 2) {
             if(this.covered == false) {
                 if(!xVision) {
-                    player2Img.style.display = "none";
+                    document.getElementById('_character2').style.display = "none";
                 } else if(xVision) {
                     player2ImgSrc = player2ImgSrc.replace("shoot", "crouch");
                     player2Img.src = player2ImgSrc;
@@ -277,11 +277,11 @@ class Character {
                                     player1Img.src = player1ImgSrc;
                                     bottomWallClicked = false;  
                                 }
-                            },100)
-                        }
-                    }
-                }
-            } 
+                            },100);
+                        };
+                    };
+                };
+            };
             
             
             
@@ -321,10 +321,10 @@ class Character {
                     player1.life -= gunPlayer2.damage;
                     player1.hurt = true;
                     statsDamageRec+=gunPlayer2.damage;
-                } 
-            }
-        }
-    }
+                };
+            };
+        };
+    };
 };
 
 

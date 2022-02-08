@@ -63,7 +63,6 @@ let player2;
 
 
 
-
 const resetGame = () =>{
     difficultyChosen = undefined;
     gunPlayer1 = undefined;
@@ -75,6 +74,7 @@ const resetGame = () =>{
     AIgotPowerUp = false;
     xVisionAI = false;
     
+
     statsTotalShoots=0;
     statsTotalHits=0;
     statsDamageRec=0;
@@ -83,10 +83,11 @@ const resetGame = () =>{
     screen4.style.display = 'none';
     screen2.style.display = 'flex';
 
-    player1Img.style.display = 'none';
     player1ImgSrc = '';
-    player2Img.style.display = 'none';
+    player1Img.style.display = 'none';
     player2ImgSrc = '';
+    player2Img.style.display = 'none';
+
 
     gunDesertEagle.style.backgroundColor = 'gray';
     gunMp5.style.backgroundColor = 'gray';
@@ -107,8 +108,10 @@ const resetGame = () =>{
     document.getElementById('_screen2Char4').style.backgroundColor="black";
     document.getElementById('_screen2CharDiv4').style.backgroundColor="black";
 
-    document.getElementById('cheat').style.display='none'
+    document.getElementById('cheat').style.display='none';
     document.getElementById('_topWall').classList.remove('xVision');
+
+    char1ArrayRun = ["./assets/img/01navy/run (1).png","./assets/img/01navy/run (2).png", "./assets/img/01navy/run (3).png", "./assets/img/01navy/run (4).png", "./assets/img/01navy/run (5).png", "./assets/img/01navy/run (6).png", "./assets/img/01navy/run (7).png", "./assets/img/01navy/run (8).png","./assets/img/01navy/run (9).png", "./assets/img/01navy/run (10).png", "./assets/img/01navy/run (11).png", "./assets/img/01navy/run (12).png" ];
 
     battleRunning = true;
     endBattleAudio.pause();
@@ -204,7 +207,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
     if(player1 != undefined){
         diffMedium.style.color = 'yellow';
         if(!mute)selectPlayerBeep.play()
-        difficultyChosen = "medium"
+        difficultyChosen = "medium";
         gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 100);
         AIdifficulty();
@@ -216,7 +219,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
 document.querySelector('#_hard').addEventListener('mousedown', ()=>{
     if(player1 != undefined){
         diffHard.style.color = 'violet';
-        if(!mute)selectPlayerBeep.play()
+        if(!mute)selectPlayerBeep.play();
         difficultyChosen = "hard"
         gunPlayer2 = new Gun("AK47", 50, 30, 30,'././assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         player2 = new Character(2, "Legionario", 2000, gunPlayer2, 100);
@@ -229,8 +232,8 @@ document.querySelector('#_hard').addEventListener('mousedown', ()=>{
 document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         diffFsd.style.color = 'red';
-        if(!mute)selectPlayerBeep.play()
-        difficultyChosen = "fsd"
+        if(!mute)selectPlayerBeep.play();
+        difficultyChosen = "fsd";
         gunPlayer2 = new Gun("AA-12", 80, 8, 8,'././assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         player2 = new Character(2, "Special Ops", 2500, gunPlayer2, 100);
         AIdifficulty();
@@ -274,7 +277,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
             player1Img = document.getElementById('_character1imgHero3');
             player1ImgSrc = player1Img.src;
             player1Img.style.display = 'block';
-            changeCharAnimation('03legio')
+            changeCharAnimation('03legio');
         } else if(player1.characterType == "Special Ops") {
             player1Img = document.getElementById('_character1imgHero4');
             player1ImgSrc = player1Img.src;
