@@ -49,7 +49,6 @@ const drag = (ev) => {
 const allowDrop = (ev) => {
     ev.preventDefault();
 }
-
 const setXvision =()=>{
     document.getElementById('_topWall').classList.add('xVision');
     xVision = true;
@@ -406,9 +405,3 @@ const AIdifficulty = () => {
         break;
     };   
 };
-
-
-setInterval(() => {
-    console.log(player1Img)
-}, 200);
-    

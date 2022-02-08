@@ -46,8 +46,7 @@ let statsColPU=0;
 
 let xPosDifference; 
 let bottomWallClicked = false;
-
-
+let absoluteMovement;
 
 document.getElementById('_bottomWall').addEventListener('mousedown', ()=>{
     bottomWallClicked = true;
@@ -78,6 +77,8 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     if(screen.width <= 1436) xMaxPosition = screen.width * 0.99;
     
    xPosDifference = xPosition-player1.position;
+   absoluteMovement = Math.abs(xPosition-player1.position);
+
 
     player1.move();
     return xPosition;
@@ -156,8 +157,8 @@ let player1AnimationCount = 1;
 const changeCharAnimation =(char)=>{
     for(let i=0 ; i<char1ArrayRun.length ; i++){
         char1ArrayRun[i] = char1ArrayRun[i].replace('01navy', char);
-    }
-}
+    };
+};
 
 
 //Declaration of Character
@@ -180,7 +181,7 @@ class Character {
         this.attack = false;
         this.covered = true;
         this.hurt = false;
-    }
+    };
 
     show(){
         if(this.player == 1) {
@@ -189,7 +190,7 @@ class Character {
                 player1Img.src = player1ImgSrc;
     
                 this.covered = false;
-            }
+            };
         } else if (this.player == 2) {
             document.getElementById('_character2').style.display = "block";
             this.covered = false;
@@ -198,10 +199,9 @@ class Character {
                 AIgotPowerUp = true;
                 AIpowerUp = powerUpToLaunch;
                 powerUpPresent = false;
-            }
-        }
-
-    }
+            };
+        };
+    };
 
     //Hides and reloads ammo when click on the player1 wall
     hide(){
@@ -219,15 +219,15 @@ class Character {
                 } else if(xVision) {
                     player2ImgSrc = player2ImgSrc.replace("shoot", "crouch");
                     player2Img.src = player2ImgSrc;
-                }
+                };
                  
 
                 gunPlayer2.ammo = gunPlayer2.initialAmmo;
                 gunPlayer2.playReload();
                 this.covered = true;
-            }
-        }
-    }
+            };
+        };
+    };
 
     move(){
 
@@ -258,9 +258,9 @@ class Character {
                                     player1ImgSrc = player1ImgSrc.replace("run", "crouch");
                                     player1Img.src = player1ImgSrc;
                                     bottomWallClicked = false;   
-                                }
+                                };
                             },100)
-                        }
+                        };
                     } else if(xPosDifference<0){
                         if(this.position > this.position + xPosDifference){
                             let timeId = setInterval(()=>{
@@ -281,17 +281,14 @@ class Character {
                         };
                     };
                 };
-            };
-            
-            
-            
+            };    
         } else if (this.player == 2) {
             this.position = minMaxRoundedRandom(1,xMaxPosition);
             if(player2.position < 1) player2.position = 1;
             if(player2.position > xMaxPosition) player2.position = xMaxPosition;
             document.getElementById("_character2").style.left= (player2.position) + "px";
-        }
-    }
+        };
+    };
 
     shooting = () => {
         if((this.player == 1)&&(!this.covered)&&(gunPlayer1.ammo > 0)) {
@@ -299,7 +296,6 @@ class Character {
             this.attack = true;
             gunPlayer1.playShoot();
             statsTotalShoots +=1;
-
             if((player2.position >= xPosition*0.1)&&(player2.position <= xPosition*1.3)&& 
             (yTargetPosition >= yPosition * 0.2)&&(yTargetPosition <= yPosition*1.3)) {
                 if((!player2.covered)||(xVision)) {
@@ -307,8 +303,8 @@ class Character {
                     player2.hurt = true;
                     statsTotalHits +=1;
                     statsDmageCaus+=gunPlayer1.damage;
-                }
-            }
+                };
+            };
 
             
         } else if((this.player == 2)&&(!this.covered)&&(gunPlayer2.ammo > 0)){
@@ -317,6 +313,10 @@ class Character {
             this.attack = true;
             if((player1.covered== false)||(xVisionAI)) {
                 AIaccuracy = minMaxRoundedRandom(AIminAccuracy,100);
+                if((absoluteMovement<300)&&(absoluteMovement>200)) AIaccuracy + 5;
+                if((absoluteMovement<200)&&(absoluteMovement>100)) AIaccuracy + 5;
+                if((absoluteMovement<100)&&(absoluteMovement>0)) AIaccuracy + 5;
+                if((absoluteMovement>=300)) AIaccuracy = AIminAccuracy;
                 if(AIaccuracy > 80) {
                     player1.life -= gunPlayer2.damage;
                     player1.hurt = true;
