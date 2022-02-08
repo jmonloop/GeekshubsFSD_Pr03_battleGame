@@ -140,7 +140,24 @@ let player2Img;
 let player2ImgSrc;
 
 let char1ArrayRun = ["../assets/img/01navy/run (1).png","../assets/img/01navy/run (2).png", "../assets/img/01navy/run (3).png", "../assets/img/01navy/run (4).png", "../assets/img/01navy/run (5).png", "../assets/img/01navy/run (6).png", "../assets/img/01navy/run (7).png", "../assets/img/01navy/run (8).png","../assets/img/01navy/run (9).png", "../assets/img/01navy/run (10).png", "../assets/img/01navy/run (11).png", "../assets/img/01navy/run (12).png" ];
+
 let player1AnimationCount = 1;
+
+
+// const replaceCharacter = (char) =>{
+//     for(let x of char1ArrayRun){
+//         x.replace("01navy", char);
+//     }
+//     return char1ArrayRun;
+// }
+
+    
+
+const changeCharAnimation =(char)=>{
+    for(let i=0 ; i<char1ArrayRun.length ; i++){
+        char1ArrayRun[i] = char1ArrayRun[i].replace('01navy', char);
+    }
+}
 
 
 //Declaration of Character

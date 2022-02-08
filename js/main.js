@@ -269,14 +269,17 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
             player1Img = document.getElementById('_character1imgHero2');
             player1ImgSrc = player1Img.src;
             player1Img.style.display = 'block';
+            changeCharAnimation('02spetnaz')
         } else if(player1.characterType == "Legionario") {
             player1Img = document.getElementById('_character1imgHero3');
             player1ImgSrc = player1Img.src;
             player1Img.style.display = 'block';
+            changeCharAnimation('03legio')
         } else if(player1.characterType == "Special Ops") {
             player1Img = document.getElementById('_character1imgHero4');
             player1ImgSrc = player1Img.src;
             player1Img.style.display = 'block';
+            changeCharAnimation('04ghost')
         }
 
         //Player2 character generation
