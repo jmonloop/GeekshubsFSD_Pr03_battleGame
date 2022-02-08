@@ -16,25 +16,25 @@ let powerUpPresent;
 let AIgotPowerUp;
 let AIpowerUp;
 
-let mainThemeAudio = new Audio("../assets/audio/maintheme.mp3");
-let endBattleAudio = new Audio("../assets/audio/endbattle.mp3")
-let beep = new Audio("../assets/audio/beep2.mp3")
-let selectPlayerBeep = new Audio("../assets/audio/selectplayerbeep.mp3")
-let unselectPlayerBeep = new Audio("../assets/audio/unselectplayerbeep.mp3")
-let dEagleSelection = new Audio("../assets/audio/deserteaglerel.mp3");
-let mp5Selection = new Audio("../assets/audio/mp5rel.mp3");
-let aa12Selection = new Audio("../assets/audio/shotgunrel.mp3");
-let ak47Selection = new Audio("../assets/audio/ar15rel.mp3");
+let mainThemeAudio = new Audio("./assets/audio/maintheme.mp3");
+let endBattleAudio = new Audio("./assets/audio/endbattle.mp3")
+let beep = new Audio("./assets/audio/beep2.mp3")
+let selectPlayerBeep = new Audio("./assets/audio/selectplayerbeep.mp3")
+let unselectPlayerBeep = new Audio("./assets/audio/unselectplayerbeep.mp3")
+let dEagleSelection = new Audio("./assets/audio/deserteaglerel.mp3");
+let mp5Selection = new Audio("./assets/audio/mp5rel.mp3");
+let aa12Selection = new Audio("./assets/audio/shotgunrel.mp3");
+let ak47Selection = new Audio("./assets/audio/ar15rel.mp3");
 
 //Guns audio sources
-dEagleAudio = "../assets/audio/deserteagle.mp3"
-dEagleRelAudio = "../assets/audio/deserteaglerel.mp3"
-mp5Audio = "../assets/audio/mp5.mp3"
-mp5RelAudio = "../assets/audio/mp5rel.mp3"
-aa12Audio = "../assets/audio/shotgun.mp3"
-aa12RelAudio = "../assets/audio/shotgunrel.mp3"
-ak47Audio = "../assets/audio/ar15.mp3"
-ak47RelAudio = "../assets/audio/ar15rel.mp3"
+dEagleAudio = "./assets/audio/deserteagle.mp3"
+dEagleRelAudio = "./assets/audio/deserteaglerel.mp3"
+mp5Audio = "./assets/audio/mp5.mp3"
+mp5RelAudio = "./assets/audio/mp5rel.mp3"
+aa12Audio = "./assets/audio/shotgun.mp3"
+aa12RelAudio = "./assets/audio/shotgunrel.mp3"
+ak47Audio = "./assets/audio/ar15.mp3"
+ak47RelAudio = "./assets/audio/ar15rel.mp3"
 
 
 //final stats intialization
@@ -139,7 +139,7 @@ let player1ImgSrc;
 let player2Img;
 let player2ImgSrc;
 
-let char1ArrayRun = ["../assets/img/01navy/run (1).png","../assets/img/01navy/run (2).png", "../assets/img/01navy/run (3).png", "../assets/img/01navy/run (4).png", "../assets/img/01navy/run (5).png", "../assets/img/01navy/run (6).png", "../assets/img/01navy/run (7).png", "../assets/img/01navy/run (8).png","../assets/img/01navy/run (9).png", "../assets/img/01navy/run (10).png", "../assets/img/01navy/run (11).png", "../assets/img/01navy/run (12).png" ];
+let char1ArrayRun = ["./assets/img/01navy/run (1).png","./assets/img/01navy/run (2).png", "./assets/img/01navy/run (3).png", "./assets/img/01navy/run (4).png", "./assets/img/01navy/run (5).png", "./assets/img/01navy/run (6).png", "./assets/img/01navy/run (7).png", "./assets/img/01navy/run (8).png","./assets/img/01navy/run (9).png", "./assets/img/01navy/run (10).png", "./assets/img/01navy/run (11).png", "./assets/img/01navy/run (12).png" ];
 
 let player1AnimationCount = 1;
 

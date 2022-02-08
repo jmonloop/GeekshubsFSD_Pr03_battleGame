@@ -20,17 +20,17 @@ setInterval(()=>{
 const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
     if(powerUpToLaunch == "dEagle") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/deserteagle.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/deserteagle.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "mp5") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='mp5' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/mp5.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='mp5' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/mp5.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "aa12") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='aa12' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/aa12.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='aa12' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/aa12.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "ak47") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='ak47' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/ak47.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='ak47' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/ak47.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "life") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='life' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/life.png' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='life' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/life.png' alt=''></div>";
     } else if(powerUpToLaunch == "xVision") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xvision.jpg' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/xvision.jpg' alt=''></div>";
     }
     document.getElementById("powerUpZone").appendChild(powerUpDiv);
     powerUpPresent = true;
@@ -69,14 +69,14 @@ const timeoutXvision = () =>{
 
 
 //Audio power-up sources
-let lifeAudio= new Audio("../assets/audio/life.mp3");
-let xVisionAudio= new Audio("../assets/audio/xvision.mp3");
-let dEagleVoice= new Audio("../assets/audio/godlikevoice.mp3");
-let mp5Voice= new Audio("../assets/audio/perfectvoice.mp3");
-let aa12Voice= new Audio("../assets/audio/combovoice.mp3");
-let ak47Voice= new Audio("../assets/audio/unstoppablevoice.mp3");
-let humilationVoice= new Audio("../assets/audio/humiliation.mp3");
-let ludicrousVoice= new Audio("../assets/audio/ludicrous.mp3");
+let lifeAudio= new Audio("./assets/audio/life.mp3");
+let xVisionAudio= new Audio("./assets/audio/xvision.mp3");
+let dEagleVoice= new Audio("./assets/audio/godlikevoice.mp3");
+let mp5Voice= new Audio("./assets/audio/perfectvoice.mp3");
+let aa12Voice= new Audio("./assets/audio/combovoice.mp3");
+let ak47Voice= new Audio("./assets/audio/unstoppablevoice.mp3");
+let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
+let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
 
 let gunPicked;
 let AIgunPicked;
@@ -85,19 +85,19 @@ const drop = (ev) => {
     let data = ev.dataTransfer.getData("text")
 
     if(data == "dEagle") {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
         if(!mute)dEagleVoice.play();
         gunPicked=true;
     } else if(data == "mp5") {
-        gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+        gunPlayer1 = new Gun("MP5", 20, 25, 25,'././assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         if(!mute)mp5Voice.play();
         gunPicked=true;
     } else if(data == "aa12") {
-        gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+        gunPlayer1 = new Gun("AA-12", 160, 8, 8,'././assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         if(!mute)aa12Voice.play();
         gunPicked=true;
     } else if(data == "ak47") {
-        gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+        gunPlayer1 = new Gun("AK47", 100, 30, 30,'././assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         if(!mute)ak47Voice.play();
         gunPicked=true;
     } else if(data == "life") {
@@ -236,16 +236,16 @@ const startBattle = () => {
 
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
-                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "mp5") {
-                gunPlayer2 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+                gunPlayer2 = new Gun("MP5", 20, 25, 25,'././assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "aa12") {
-                gunPlayer2 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+                gunPlayer2 = new Gun("AA-12", 160, 8, 8,'././assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "ak47") {
-                gunPlayer2 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+                gunPlayer2 = new Gun("AK47", 100, 30, 30,'././assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "life") {
                 player2.life += 500;
@@ -407,7 +407,7 @@ const AIdifficulty = () => {
 }
 
 
-setInterval(() => {
-    console.log("char1ArrayRun", char1ArrayRun)
-}, 200);
+// setInterval(() => {
+//     console.log("char1ArrayRun", char1ArrayRun)
+// }, 200);
     
