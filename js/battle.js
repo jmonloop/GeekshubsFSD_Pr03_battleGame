@@ -20,7 +20,7 @@ setInterval(()=>{
 const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
     if(powerUpToLaunch == "dEagle") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/DesertEagle.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/desertEagle.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "mp5") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='mp5' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/mp5.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "aa12") {
