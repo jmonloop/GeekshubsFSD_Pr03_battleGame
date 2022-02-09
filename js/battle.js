@@ -68,7 +68,7 @@ box.addEventListener('touchend', (e) => {
     let y = parseInt(box.style.top);
     
     if(touchedElement.includes("Eagle")) {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         if(!mute)dEagleVoice.play();
         gunPicked=true;
     } else if (touchedElement.includes("mp5")){
@@ -156,7 +156,7 @@ const drop = (ev) => {
     let data = ev.dataTransfer.getData("text");
 
     if(data == "dEagle") {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         if(!mute)dEagleVoice.play();
         gunPicked=true;
     } else if(data == "mp5") {
@@ -308,7 +308,7 @@ const startBattle = () => {
 
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
-                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "mp5") {
                 gunPlayer2 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);

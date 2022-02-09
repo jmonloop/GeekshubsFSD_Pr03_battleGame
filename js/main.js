@@ -155,7 +155,7 @@ document.querySelector('#desertEagleDiv').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunDesertEagle.style.backgroundColor ='blue';
         if(!mute)dEagleSelection.play();
-        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         gunMp5.style.backgroundColor = 'gray';
         gunAa12.style.backgroundColor = 'gray';
         gunAk47.style.backgroundColor = 'gray';
@@ -165,7 +165,7 @@ document.querySelector('#mp5Div').addEventListener('mousedown', ()=>{
     if(player1 != undefined){
         gunMp5.style.backgroundColor ='blue';
         if(!mute)mp5Selection.play();
-        gunPlayer1 = new Gun("MP5", 10, 25, 25,'././assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+        gunPlayer1 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
         gunAa12.style.backgroundColor = 'gray';
         gunAk47.style.backgroundColor = 'gray';
         gunDesertEagle.style.backgroundColor = 'gray';
@@ -175,7 +175,7 @@ document.querySelector('#aa12Div').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunAa12.style.backgroundColor ='blue';
         if(!mute)aa12Selection.play();
-        gunPlayer1 = new Gun("AA-12", 80, 8, 8,'././assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+        gunPlayer1 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
         gunDesertEagle.style.backgroundColor = 'gray';
         gunMp5.style.backgroundColor = 'gray';
         gunAk47.style.backgroundColor = 'gray';
@@ -185,7 +185,7 @@ document.querySelector('#ak47Div').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunAk47.style.backgroundColor ='blue';
         if(!mute)ak47Selection.play();
-        gunPlayer1 = new Gun("AK47", 50, 30, 30,'././assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+        gunPlayer1 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
         gunDesertEagle.style.backgroundColor = 'gray';
         gunMp5.style.backgroundColor = 'gray';
         gunAa12.style.backgroundColor = 'gray';
@@ -198,9 +198,7 @@ document.querySelector('#_easy').addEventListener('mousedown', ()=>{
         diffEasy.style.color = 'green';
         if(!mute)selectPlayerBeep.play()
         difficultyChosen = "easy"
-        gunPlayer2 = new Gun("MP5", 10, 25, 25,'././assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
-        player2 = new Character(2, "Navy Seal", 1200, gunPlayer2, 100);
-        AIdifficulty();
+
         diffMedium.style.color = 'black';
         diffHard.style.color = 'black';
         diffFsd.style.color = 'black';
@@ -211,9 +209,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
         diffMedium.style.color = 'yellow';
         if(!mute)selectPlayerBeep.play()
         difficultyChosen = "medium";
-        gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
-        player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 100);
-        AIdifficulty();
+
         diffEasy.style.color = 'black';
         diffHard.style.color = 'black';
         diffFsd.style.color = 'black';
@@ -224,9 +220,7 @@ document.querySelector('#_hard').addEventListener('mousedown', ()=>{
         diffHard.style.color = 'violet';
         if(!mute)selectPlayerBeep.play();
         difficultyChosen = "hard"
-        gunPlayer2 = new Gun("AK47", 50, 30, 30,'././assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
-        player2 = new Character(2, "Legionario", 2000, gunPlayer2, 100);
-        AIdifficulty();
+
         diffMedium.style.color = 'black';
         diffEasy.style.color = 'black';
         diffFsd.style.color = 'black';
@@ -237,9 +231,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
         diffFsd.style.color = 'red';
         if(!mute)selectPlayerBeep.play();
         difficultyChosen = "fsd";
-        gunPlayer2 = new Gun("AA-12", 80, 8, 8,'././assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
-        player2 = new Character(2, "Special Ops", 2500, gunPlayer2, 100);
-        AIdifficulty();
+
         diffMedium.style.color = 'black';
         diffHard.style.color = 'black';
         diffEasy.style.color = 'black';
@@ -255,6 +247,24 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
         }
     } 
     if((difficultyChosen != undefined)&&(gunPlayer1 != undefined)) {
+        if(difficultyChosen == "easy") {
+            gunPlayer2 = new Gun("MP5", 10, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+            player2 = new Character(2, "Navy Seal", 1200, gunPlayer2, 100);
+            AIdifficulty();
+        } else if(difficultyChosen == "medium") {
+            gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+            player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 100);
+            AIdifficulty();
+        } else if(difficultyChosen == "hard") {
+            gunPlayer2 = new Gun("AK47", 50, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+            player2 = new Character(2, "Legionario", 2000, gunPlayer2, 100);
+            AIdifficulty();
+        } else if(difficultyChosen == "fsd") {
+            gunPlayer2 = new Gun("AA-12", 80, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+            player2 = new Character(2, "Special Ops", 2500, gunPlayer2, 100);
+            AIdifficulty();
+        }
+
         screen2.style.display = 'none';
         screen3.style.display = 'flex';
         screen3.webkitRequestFullscreen();
