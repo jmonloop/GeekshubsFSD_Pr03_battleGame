@@ -399,6 +399,8 @@ const unblockGhost = () =>{
     document.getElementById('_screen2Char4').style.display='flex';
     document.getElementById('_screen2Char4Stats').style.display='flex';
     document.getElementById('_fsd').style.display='block';
+    document.getElementById('_fsdInactive').style.display='none';
+
     ghost = true;
 }
 
