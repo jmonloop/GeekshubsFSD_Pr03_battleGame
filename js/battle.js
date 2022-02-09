@@ -33,6 +33,78 @@ const launchPowerUp = () => {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='./assets/img/xVision.jpg' alt=''></div>";
     }
     document.getElementById("powerUpZone").appendChild(powerUpDiv);
+
+
+
+
+    // find the element that you want to drag.
+let box = document.querySelector(".powerUpDiv");
+let currentElement;
+let touchedElement;
+
+
+
+
+
+
+
+box.addEventListener('touchmove', (e) => {
+      // grab the location of touch
+  let touchLocation = e.targetTouches[0];
+  currentElement = e.target;
+  touchedElement = currentElement.src;
+    console.log(currentElement)
+  // assign box new coordinates based on the touch.
+  box.style.left = touchLocation.pageX + 'px';
+  box.style.top = touchLocation.pageY + 'px';
+})
+
+/* record the position of the touch
+when released using touchend event.
+This will be the drop position. */
+box.addEventListener('touchend', (e) => {
+    // current box position.
+    let x = parseInt(box.style.left);
+    let y = parseInt(box.style.top);
+    
+    if(touchedElement.includes("Eagle")) {
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        if(!mute)dEagleVoice.play();
+        gunPicked=true;
+    } else if (touchedElement.includes("mp5")){
+        gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+        if(!mute)mp5Voice.play();
+        gunPicked=true;
+    } else if(touchedElement.includes("aa12")){
+        gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+        if(!mute)aa12Voice.play();
+        gunPicked=true;
+    } else if(touchedElement.includes("ak47")){
+        gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+        if(!mute)ak47Voice.play();
+        gunPicked=true;
+    } else if(touchedElement.includes("life")){
+        if(!mute)lifeAudio.play();
+        player1.life += 500;
+    } else if(touchedElement.includes("vision")){
+        if(!mute)xVisionAudio.play();
+        setXvision();
+        timeoutXvision();
+    };
+    powerUpPresent = false;
+    statsColPU +=1;
+    document.getElementById("powerUpZone").innerHTML="";
+});
+
+
+
+
+
+
+
+
+
+
     powerUpPresent = true;
 
     setTimeout(()=>{
@@ -406,65 +478,5 @@ const AIdifficulty = () => {
     };   
 };
 
-// find the element that you want to drag.
-let box = document.querySelector(".powerUpDiv");
-let currentElement;
-let touchedElement;
 
-
-
-
-
-
-
-box.addEventListener('touchmove', (e) => {
-      // grab the location of touch
-  let touchLocation = e.targetTouches[0];
-  currentElement = e.target;
-  touchedElement = currentElement.src;
-    console.log(currentElement)
-  // assign box new coordinates based on the touch.
-  box.style.left = touchLocation.pageX + 'px';
-  box.style.top = touchLocation.pageY + 'px';
-})
-
-
-
-
-/* record the position of the touch
-when released using touchend event.
-This will be the drop position. */
-box.addEventListener('touchend', (e) => {
-    // current box position.
-    let x = parseInt(box.style.left);
-    let y = parseInt(box.style.top);
-    
-    if(touchedElement.includes("Eagle")) {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
-        if(!mute)dEagleVoice.play();
-        gunPicked=true;
-    } else if (touchedElement.includes("mp5")){
-        gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
-        if(!mute)mp5Voice.play();
-        gunPicked=true;
-    } else if(touchedElement.includes("aa12")){
-        gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
-        if(!mute)aa12Voice.play();
-        gunPicked=true;
-    } else if(touchedElement.includes("ak47")){
-        gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
-        if(!mute)ak47Voice.play();
-        gunPicked=true;
-    } else if(touchedElement.includes("life")){
-        if(!mute)lifeAudio.play();
-        player1.life += 500;
-    } else if(touchedElement.includes("vision")){
-        if(!mute)xVisionAudio.play();
-        setXvision();
-        timeoutXvision();
-    };
-    powerUpPresent = false;
-    statsColPU +=1;
-    document.getElementById("powerUpZone").innerHTML="";
-});
 
