@@ -489,6 +489,30 @@ filter:alpha(opacity=40);
             font-family: 'ICBM SS-20', sans-serif;
         }
 
+        .warning2{
+            background-color: aliceblue;
+            position: absolute;
+            bottom: 12%;
+            right: 2%;
+            opacity: 0;
+            height: 10%;
+            width: 25%;
+            text-align: center;
+        }
+        .warning2:hover{
+            height: 5%;
+            width: 25%;
+            opacity: 0.8;
+            font-family: 'ICBM SS-25', sans-serif;
+            font-family: 'ICBM SS-20', sans-serif;
+            font-size: 1.3vw;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
 
 
 

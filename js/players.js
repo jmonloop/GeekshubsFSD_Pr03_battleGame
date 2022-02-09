@@ -22,7 +22,7 @@ let beep = new Audio("./assets/audio/beep2.mp3");
 let selectPlayerBeep = new Audio("./assets/audio/selectPlayerBeep.mp3");
 let unselectPlayerBeep = new Audio("./assets/audio/unselectPlayerBeep.mp3");
 let dEagleSelection = new Audio("./assets/audio/DesertEagleRel.mp3");
-let mp5Selection = new Audio("./assets/audio/MP5rel.mp3");
+let mp5Selection = new Audio("./assets/audio/MP5Rel.mp3");
 let aa12Selection = new Audio("./assets/audio/shotgunRel.mp3");
 let ak47Selection = new Audio("./assets/audio/ar15Rel.mp3");
 
