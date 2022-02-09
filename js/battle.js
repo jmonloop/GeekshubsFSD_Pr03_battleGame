@@ -308,16 +308,16 @@ const startBattle = () => {
 
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
-                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "mp5") {
-                gunPlayer2 = new Gun("MP5", 20, 25, 25,'././assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+                gunPlayer2 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "aa12") {
-                gunPlayer2 = new Gun("AA-12", 160, 8, 8,'././assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+                gunPlayer2 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "ak47") {
-                gunPlayer2 = new Gun("AK47", 100, 30, 30,'././assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+                gunPlayer2 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "life") {
                 player2.life += 500;
