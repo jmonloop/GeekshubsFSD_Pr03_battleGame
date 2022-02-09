@@ -155,7 +155,7 @@ document.querySelector('#desertEagleDiv').addEventListener('mousedown', ()=>{
     if(player1 != undefined) {
         gunDesertEagle.style.backgroundColor ='blue';
         if(!mute)dEagleSelection.play();
-        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         gunMp5.style.backgroundColor = 'gray';
         gunAa12.style.backgroundColor = 'gray';
         gunAk47.style.backgroundColor = 'gray';
@@ -211,7 +211,7 @@ document.querySelector('#_medium').addEventListener('mousedown', ()=>{
         diffMedium.style.color = 'yellow';
         if(!mute)selectPlayerBeep.play()
         difficultyChosen = "medium";
-        gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer2 = new Gun("Desert Eagle", 20, 15, 15, '././assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         player2 = new Character(2, "Spetnaz", 1500, gunPlayer2, 100);
         AIdifficulty();
         diffEasy.style.color = 'black';
@@ -246,7 +246,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
     };
 });
 let screen3active;
-let playVoice= new Audio("./assets/audio/playvoice.mp3");
+let playVoice= new Audio("./assets/audio/playVoice.mp3");
 //Screen 2 to Screen3: Select gun, difficulty and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if((difficultyChosen == undefined)||(gunPlayer1 == undefined)){

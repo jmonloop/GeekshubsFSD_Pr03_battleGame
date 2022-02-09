@@ -20,7 +20,7 @@
 const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
     if(powerUpToLaunch == "dEagle") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/deserteagle.jfif' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='dEagle' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/desertEagle.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "mp5") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='mp5' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/mp5.jfif' alt=''></div>";
     } else if(powerUpToLaunch == "aa12") {
@@ -30,7 +30,7 @@ const launchPowerUp = () => {
     } else if(powerUpToLaunch == "life") {
         powerUpDiv.innerHTML="<div class='powerUpDiv' id='life' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/life.png' alt=''></div>";
     } else if(powerUpToLaunch == "xVision") {
-        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/xvision.jpg' alt=''></div>";
+        powerUpDiv.innerHTML="<div class='powerUpDiv' id='xVision' draggable='true' ondragstart='drag(event)'><img class='powerUpImg' src='././assets/img/xVision.jpg' alt=''></div>";
     }
     document.getElementById("powerUpZone").appendChild(powerUpDiv);
     powerUpPresent = true;
@@ -92,11 +92,11 @@ const timeoutXvision = () =>{
 
 //Audio power-up sources
 let lifeAudio= new Audio("./assets/audio/life.mp3");
-let xVisionAudio= new Audio("./assets/audio/xvision.mp3");
-let dEagleVoice= new Audio("./assets/audio/godlikevoice.mp3");
-let mp5Voice= new Audio("./assets/audio/perfectvoice.mp3");
-let aa12Voice= new Audio("./assets/audio/combovoice.mp3");
-let ak47Voice= new Audio("./assets/audio/unstoppablevoice.mp3");
+let xVisionAudio= new Audio("./assets/audio/xVision.mp3");
+let dEagleVoice= new Audio("./assets/audio/godlikeVoice.mp3");
+let mp5Voice= new Audio("./assets/audio/perfectVoice.mp3");
+let aa12Voice= new Audio("./assets/audio/comboVoice.mp3");
+let ak47Voice= new Audio("./assets/audio/unstoppableVoice.mp3");
 let humilationVoice= new Audio("./assets/audio/humiliation.mp3");
 let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
 
@@ -107,7 +107,7 @@ const drop = (ev) => {
     let data = ev.dataTransfer.getData("text");
 
     if(data == "dEagle") {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
         if(!mute)dEagleVoice.play();
         gunPicked=true;
     } else if(data == "mp5") {
@@ -259,7 +259,7 @@ const startBattle = () => {
 
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
-                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/deserteagle.jfif', dEagleAudio, dEagleRelAudio);
+                gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, '././assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
                 AIgunPicked = true;
             } else if(AIpowerUp == "mp5") {
                 gunPlayer2 = new Gun("MP5", 20, 25, 25,'././assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
