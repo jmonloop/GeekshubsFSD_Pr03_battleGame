@@ -8,12 +8,12 @@
 
 
 
-//LAUNCH RANDOM POWER-UP
-setInterval(()=>{
-    // powerUpToLaunch = "dEagle";
-    powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
-    launchPowerUp(powerUpToLaunch);
-},minMaxRoundedRandom(10000, 30000));
+// //LAUNCH RANDOM POWER-UP
+// setInterval(()=>{
+//     // powerUpToLaunch = "dEagle";
+//     powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
+//     launchPowerUp(powerUpToLaunch);
+// },minMaxRoundedRandom(10000, 30000));
 
 
 
@@ -41,6 +41,28 @@ const launchPowerUp = () => {
     },5000);
 }
 
+let clicksms = 100;
+let lastTouchDown = -1;
+const touch = () => {
+    let d = new Date();
+    switch(event.type){
+        case "touchstart":
+            type = "mousedown";
+            lastTouchDown = d.getTime();
+        break;
+        case "touchmove": type = "mousemove";
+            lastTouchDown = -1;
+        break;
+        case "touchend":
+            if((lastTouchDown > -1)&&((d.getTime() - lastTouchDown)<clicksms)) {
+                lastTouchDown = -1;
+                type = "click";
+                break;
+            }
+            type = "mouseup";
+        break;
+    };
+};
 
 //DRAG BASIC FUNCTIONS
 const drag = (ev) => {
@@ -53,6 +75,7 @@ const setXvision =()=>{
     document.getElementById('_topWall').classList.add('xVision');
     xVision = true;
 }
+
 
 const timeoutXvision = () =>{
     setTimeout(()=>{
