@@ -9,6 +9,7 @@ let screen4 =document.getElementById('screen4');
 const goToScreen1 = () => {
     screen0.style.display = 'none';
     screen1.style.display = 'flex';
+    screen1.webkitRequestFullscreen();
 }
 
 
@@ -82,6 +83,7 @@ const resetGame = () =>{
     statsColPU=0;
     screen4.style.display = 'none';
     screen2.style.display = 'flex';
+    screen2.webkitRequestFullscreen();
 
     player1ImgSrc = '';
     player1Img.style.display = 'none';
@@ -123,6 +125,7 @@ const resetGame = () =>{
 document.querySelector('#screen1').addEventListener('mousedown', ()=>{
     screen1.style.display = 'none';
     screen2.style.display = 'flex';
+    screen2.webkitRequestFullscreen();
     screen2GunsDifficulty.style.display = 'none';
 
     
@@ -243,7 +246,7 @@ document.querySelector('#_fsd').addEventListener('mousedown', ()=>{
     };
 });
 let screen3active;
-let playVoice= new Audio("./assets/audio/playvoice.mp3");
+let playVoice= new Audio("./assets/audio/playVoice.mp3");
 //Screen 2 to Screen3: Select gun, difficulty and click next
 document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
     if((difficultyChosen == undefined)||(gunPlayer1 == undefined)){
