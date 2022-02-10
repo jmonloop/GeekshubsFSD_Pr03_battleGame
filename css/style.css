@@ -1,5 +1,4 @@
 body {
-    /* background-color: blue; */
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -17,7 +16,8 @@ body {
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 
@@ -55,7 +55,6 @@ filter:alpha(opacity=40);
     }​
     
     .monleone {
-        /* background-color: blue; */
         height: 30em;
         width: 30em;
 
@@ -76,7 +75,9 @@ filter:alpha(opacity=40);
 
 
 .screen1Section {
-    background-color: black;
+    background-image: url('../assets/img/vietnam.gif');
+    background-size: 100% 100vw;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     display: flex;
@@ -137,7 +138,7 @@ filter:alpha(opacity=40);
             align-items: center;
         }
             .screen1MainBoxTitle {
-                /* background-color: green; */
+                -webkit-text-stroke: 2px white;
                 height: 50%;
                 width: 100%;
                 font-family: 'Exoplanet', sans-serif;
@@ -149,13 +150,10 @@ filter:alpha(opacity=40);
                 align-items: center;
             }
             .screen1MainBoxSelection {
-                /* background-color: rgb(236, 0, 0); */
                 height: 50%;
                 width: 100%;
                 font-family: 'Hussar Woodtype', sans-serif;
                                                 
-
-
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -188,12 +186,11 @@ filter:alpha(opacity=40);
             font-family: 'ICBM SS-20', sans-serif;
             font-size: 3vw;
 
-            /* width: 1em; */
             color: white;
         }
         .screen2Characters{
             background-color: black;
-            /* background-image: url(../assets/img/brickPlayerTexture.png); */
+
             height: 40%;
             width: 80%;
 
@@ -203,8 +200,6 @@ filter:alpha(opacity=40);
             align-items: center;
         }
             .screen2CharacterDiv {
-                /* border-style: double; */
-                /* border-color: blue; */
                 height: 90%;
                 width: 20%;
 
@@ -214,7 +209,6 @@ filter:alpha(opacity=40);
                 justify-content: center;
             }
                 .screen2Char {
-                    /* background-color: burlywood; */
                     height: 80%;
                     width: 100%;
 
@@ -235,7 +229,6 @@ filter:alpha(opacity=40);
                     font-family: 'ICBM SS-20', sans-serif;
                     font-size: 1.5vw;
 
-                    /* width: 1em; */
                     color: white;
 
                     display: flex;
@@ -244,7 +237,6 @@ filter:alpha(opacity=40);
                     justify-content: space-around;
                 }
         .screen2CharactersStats{
-            /* background-color: yellow; */
             height: 40%;
             width: 80%;
 
@@ -255,7 +247,6 @@ filter:alpha(opacity=40);
         }
         #screen2Character1Stats {
             border-style: double;
-            /* border-color: rgb(41, 41, 231); */
             background-color: rgb(75, 83, 32);
             height: 100%;
             width: 20%;
@@ -273,7 +264,6 @@ filter:alpha(opacity=40);
         }
         #screen2Character2Stats {
             border-style: double;
-            /* border-color: rgb(41, 41, 231); */
             background-color: rgb(75, 83, 32);
             height: 100%;
             width: 20%;
@@ -291,7 +281,6 @@ filter:alpha(opacity=40);
         }
         #screen2Character3Stats {
             border-style: double;
-            /* border-color: rgb(41, 41, 231); */
             background-color: rgb(75, 83, 32);
             height: 100%;
             width: 20%;
@@ -322,7 +311,6 @@ filter:alpha(opacity=40);
         }
         #screen2Character4Stats {
             border-style: double;
-            /* border-color: rgb(41, 41, 231); */
             background-color: rgb(75, 83, 32);
             height: 100%;
             width: 20%;
@@ -341,7 +329,6 @@ filter:alpha(opacity=40);
 
 
         .screen2GunsDifficulty {
-            /* background-color: brown; */
             height: 40%;
             width: 80%;
 
@@ -349,7 +336,6 @@ filter:alpha(opacity=40);
             flex-direction: row;
             align-items:center;
             justify-content: center;
-
         }
             .screen2Guns {
                 height: 100%;
@@ -366,7 +352,6 @@ filter:alpha(opacity=40);
                     width: 100%;
 
                     color: white;
-
 
                     display: flex;
                     flex-direction: column;
@@ -438,13 +423,12 @@ filter:alpha(opacity=40);
                     background-color: white;
                         
                 }
-                        .gunImg{
-                            height: 55%;
-                            width: 80%;
-                        }
+                    .gunImg{
+                        height: 55%;
+                        width: 80%;
+                    }
 
             .screen2Difficulty {
-                /* background-color: rgb(255, 81, 0); */
                 height: 100%;
                 width: 20%;
 
@@ -464,8 +448,6 @@ filter:alpha(opacity=40);
             font-family: 'ICBM SS-20', sans-serif;
             font-size: 2vw;
             
-
-            /* width: 1em; */
             color: white;
         }
         
@@ -514,17 +496,12 @@ filter:alpha(opacity=40);
         }
 
 
-
-
-            
         .screen2NextButton {
-            /* background-color: violet; */
             margin-right: 2%;
             height: 10%;
             width: 100%;
 
             font-size: 2vw;
-            /* border-style: groove; */
 
             display: flex;
             flex-direction: column;
@@ -532,8 +509,7 @@ filter:alpha(opacity=40);
             align-items: bottom;
 
             font-family: 'ICBM SS-25', sans-serif;
-            font-family: 'ICBM SS-20', sans-serif;
-            
+            font-family: 'ICBM SS-20', sans-serif;  
         }
 
 .screen3Section {
@@ -555,7 +531,6 @@ filter:alpha(opacity=40);
         z-index: 1;
     }
     .topWall {
-        /* background-color: orangered; */
         height: 10%;
         width: 100%;
         
@@ -589,7 +564,6 @@ filter:alpha(opacity=40);
         .character2img {
             height: 100%;
             width: 100%;
-            /* width: 10eme; */
         }
 
     .centerVoid {
@@ -638,15 +612,11 @@ filter:alpha(opacity=40);
             50% {transform: translateY(-20em);}
             60% {transform: translateY(-30em);}
             100% {transform: translateY(-40em);}
-
-            
-
         }
 
         .getPowerUp {
             animation: getPowerUp 5s;
         }
-
 
         .powerUpDiv {
             height: 10%;
@@ -670,7 +640,7 @@ filter:alpha(opacity=40);
         width: 25%;
         position: absolute;
         bottom: 0%;
-        /* background-color: white; */
+
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
     }
@@ -680,12 +650,10 @@ filter:alpha(opacity=40);
         width: 25%;
         position: absolute;
         bottom: 0%;
-        /* background-color: white; */
     }
     .character1img {
         height: 100%;
         width: 100%;
-        /* width: 10eme; */
     }
 
 
@@ -700,7 +668,9 @@ filter:alpha(opacity=40);
         align-items: center;
     }
         .screen4Main {
-            background-color: grey;
+            background-image: url('../assets/img/vietnam.gif');
+            background-size: 100% 100vw;
+            background-repeat: no-repeat;
             height: 80%;
             width: 80%;
     
@@ -724,7 +694,7 @@ filter:alpha(opacity=40);
                 align-items: center;
             }
                 .screen4MainBoxTitle {
-                    /* background-color: green; */
+                    -webkit-text-stroke: 2px white;
                     height: 50%;
                     width: 100%;
                     font-family: 'Exoplanet', sans-serif;
@@ -736,37 +706,13 @@ filter:alpha(opacity=40);
                     align-items: center;
                 }
                 .screen4Stats {
-                    /* background-color: rgb(236, 0, 0); */
+                    -webkit-text-stroke: 0.5px white;
                     height: 50%;
                     width: 100%;
                     font-family: 'Hussar Woodtype', sans-serif;
                                                     
-    
-    
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                 }
-/* @media screen and (max-width: 1200px){
-    .character2L {
-        position: absolute;
-        top: 2%;
-    }
-    .character2R {
-        position: absolute;
-        top: 2%;
-    }
-    .character1L {
-        height: 60%;
-        width: 30%;
-        position: absolute;
-        bottom: -20%;
-    }
-    .character1R {
-        height: 60%;
-        width: 30%;
-        position: absolute;
-        bottom: -20%;
-    }
-} */

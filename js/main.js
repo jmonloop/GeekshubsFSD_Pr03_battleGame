@@ -5,13 +5,12 @@ let screen2 =document.getElementById('screen2');
 let screen3 =document.getElementById('screen3');
 let screen4 =document.getElementById('screen4');
 
-
+//Goes to screen1 after the intro
 const goToScreen1 = () => {
     screen0.style.display = 'none';
     screen1.style.display = 'flex';
     screen1.webkitRequestFullscreen();
 }
-
 
 setTimeout(()=>{
     goToScreen1();
@@ -119,7 +118,7 @@ const resetGame = () =>{
     endBattleAudio.pause();
     endBattleAudio.currentTime = 0;
     if(!mute)mainThemeAudio.play();
-}
+};
 
 //Screen1 to Screen2: Click anywhere
 document.querySelector('#screen1').addEventListener('mousedown', ()=>{
@@ -130,7 +129,7 @@ document.querySelector('#screen1').addEventListener('mousedown', ()=>{
 
     
     if(!mute)mainThemeAudio.play();
-})
+});
 
 
 
@@ -142,8 +141,8 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
         if(!mute)beep.play();
         screen2Stats.style.display = 'none';
         screen2GunsDifficulty.style.display = 'flex';
-    }
-})
+    };
+});
 
 
 
@@ -296,7 +295,7 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
             player1ImgSrc = player1Img.src;
             player1Img.style.display = 'block';
             changeCharAnimation('04ghost')
-        }
+        };
 
         //Player2 character generation
         if(player2.characterType == "Navy Seal") {
@@ -315,19 +314,9 @@ document.querySelector('.screen2NextButton').addEventListener('mousedown', ()=>{
             player2Img = document.getElementById('_character2imgHero4');
             player2ImgSrc = player2Img.src;
             player2Img.style.display = 'block';
-        }
-    }
-})
-
-
-
-
-
-
-
-
-
-
+        };
+    };
+});
 
 
 
@@ -404,6 +393,7 @@ let navySealDefeated = false;
 let spetnazDefeated = false;
 let legionarioDefeated = false;
 let ghost = false;
+//Unblocks character4 and FSD difficulty
 const unblockGhost = () =>{
     document.getElementById('_screen2Char4question').style.display='none';
     document.getElementById('_screen2Char4').style.display='flex';
@@ -412,13 +402,4 @@ const unblockGhost = () =>{
     document.getElementById('_fsdInactive').style.display='none';
 
     ghost = true;
-}
-
-
-
-
-
-
-
-
-
+};

@@ -1,22 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-//LAUNCH RANDOM POWER-UP
-setInterval(()=>{
-    // powerUpToLaunch = "dEagle";
-    powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
-    launchPowerUp(powerUpToLaunch);
-},minMaxRoundedRandom(10000, 30000));
-
-
-
+//POWER-UP GENERATOR
 const launchPowerUp = () => {
     let powerUpDiv = document.createElement('div');
     if(powerUpToLaunch == "dEagle") {
@@ -38,94 +20,83 @@ const launchPowerUp = () => {
 
 
     // find the element that you want to drag.
-let box = document.querySelector(".powerUpDiv");
-let currentElement;
-let touchedElement;
+    let box = document.querySelector(".powerUpDiv");
+    let currentElement;
+    let touchedElement;
 
+    //TOUCH DRAG AND DROP
+    box.addEventListener('touchmove', (e) => {
+        // grab the location of touch
+    let touchLocation = e.targetTouches[0];
+    currentElement = e.target;
+    touchedElement = currentElement.src;
+    // assign box new coordinates based on the touch.
+    box.style.left = touchLocation.pageX + 'px';
+    box.style.top = touchLocation.pageY + 'px';
+    });
 
-
-
-
-
-
-box.addEventListener('touchmove', (e) => {
-      // grab the location of touch
-  let touchLocation = e.targetTouches[0];
-  currentElement = e.target;
-  touchedElement = currentElement.src;
-    console.log(currentElement)
-  // assign box new coordinates based on the touch.
-  box.style.left = touchLocation.pageX + 'px';
-  box.style.top = touchLocation.pageY + 'px';
-})
-
-/* record the position of the touch
-when released using touchend event.
-This will be the drop position. */
-box.addEventListener('touchend', (e) => {
-    // current box position.
-    let x = parseInt(box.style.left);
-    let y = parseInt(box.style.top);
-    
-    if(touchedElement.includes("Eagle")) {
-        gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
-        if(!mute)dEagleVoice.play();
-        gunPicked=true;
-    } else if (touchedElement.includes("mp5")){
-        gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
-        if(!mute)mp5Voice.play();
-        gunPicked=true;
-    } else if(touchedElement.includes("aa12")){
-        gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
-        if(!mute)aa12Voice.play();
-        gunPicked=true;
-    } else if(touchedElement.includes("ak47")){
-        gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
-        if(!mute)ak47Voice.play();
-        gunPicked=true;
-    } else if(touchedElement.includes("life")){
-        if(!mute)lifeAudio.play();
-        player1.life += 500;
-    } else if(touchedElement.includes("vision")){
-        if(!mute)xVisionAudio.play();
-        setXvision();
-        timeoutXvision();
-    };
-    powerUpPresent = false;
-    statsColPU +=1;
-    document.getElementById("powerUpZone").innerHTML="";
-});
-
-
-
-
-
-
-
+    box.addEventListener('touchend', (e) => {
+        // current box position.
+        let x = parseInt(box.style.left);
+        let y = parseInt(box.style.top);
+        
+        if(touchedElement.includes("Eagle")) {
+            gunPlayer1 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
+            if(!mute)dEagleVoice.play();
+            gunPicked=true;
+        } else if (touchedElement.includes("mp5")){
+            gunPlayer1 = new Gun("MP5", 20, 25, 25,'./assets/img/mp5.jfif', mp5Audio, mp5RelAudio);
+            if(!mute)mp5Voice.play();
+            gunPicked=true;
+        } else if(touchedElement.includes("aa12")){
+            gunPlayer1 = new Gun("AA-12", 160, 8, 8,'./assets/img/aa12.jfif', aa12Audio, aa12RelAudio);
+            if(!mute)aa12Voice.play();
+            gunPicked=true;
+        } else if(touchedElement.includes("ak47")){
+            gunPlayer1 = new Gun("AK47", 100, 30, 30,'./assets/img/ak47.jfif', ak47Audio, ak47RelAudio);
+            if(!mute)ak47Voice.play();
+            gunPicked=true;
+        } else if(touchedElement.includes("life")){
+            if(!mute)lifeAudio.play();
+            player1.life += 500;
+        } else if(touchedElement.includes("Vision")){
+            if(!mute)xVisionAudio.play();
+            setXvision();
+            timeoutXvision();
+        };
+        powerUpPresent = false;
+        statsColPU +=1;
+        document.getElementById("powerUpZone").innerHTML="";
+    });
 
 
 
     powerUpPresent = true;
-
     setTimeout(()=>{
         document.getElementById("powerUpZone").innerHTML="";
-        // powerUpPresent = false;
     },5000);
-}
+};
 
 
-//DRAG BASIC FUNCTIONS
+//LAUNCH RANDOM POWER-UP
+setInterval(()=>{
+    powerUpToLaunch = powerUpsArray[minMaxRoundedRandom(0,5)];
+    launchPowerUp(powerUpToLaunch);
+},minMaxRoundedRandom(10000, 30000));
+
+//MOUSE DRAG AND DROP
 const drag = (ev) => {
     ev.dataTransfer.setData("text", ev.currentTarget.id);
-}
+};
 const allowDrop = (ev) => {
     ev.preventDefault();
-}
+};
 const setXvision =()=>{
     document.getElementById('_topWall').classList.add('xVision');
     xVision = true;
-}
+};
 
+//When Player1 gets xVision, topWall changes the opacity
 const timeoutXvision = () =>{
     setTimeout(()=>{
         if(!xVisionAI){
@@ -134,7 +105,7 @@ const timeoutXvision = () =>{
             xVision = false;
         } else {
             xVisionAI == false;
-        }
+        };
     }, 5000);
 };
 
@@ -151,6 +122,8 @@ let ludicrousVoice= new Audio("./assets/audio/ludicrous.mp3");
 
 let gunPicked;
 let AIgunPicked;
+
+//Mouse drag and drop data collector
 const drop = (ev) => {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text");
@@ -182,11 +155,13 @@ const drop = (ev) => {
     powerUpPresent = false;
     statsColPU +=1;
     document.getElementById("powerUpZone").innerHTML="";
-}
+};
 
 
 let battleRunning = true;
 let statsAccuracy = 0;
+
+//Stops battle and goes to screen4
 const stopBattle = () => {
     battleRunning = false;
     mainThemeAudio.pause();
@@ -199,7 +174,7 @@ const stopBattle = () => {
     if(player2.life <= 0){
         document.getElementById('youWin').style.display='flex';
         document.getElementById('gameOver').style.display='none';
-        //Checks if characters has been won for unblock Ghost character
+        //Check if the characters have been defeated to unlock the ghost character if applicable
         if(player2.characterType == "Navy Seal") {
             navySealDefeated = true;
         }else if(player2.characterType == "Spetnaz"){
@@ -209,20 +184,21 @@ const stopBattle = () => {
         }
         if((navySealDefeated)&&(spetnazDefeated)&&(legionarioDefeated)) {
             unblockGhost();
-        }
+        };
     } else if(player1.life <= 0){
         document.getElementById('gameOver').style.display='flex';
         document.getElementById('youWin').style.display='none';
-    }
+    };
+    //Prints statistics
     statsAccuracy = Math.round((statsTotalHits*100)/statsTotalShoots);
     document.getElementById('accuracy').innerHTML = statsAccuracy;
     document.getElementById('damageReceived').innerHTML = statsDamageRec;
     document.getElementById('damageCaused').innerHTML = statsDmageCaus;
     document.getElementById('pickedPU').innerHTML = statsColPU;
-}
+};
 
 
-
+//Let the player decrease enemy life to 10 with a secret password
 const password = "geekshubsacademy";
 let passtry ="";
 let ask;
@@ -234,13 +210,16 @@ const checkPassword = (elmnt) => {
 
 }
 let xVisionAI;
+
+
+//StartBattle runs an interval to continually refresh variables during battle
 const startBattle = () => {
     battleRunning=true;
     //SELF REFRESH VARIABLES:
     let battleInterval = setInterval(() => {
         if((player2.life <= 0)||(player1.life <= 0)) {
             stopBattle();
-        }
+        };
 
     
         //Stats during battle
@@ -263,7 +242,7 @@ const startBattle = () => {
             document.getElementById('_character2').classList.replace('character2L','character2R');
         } else if(player1.position < player2.position){
             document.getElementById('_character2').classList.replace('character2R','character2L');
-        }
+        };
 
         //Player1 shooting animation
         if(player1.attack == true) {
@@ -305,7 +284,7 @@ const startBattle = () => {
         player2.hurt = false;
 
 
-
+        //Changes if AI got the powerup
         if(AIgotPowerUp){
             if(AIpowerUp == "dEagle") {
                 gunPlayer2 = new Gun("Desert Eagle", 40, 15, 15, './assets/img/desertEagle.jfif', dEagleAudio, dEagleRelAudio);
@@ -329,12 +308,9 @@ const startBattle = () => {
             AIgotPowerUp = false;
             AIpowerUp = "powerUpToLaunch";
 
-            
-
-
-
         };
 
+        //stop interval when battle ends
         if(!battleRunning) clearInterval(battleInterval);
 
     }, 100);
@@ -346,26 +322,26 @@ window.addEventListener('keydown', (event)=>{
         passtry = prompt('Good try but you can do it better..');
         checkPassword(passtry);
         ask = true;
-    }
-})
+    };
+});
 
 
 const mouseInScreen3 = () =>{
-    //Side of character1 follows mouse
+    //Side of character1 follows pointer
     window.addEventListener('mousemove', (e)=>{
         if(e.clientX < player1.position){
             document.getElementById('_character1').classList.replace('character1R','character1L');
         } else if(e.clientX > player1.position){
             document.getElementById('_character1').classList.replace('character1L','character1R');
-        }
-    })
-}
+        };
+    });
+};
 
 
 
 
 
-
+//Depending on difficulty chosen, set different AI levels
 const AIdifficulty = () => {
     switch (difficultyChosen) {
         case "easy" :
@@ -477,6 +453,3 @@ const AIdifficulty = () => {
         break;
     };   
 };
-
-
-
