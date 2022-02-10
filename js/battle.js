@@ -86,7 +86,7 @@ box.addEventListener('touchend', (e) => {
     } else if(touchedElement.includes("life")){
         if(!mute)lifeAudio.play();
         player1.life += 500;
-    } else if(touchedElement.includes("vision")){
+    } else if(touchedElement.includes("Vision")){
         if(!mute)xVisionAudio.play();
         setXvision();
         timeoutXvision();
