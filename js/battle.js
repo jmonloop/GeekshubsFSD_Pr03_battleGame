@@ -421,7 +421,7 @@ const AIdifficulty = () => {
                     player2.hide();
                 } 
                 if(!battleRunning)clearInterval(shootHard);
-            },200); 
+            },100); 
             AIminAccuracy = 70;
         break;
 
@@ -430,7 +430,7 @@ const AIdifficulty = () => {
             let moveFsd = setInterval(()=>{
                 player2.move();
                 if(!battleRunning)clearInterval(moveFsd);
-            }, 700);
+            }, 500);
             //AI hiding ratio
             let hideFsd = setInterval(()=>{
                 let value = Math.round(Math.random());
@@ -438,7 +438,7 @@ const AIdifficulty = () => {
                     player2.hide();
                 } else player2.show();
                 if(!battleRunning)clearInterval(hideFsd);
-            },500); 
+            },400); 
             //AI shooting ratio
             let shootFsd = setInterval(()=>{
                 if(player2.covered == false) {
@@ -448,7 +448,7 @@ const AIdifficulty = () => {
                     player2.hide();
                 }
                 if(!battleRunning)clearInterval(shootFsd);
-            },200); 
+            },50); 
             AIminAccuracy = 80;
         break;
     };   
