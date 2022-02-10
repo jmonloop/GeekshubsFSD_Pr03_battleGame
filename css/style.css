@@ -77,7 +77,10 @@ filter:alpha(opacity=40);
 
 
 .screen1Section {
-    background-color: black;
+    /* background-color: black; */
+    background-image: url('../assets/img/vietnam.gif');
+    background-size: 100% 100vw;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     display: flex;
@@ -138,7 +141,7 @@ filter:alpha(opacity=40);
             align-items: center;
         }
             .screen1MainBoxTitle {
-                /* background-color: green; */
+                -webkit-text-stroke: 2px white;
                 height: 50%;
                 width: 100%;
                 font-family: 'Exoplanet', sans-serif;
@@ -701,7 +704,9 @@ filter:alpha(opacity=40);
         align-items: center;
     }
         .screen4Main {
-            background-color: grey;
+            background-image: url('../assets/img/vietnam.gif');
+            background-size: 100% 100vw;
+            background-repeat: no-repeat;
             height: 80%;
             width: 80%;
     
@@ -725,7 +730,7 @@ filter:alpha(opacity=40);
                 align-items: center;
             }
                 .screen4MainBoxTitle {
-                    /* background-color: green; */
+                    -webkit-text-stroke: 2px white;
                     height: 50%;
                     width: 100%;
                     font-family: 'Exoplanet', sans-serif;
@@ -737,7 +742,7 @@ filter:alpha(opacity=40);
                     align-items: center;
                 }
                 .screen4Stats {
-                    /* background-color: rgb(236, 0, 0); */
+                    -webkit-text-stroke: 0.5px white;
                     height: 50%;
                     width: 100%;
                     font-family: 'Hussar Woodtype', sans-serif;
