@@ -13,26 +13,24 @@ In this case I have opted for a shooting game controlled by the user and an auto
 
 [Technologies](#technologies)
 
-[Sources Credits](#sources-credits)
+[Credits](#sources-credits)
 
 [Thanks](#thanks)
-
-* You can try web version here
-https://jmonloop.github.io/GeekshubsFSD_Pr03_battleGame/
 
 
 
 ### Features 
 * Point and click action game:
     * Players only can shoot when they are unhidden but is also when they can be damaged.
-    * Players only can move when they are covered.
-    * Player2 (AI) accuracy increases if Player1 remains static.
+    * Players only can move when they are covered without being damaged.
+    * Player 2 (AI) accuracy increases if Player 1 remains static.
 
 ![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Pr03_battleGame/master/assets/screenshots/battle.jpg)
 
 
 
 * Retro style with animated sprites that react to the mouse movement or player's position in case of the AI.
+* Player 1 character animation when runs or is damaged.
 
 ![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Pr03_battleGame/master/assets/screenshots/running.jpg)
 
@@ -50,7 +48,7 @@ https://jmonloop.github.io/GeekshubsFSD_Pr03_battleGame/
 
 
 * Random power-ups that improve weapon damage, increase health and even an xVision googles that allow players to damage the enemy still if he is hidden.
-* Drag and drop system to take the power-ups both mouse and touch system.
+* Drag and drop system to take the power-ups both by mouse and touch system.
 
 ![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Pr03_battleGame/master/assets/screenshots/powerup.jpg)
 
@@ -63,7 +61,7 @@ https://jmonloop.github.io/GeekshubsFSD_Pr03_battleGame/
 
 
 
-* A secret cheat mode to win enemies with a secret code (more info [here](#secret-code))
+* A secret cheat mode to defeat the enemy with a secret code (more info [here](#secret-code))
 
 ![ScreenShot](https://raw.githubusercontent.com/jmonloop/GeekshubsFSD_Pr03_battleGame/master/assets/screenshots/cheat.jpg)
 
