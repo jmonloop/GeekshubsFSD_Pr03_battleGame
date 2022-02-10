@@ -205,6 +205,7 @@ class Character {
             gunPlayer1.ammo = gunPlayer1.initialAmmo;
             if(this.covered == false) gunPlayer1.playReload();
             this.covered = true;
+            bottomWallClicked = true;
             
         } else if (this.player == 2) {
             if(this.covered == false) {
