@@ -101,7 +101,8 @@ document.querySelector('#screen3').addEventListener('mousedown', (e)=>{
     xPosDifference = xPosition-player1.position;
     absoluteMovement = Math.abs(xPosition-player1.position);
 
-    player1.move();
+    if(bottomWallClicked) player1.move();
+    
     return xPosition;
 })
 
@@ -113,6 +114,7 @@ document.querySelectorAll('.shooting1').forEach(item =>{
         if((e.button === 0)) {
             xPosition = e.clientX;
             yPosition = e.clientY;
+            bottomWallClicked = false;
             player1.shooting();
         }
     });
