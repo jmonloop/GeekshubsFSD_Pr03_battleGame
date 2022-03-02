@@ -1,5 +1,5 @@
 # FSD Game Project
-This is my third proyect of GeeksHubs Academy FSD bootcamp.
+This is my third project of GeeksHubs Academy FSD bootcamp.
 The objective is to create a basic videogame using HTML5, CSS3 and JavaScript Vanilla.
 The minimum requeriments are to have 3 different screens (start, select players and ending) selectable players and a function that determines winner randomly.
 
